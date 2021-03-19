@@ -1,6 +1,4 @@
 import React from 'react';
-
-import { Button } from './Button';
 import NSWButton from "../components/button";
 
 export default {
@@ -33,4 +31,16 @@ export const Danger = Template.bind({});
 Danger.args = {
   children: 'Button',
   as: 'danger',
+};
+
+export const White = Template.bind({});
+White.args = {
+  children: 'Button',
+  as: 'white',
+};
+
+export const Fullwidth = Template.bind({});
+Fullwidth.args = {
+  children: 'Button',
+  as: 'full-width',
 };

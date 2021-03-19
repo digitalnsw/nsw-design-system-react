@@ -26,6 +26,8 @@ const options = {
 	'primary': 'nsw-button--primary',
 	'secondary': 'nsw-button--secondary',
 	'danger': 'nsw-button--highlight',
+	'white': 'nsw-button--white',
+	'full-width': 'nsw-button--primary nsw-button--full-width'
 };
 
 

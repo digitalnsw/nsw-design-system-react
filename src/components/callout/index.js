@@ -29,7 +29,7 @@ import PropTypes from 'prop-types';
  * @param  {string}  className        - An additional class, optional
  * @param  {object}  attributeOptions - Any other attribute options
  */
-export const Callout = ({ title, level, srOnlyTitle, dark, alt, description, children, className = '', ...attributeOptions }) => {
+export const NSWCallout = ({ title, level, srOnlyTitle, dark, alt, description, children, className = '', ...attributeOptions }) => {
 	const HeadingTag = `h${ level }`;
 
 	return (
@@ -48,7 +48,7 @@ export const Callout = ({ title, level, srOnlyTitle, dark, alt, description, chi
 	)
 };
 
-Callout.propTypes = {
+NSWCallout.propTypes = {
 	title: PropTypes.string.isRequired,
 	level: PropTypes.number,
 	srOnlyTitle: PropTypes.bool,
@@ -58,9 +58,9 @@ Callout.propTypes = {
 	className: PropTypes.string,
 };
 
-Callout.defaultProps = {
+NSWCallout.defaultProps = {
 	level: 4,
 	srOnlyTitle: false,
 };
 
-export default Callout;
+export default NSWCallout;
