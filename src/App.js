@@ -8,13 +8,30 @@ import NSWInpageNavLinks from './components/in-page-navigation';
 import NSWBreadcrumbs from './components/breadcrumbs';
 import NSWLinkList from './components/link-list';
 import NSWCard, { CardContent, CardHeader, CardCopy, CardTag, CardDate } from './components/card';
+import NSWAccordion from "./components/accordion";
 import nextId from "react-id-generator";
 import * as Form from  './components/forms';
 
 function App() {
+
   return (
     <div className="App">
       <div class="nsw-container">
+        <h2 class="section-title">Accordion</h2>
+        <NSWAccordion contents={[
+            {
+                header: 'This is an accordion',
+                body: 'This is a body content of an accordion'
+            },
+            {
+                header: 'This is an accordion',
+                body: 'This is a body content of an accordion'
+            },
+            {
+                header: 'This iss an accordion',
+                body: 'This is a body content of an accordion'
+            },
+        ]}/>
         <h2 class="section-title">Buttons</h2>
         <NSWButton>Primary button</NSWButton>
         <NSWButton as='secondary'>Secondary button</NSWButton>
