@@ -10,6 +10,8 @@ import PropTypes from 'prop-types';
 import { TextInput, FormGroupText } from  './text';
 import { Select, FormGroupSelect, SelectItem } from  './select';
 import { FormGroup } from  './group-elements';
+import { FormGroupCheckbox } from './checkbox';
+import { FormGroupRadio } from './radio';
 
 export {
 	TextInput,
@@ -17,5 +19,7 @@ export {
 	FormGroupText,
 	FormGroupSelect,
 	Select,
-	SelectItem
+	SelectItem,
+	FormGroupCheckbox,
+	FormGroupRadio
 }

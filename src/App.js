@@ -201,44 +201,201 @@ function App() {
 
         <h2 className="section-title">Error form group</h2>
         <Form.FormGroupText
-            label="Your name"
-            helper="as it is written on your drivers' licence"
-            errorText="Please enter your name"
-            htmlId={nextId()}
-            status="invalid"
+        label="Your name"
+        helper="as it is written on your drivers' licence"
+        errorText="Please enter your name"
+        htmlId={nextId()}
+        status="invalid"
         />
         <Form.FormGroupText
-            label="Enter some long text"
-            errorText="the error"
-            as="textarea"
-            htmlId={nextId()}
-            status="invalid"
+        label="Enter some long text"
+        errorText="the error"
+        as="textarea"
+        htmlId={nextId()}
+        status="invalid"
         />
         <Form.FormGroupSelect
-            label="Select a thing"
-            helper="But only one thing"
-            errorText="Please select a thing"
-            htmlId={nextId()}
-            status="invalid"
-            options={[
-              {
-                value: '',
-                text: 'Please select',
-              },
-              {
-                value: '1',
-                text: 'Option 1',
-              },
-              {
-                value: '2',
-                text: 'Option 2',
-                selected: 'selected'
-              },
-              {
-                value: '3',
-                text: 'Option 3',
-              },
-            ]}/>
+        label="Select a thing"
+        helper="But only one thing"
+        errorText="Please select a thing"
+        htmlId={nextId()}
+        status="invalid"
+        options={[
+          {
+            value: '',
+            text: 'Please select',
+          },
+          {
+            value: '1',
+            text: 'Option 1',
+          },
+          {
+            value: '2',
+            text: 'Option 2',
+            selected: 'selected'
+          },
+          {
+            value: '3',
+            text: 'Option 3',
+          },
+        ]}/>
+
+        <Form.FormGroupCheckbox
+        label="Select a thing"
+        helper="Or more than one thing"
+        errorText="Please select at least 1 thing"
+        htmlId={nextId()}
+        as="group"
+        options={[
+          {
+            value: '1',
+            text: 'Option 1',
+          },
+          {
+            value: '2',
+            text: 'Option 2',
+            selected: 'selected'
+          },
+          {
+            value: '3',
+            text: 'Option 3',
+          },
+        ]}/>
+
+
+        <Form.FormGroupCheckbox
+        label="Select a thing"
+        helper="Or more than one thing"
+        errorText="Please select at least 1 thing"
+        htmlId={nextId()}
+        options={[
+          {
+            value: '1',
+            text: `Just a lonely checkbox on it's own`,
+          }
+        ]}/>
+
+        <Form.FormGroupRadio
+        label="Select a thing"
+        helper="Only one thing"
+        errorText="Please select 1 thing"
+        htmlId={nextId()}
+        options={[
+          {
+            value: '1',
+            text: 'Option 1',
+          },
+          {
+            value: '2',
+            text: 'Option 2',
+            selected: 'selected'
+          },
+          {
+            value: '3',
+            text: 'Option 3',
+          },
+        ]}/>
+
+
+        <h2 className="section-title">Error form group</h2>
+        <Form.FormGroupText
+        label="Your name"
+        helper="as it is written on your drivers' licence"
+        errorText="Please enter your name"
+        htmlId={nextId()}
+        status="invalid"
+        />
+        <Form.FormGroupText
+        label="Enter some long text"
+        errorText="the error"
+        as="textarea"
+        htmlId={nextId()}
+        status="invalid"
+        />
+        <Form.FormGroupSelect
+        label="Select a thing"
+        helper="But only one thing"
+        errorText="Please select a thing"
+        htmlId={nextId()}
+        status="invalid"
+        options={[
+          {
+            value: '',
+            text: 'Please select',
+          },
+          {
+            value: '1',
+            text: 'Option 1',
+          },
+          {
+            value: '2',
+            text: 'Option 2',
+            selected: 'selected'
+          },
+          {
+            value: '3',
+            text: 'Option 3',
+          },
+        ]}/>
+
+        <Form.FormGroupCheckbox
+        label="Select a thing"
+        helper="Or more than one thing"
+        errorText="Please select at least 1 thing"
+        htmlId={nextId()}
+        status="invalid"
+        as="group"
+        options={[
+          {
+            value: '1',
+            text: 'Option 1',
+          },
+          {
+            value: '2',
+            text: 'Option 2',
+            selected: 'selected'
+          },
+          {
+            value: '3',
+            text: 'Option 3',
+          },
+        ]}/>
+
+
+        <Form.FormGroupCheckbox
+        label="Select a thing"
+        helper="Or more than one thing"
+        errorText="Please select at least 1 thing"
+        htmlId={nextId()}
+        status="invalid"
+        options={[
+          {
+            value: '1',
+            text: `Just a lonely checkbox on it's own`,
+          }
+        ]}/>
+
+        <Form.FormGroupRadio
+        label="Select a thing"
+        helper="Only one thing"
+        errorText="Please select 1 thing"
+        status="invalid"
+        htmlId={nextId()}
+        options={[
+          {
+            value: '1',
+            text: 'Option 1',
+          },
+          {
+            value: '2',
+            text: 'Option 2',
+            selected: 'selected'
+          },
+          {
+            value: '3',
+            text: 'Option 3',
+          },
+        ]}/>
       </div>
     </div>
   );
