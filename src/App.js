@@ -1,6 +1,6 @@
 import 'nsw-design-system/dist/css/main.css'
 import React from "react";
-import NSWButton from './components/button';
+import Button from './components/button';
 import NSWNotification from './components/notification';
 import NSWTagList, {Tag} from './components/tags';
 import NSWCallout from './components/callout';
@@ -28,14 +28,14 @@ function App() {
                 body: 'This is a body content of an accordion'
             },
             {
-                header: 'This iss an accordion',
+                header: 'This is an accordion',
                 body: 'This is a body content of an accordion'
             },
         ]}/>
         <h2 class="section-title">Buttons</h2>
-        <NSWButton>Primary button</NSWButton>
-        <NSWButton as='secondary'>Secondary button</NSWButton>
-        <NSWButton as='danger'>Danger button</NSWButton>
+        <Button>Primary button</Button>
+        <Button as='secondary'>Secondary button</Button>
+        <Button as='danger'>Danger button</Button>
 
         <h2 class="section-title">In-page notifications</h2>
         <NSWNotification as='info' title='Info alert'>
