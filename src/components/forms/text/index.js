@@ -61,9 +61,12 @@ export const TextInput = ({ as, status, htmlId, block, number, error, type = 'te
 );
 
 TextInput.propTypes = {
-  as: PropTypes.oneOf([ 'input', 'textarea' ]),
-	block: PropTypes.bool,
-	className: PropTypes.string
+  /**
+ 	 * Set textarea for textarea
+ 	 */
+	 as: PropTypes.oneOf([ 'input', 'text' ]),
+	 block: PropTypes.bool,
+	 className: PropTypes.string
 };
 
 TextInput.defaultProps = {
@@ -89,14 +92,38 @@ export const FormGroupText = (props) => (
 );
 
 FormGroupText.propTypes = {
-	/**
-	 * Adds invalid state to form group
+  /**
+	 * Adds invalid state to checkbox / group
 	 */
-	error: PropTypes.bool,
+	status: PropTypes.oneOf([ 'invalid', false ]),
 	/**
 	 * An additional class, optional
 	 */
 	className: PropTypes.string,
+  /**
+ 	 * Set textarea for textarea
+ 	*/
+  as: PropTypes.oneOf([ 'input', 'textarea' ]),
+  /**
+	 * Adds invalid state to checkbox / group
+	 */
+	status: PropTypes.oneOf([ 'invalid', false ]),
+	/**
+	 * Text to show if field is in error state (ignored otherwise)
+	 */
+	errorText: PropTypes.string,
+	/**
+	 * Legend title for group (where `as` is 'group')
+	 */
+	 label: PropTypes.string,
+ 	/**
+ 	 * Helper text for the field
+ 	 */
+	helper: PropTypes.string,
+  /**
+	 * Unique ID for this field
+	 */
+	htmlId: PropTypes.string,
 };
 
 FormGroupText.defaultProps = {
