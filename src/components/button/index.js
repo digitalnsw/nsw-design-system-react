@@ -45,7 +45,7 @@ const options = {
  * @param  {string}   className        - An additional class, optional
  * @param  {object}   attributeOptions - Any other attribute options
  */
-const NSWButton = ({ linkComponent, link, children, as, dark, type, block, className = '', ...attributeOptions }) => {
+const Button = ({ linkComponent, link, children, as, dark, type, block, className = '', ...attributeOptions }) => {
 	if( link ) {
 		const LinkComponent = linkComponent;
 
@@ -80,7 +80,7 @@ const NSWButton = ({ linkComponent, link, children, as, dark, type, block, class
 	}
 };
 
-NSWButton.propTypes = {
+Button.propTypes = {
 	link: PropTypes.string,
 	children: PropTypes.node.isRequired,
 	as: PropTypes.oneOf([ 'primary', 'secondary', 'danger' ]).isRequired,
@@ -91,10 +91,10 @@ NSWButton.propTypes = {
 	linkComponent: PropTypes.oneOfType([ PropTypes.string, PropTypes.func ]),
 };
 
-NSWButton.defaultProps = {
+Button.defaultProps = {
 	type: 'button',
 	as: 'primary',
 	linkComponent: 'a',
 };
 
-export default NSWButton;
+export default Button;
