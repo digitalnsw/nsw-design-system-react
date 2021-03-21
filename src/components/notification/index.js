@@ -45,19 +45,15 @@ const icons = {
  * @param  {string}  className        - An additional class, optional
  * @param  {object}  attributeOptions - Any other attribute options
  */
-const NSWnotification = ({
+export const NSWnotification = ({
   title = "",
   as,
-  alt,
-  dark,
   children,
   className = "",
   ...attributeOptions
 }) => (
   <div
-    className={`nsw-notification ${className} ${
-      dark ? " nsw-notification--dark au-body--dark" : ""
-    }${alt ? " nsw-notification--alt au-body--alt" : ""} ${options[as]}`}
+    className={`nsw-notification ${className} ${options[as]}`}
     {...attributeOptions}
   >
     <i
@@ -74,11 +70,22 @@ const NSWnotification = ({
 );
 
 NSWnotification.propTypes = {
+  /**
+  * Type of notification
+  */
   as: PropTypes.oneOf(["info", "warning", "error", "success"]).isRequired,
-  alt: PropTypes.bool,
-  dark: PropTypes.bool,
+  /**
+  * Content of notification
+  */
   children: PropTypes.node.isRequired,
-  className: PropTypes.string
+  /**
+  * Additional class name
+  */
+  className: PropTypes.string,
+  /**
+  * Notification title
+  */
+  title: PropTypes.string,
 };
 
 export default NSWnotification;

@@ -14,10 +14,9 @@ import PropTypes from 'prop-types';
  * TODO
  * @param  {string}  link             - The link for this tag, optional
  * @param  {string}  text             - The text for the tag
- * @param  {boolean} dark             - Add the dark variation class, optional
  * @param  {object}  attributeOptions - Any other attribute options
  */
-export const Tag = ({ link, dark, text, linkComponent, className, ...attributeOptions }) => {
+export const Tag = ({ link,  text, linkComponent, className, ...attributeOptions }) => {
 
 	let TagContainer = 'span';
 	let LinkComponent = linkComponent;
@@ -33,9 +32,9 @@ export const Tag = ({ link, dark, text, linkComponent, className, ...attributeOp
 
 	return (
 		link ?
-			<LinkComponent className={`nsw-tag ${ dark ? 'nsw-tag--dark' : ''} ${className}`} { ...attributeOptions }>{ text }</LinkComponent>
+			<LinkComponent className={`nsw-tag ${className}`} { ...attributeOptions }>{ text }</LinkComponent>
 			:
-			<TagContainer {...attributeOptions} className={`nsw-tag ${ dark ? 'nsw-tag--dark' : ''} ${className}`}>
+			<TagContainer {...attributeOptions} className={`nsw-tag ${className}`}>
 				{text}
 			</TagContainer>
 	)
@@ -43,9 +42,21 @@ export const Tag = ({ link, dark, text, linkComponent, className, ...attributeOp
 
 
 Tag.propTypes = {
+  /**
+  * Additional class name
+  */
+  className: PropTypes.string,
+  /**
+  * Tag link
+  */
 	link: PropTypes.string,
+  /**
+  * Tag text
+  */
 	text: PropTypes.string.isRequired,
-	li: PropTypes.object,
+  /**
+  * Link component (a/func)
+  */
 	linkComponent: PropTypes.oneOfType([ PropTypes.string, PropTypes.func ]),
 };
 
@@ -60,20 +71,18 @@ Tag.defaultProps = {
  * DEFAULT
  * The tags component
  *
- * @param  {boolean} dark             - Add the dark variation class, optional
  * @param  {array}   tags             - The tags, format: { link: '', text: '', onClick: () }
  * @param  {string}  className        - An additional class, optional
  * @param  {object}  li               - An additional object to be spread into the list item
  * @param  {object}  attributeOptions - Any other attribute options
  */
-const TagList = ({ dark, tags, className = '', ...attributeOptions }) => (
+const TagList = ({ tags, className = '', ...attributeOptions }) => (
 	<div className={ `nsw-tag-list ${ className }` } { ...attributeOptions }>
 		{
 			tags.map(
 				( tag, i ) => (
 
 						<Tag
-							dark={dark}
 							linkComponent={ tag.linkComponent }
 							link={tag.link}
 							text={tag.text}
@@ -87,7 +96,6 @@ const TagList = ({ dark, tags, className = '', ...attributeOptions }) => (
 );
 
 TagList.propTypes = {
-	dark: PropTypes.bool,
 	tags: PropTypes.arrayOf(
 		PropTypes.shape({
 			link: PropTypes.string,
@@ -99,7 +107,6 @@ TagList.propTypes = {
 };
 
 TagList.defaultProps = {
-	dark: false
 };
 
 export default TagList;
