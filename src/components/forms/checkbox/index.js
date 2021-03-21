@@ -36,7 +36,7 @@ export const CheckboxItem = ({ text, htmlId, value, status, as, uniqueID=nextId(
 			type="checkbox"
 			name={htmlId}
 
-      aria-invalid={ status === "invalid" && as != "group" ?  'true' : '' }
+      aria-invalid={ (status === "invalid" && !(as == "group")) ?  'true' : '' }
       aria-describedby={ status === "invalid" ?  `helper${htmlId} error${htmlId}` : `helper${htmlId}` }
 
 			id={ uniqueID } { ...checked }></input>
@@ -51,49 +51,6 @@ CheckboxItem.propTypes = {
 	uniqueID: nextId(),
 	checked: ''
 };
-
-
-// /**
-//  * DEFAULT
-//  * The select component
-//  *
-//  * @param  {boolean} dark             - Add the dark variation class, optional
-//  * @param  {array}   options          - The options for the select, format: { value: '', text: '' }
-//  * @param  {string}  block            - The block option
-//  * @param  {string}  status           - Mark this field as either 'valid' or 'invalid', optional
-//  * @param  {string}  className        - An additional class, optional
-//  * @param  {object}  attributeOptions - Any other attribute options
-//  */
-// export const Select = ({ htmlId, dark, options, block, status, className = '', ...attributeOptions }) => {
-//
-// 	return (
-// 		<select className={
-// 			`nsw-form-select ${ className }`}
-//       aria-invalid={ status === "invalid" ?  'true' : '' }
-//       aria-describedby={ status === "invalid" ?  `helper${htmlId} error${htmlId}` : `helper${htmlId}` }
-//       id={htmlId}
-// 		 { ...attributeOptions }>
-// 			{
-// 				options.map(
-// 					( option, i ) => <SelectItem key={ i } { ...option } />
-// 				)
-// 			}
-// 		</select>
-// 	);
-// };
-//
-// Select.propTypes = {
-// 	dark: PropTypes.bool,
-// 	options: PropTypes.arrayOf(
-// 		PropTypes.shape({
-// 			value: PropTypes.string.isRequired,
-// 			text: PropTypes.string.isRequired,
-// 		})
-// 	).isRequired,
-// 	block: PropTypes.bool,
-// 	status: PropTypes.oneOf([ 'valid', 'invalid' ]),
-// 	className: PropTypes.string,
-// };
 
 
 /**
@@ -129,7 +86,7 @@ export const FormGroupCheckbox = (props) => (
 				<div class="nsw-form-checkbox">
 					{
 						props.options.map(
-							( option, i ) => <CheckboxItem key={ i } { ...option } htmlId={props.htmlId} status={props.status} />
+							( option, i ) => <CheckboxItem key={ i } { ...option } as={props.as} htmlId={props.htmlId} status={props.status} />
 						)
 					}
 				</div>
