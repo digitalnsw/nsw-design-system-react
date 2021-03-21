@@ -44,14 +44,13 @@ SelectItem.propTypes = {
  * DEFAULT
  * The select component
  *
- * @param  {boolean} dark             - Add the dark variation class, optional
  * @param  {array}   options          - The options for the select, format: { value: '', text: '' }
  * @param  {string}  block            - The block option
  * @param  {string}  status           - Mark this field as either 'valid' or 'invalid', optional
  * @param  {string}  className        - An additional class, optional
  * @param  {object}  attributeOptions - Any other attribute options
  */
-export const Select = ({ htmlId, dark, options, block, status, className = '', ...attributeOptions }) => {
+export const Select = ({ htmlId,  options, block, status, className = '', ...attributeOptions }) => {
 
 	return (
 		<select className={
@@ -70,7 +69,6 @@ export const Select = ({ htmlId, dark, options, block, status, className = '', .
 };
 
 Select.propTypes = {
-	dark: PropTypes.bool,
 	options: PropTypes.arrayOf(
 		PropTypes.shape({
 			value: PropTypes.string.isRequired,
@@ -78,7 +76,7 @@ Select.propTypes = {
 		})
 	).isRequired,
 	block: PropTypes.bool,
-	status: PropTypes.oneOf([ 'valid', 'invalid' ]),
+	status: PropTypes.oneOf([ false, 'invalid' ]),
 	className: PropTypes.string,
 };
 
@@ -102,9 +100,31 @@ export const FormGroupSelect = (props) => (
 
 FormGroupSelect.propTypes = {
 	/**
-	 * Adds invalid state to form group
+	 * Adds invalid state to checkbox / group
 	 */
-	error: PropTypes.bool,
+	status: PropTypes.oneOf([ 'invalid', false ]),
+	/**
+	 * Text to show if field is in error state (ignored otherwise)
+	 */
+	errorText: PropTypes.string,
+	/**
+	 * Legend title for group (where `as` is 'group')
+	 */
+	 label: PropTypes.string,
+ 	/**
+ 	 * Helper text for the field
+ 	 */
+	helper: PropTypes.string,
+	/**
+	 * Schema for options
+	 */
+	 options: PropTypes.arrayOf(
+ 		PropTypes.shape({
+ 			value: PropTypes.string.isRequired,
+			text: PropTypes.string.isRequired,
+			selected: PropTypes.oneOf([ 'selected', false ]),
+ 		})
+ 	).isRequired,
 	/**
 	 * An additional class, optional
 	 */
@@ -112,7 +132,8 @@ FormGroupSelect.propTypes = {
 };
 
 FormGroupSelect.defaultProps = {
-	status: "valid",
+	status: false,
 	className: '',
+	as: false,
   htmlId: defHtmlId
 }
