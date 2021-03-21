@@ -53,49 +53,6 @@ RadioItem.propTypes = {
 };
 
 
-// /**
-//  * DEFAULT
-//  * The select component
-//  *
-//  * @param  {boolean} dark             - Add the dark variation class, optional
-//  * @param  {array}   options          - The options for the select, format: { value: '', text: '' }
-//  * @param  {string}  block            - The block option
-//  * @param  {string}  status           - Mark this field as either 'valid' or 'invalid', optional
-//  * @param  {string}  className        - An additional class, optional
-//  * @param  {object}  attributeOptions - Any other attribute options
-//  */
-// export const Select = ({ htmlId, dark, options, block, status, className = '', ...attributeOptions }) => {
-//
-// 	return (
-// 		<select className={
-// 			`nsw-form-select ${ className }`}
-//       aria-invalid={ status === "invalid" ?  'true' : '' }
-//       aria-describedby={ status === "invalid" ?  `helper${htmlId} error${htmlId}` : `helper${htmlId}` }
-//       id={htmlId}
-// 		 { ...attributeOptions }>
-// 			{
-// 				options.map(
-// 					( option, i ) => <SelectItem key={ i } { ...option } />
-// 				)
-// 			}
-// 		</select>
-// 	);
-// };
-//
-// Select.propTypes = {
-// 	dark: PropTypes.bool,
-// 	options: PropTypes.arrayOf(
-// 		PropTypes.shape({
-// 			value: PropTypes.string.isRequired,
-// 			text: PropTypes.string.isRequired,
-// 		})
-// 	).isRequired,
-// 	block: PropTypes.bool,
-// 	status: PropTypes.oneOf([ 'valid', 'invalid' ]),
-// 	className: PropTypes.string,
-// };
-
-
 /**
  * The text group component
  *
