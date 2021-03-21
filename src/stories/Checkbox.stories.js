@@ -19,7 +19,7 @@ npm install nsw-design-system-react
 To import this component
 
 \`\`\`javascript
-import FormGroupCheckbox from "nsw-design-system-react/components/forms/checkbox";
+import {FormGroupCheckbox} from "nsw-design-system-react/components/forms/checkbox";
 \`\`\`
 
 `;
