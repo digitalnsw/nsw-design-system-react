@@ -99,9 +99,9 @@ LinkListItem.defaultProps = {
  * @param  {string}  linkComponent    - The component used for the link
  * @param  {object}  attributeOptions - Any other attribute options, optional
  */
-export const StyledLinkList = ({ inline, items, linkComponent, className = '', ...attributeOptions }) => (
+export const StyledLinkList = ({ items, linkComponent, className = '', ...attributeOptions }) => (
   <div class="nsw-link-list">
-  	<ol className={ `nsw-link-list__list ${ className }${ inline ? ' nsw-link-list__list--inline' : '' }` } { ...attributeOptions }>
+  	<ol className={ `nsw-link-list__list ${ className }` } { ...attributeOptions }>
   		{
   			items.map(
   				( item, i ) => <LinkListItem linkComponent={ linkComponent } key={ i } { ...item } />
@@ -112,7 +112,9 @@ export const StyledLinkList = ({ inline, items, linkComponent, className = '', .
 );
 
 StyledLinkList.propTypes = {
-	inline: PropTypes.bool,
+  /**
+   * Array of items for link list
+  */
 	items: PropTypes.arrayOf(
 		PropTypes.shape({
 			link: PropTypes.string,
@@ -120,7 +122,14 @@ StyledLinkList.propTypes = {
 			li: PropTypes.object,
 		})
 	).isRequired,
-	linkComponent: PropTypes.oneOfType([ PropTypes.string, PropTypes.func ])
+  /**
+   * Link component (a/func)
+  */
+	linkComponent: PropTypes.oneOfType([ PropTypes.string, PropTypes.func ]),
+  /**
+   * An additional class, optional
+  */
+  className: PropTypes.string,
 };
 
 StyledLinkList.defaultProps = {
