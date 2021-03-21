@@ -12,6 +12,7 @@ import { Select, FormGroupSelect, SelectItem } from  './select';
 import { FormGroup } from  './group-elements';
 import { FormGroupCheckbox } from './checkbox';
 import { FormGroupRadio } from './radio';
+import { ProgressIndicator } from './progress-indicator';
 
 export {
 	TextInput,
@@ -21,5 +22,6 @@ export {
 	Select,
 	SelectItem,
 	FormGroupCheckbox,
-	FormGroupRadio
+	FormGroupRadio,
+	ProgressIndicator
 }

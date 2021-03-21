@@ -1,4 +1,4 @@
-import 'nsw-design-system/dist/css/main.css'
+import 'nsw-design-system/src/main.scss'
 import React from "react";
 import Button from './components/button';
 import NSWNotification from './components/notification';
@@ -199,46 +199,7 @@ function App() {
               },
             ]}/>
 
-        <h2 className="section-title">Error form group</h2>
-        <Form.FormGroupText
-        label="Your name"
-        helper="as it is written on your drivers' licence"
-        errorText="Please enter your name"
-        htmlId={nextId()}
-        status="invalid"
-        />
-        <Form.FormGroupText
-        label="Enter some long text"
-        errorText="the error"
-        as="textarea"
-        htmlId={nextId()}
-        status="invalid"
-        />
-        <Form.FormGroupSelect
-        label="Select a thing"
-        helper="But only one thing"
-        errorText="Please select a thing"
-        htmlId={nextId()}
-        status="invalid"
-        options={[
-          {
-            value: '',
-            text: 'Please select',
-          },
-          {
-            value: '1',
-            text: 'Option 1',
-          },
-          {
-            value: '2',
-            text: 'Option 2',
-            selected: 'selected'
-          },
-          {
-            value: '3',
-            text: 'Option 3',
-          },
-        ]}/>
+
 
         <Form.FormGroupCheckbox
         label="Select a thing"
@@ -396,6 +357,8 @@ function App() {
             text: 'Option 3',
           },
         ]}/>
+
+        <Form.ProgressIndicator step={3} of={5} />
       </div>
     </div>
   );

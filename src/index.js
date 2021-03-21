@@ -6,7 +6,7 @@ import Header from './components/header';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Header />
+    <Header hideSearch hideMobileMenu />
     <App />
   </React.StrictMode>,
   document.getElementById('root')
