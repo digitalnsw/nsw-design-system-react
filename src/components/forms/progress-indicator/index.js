@@ -15,8 +15,14 @@ export const ProgressIndicator = ({ step, of, ...attributeOptions }) => (
 </div>
 );
 ProgressIndicator.propTypes = {
-  step: PropTypes.number,
-  of: PropTypes.number,
+  /**
+  * Current step number
+  */
+  step: PropTypes.number.isRequired,
+  /**
+  * Total number of steps
+  */
+  of: PropTypes.number.isRequired,
 };
 
 export const ProgressIndicatorStep = ({ active }) => (
