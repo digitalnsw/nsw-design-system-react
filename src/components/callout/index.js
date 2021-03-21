@@ -22,25 +22,22 @@ import PropTypes from 'prop-types';
  *
  * @param  {string}  title            - The title of the header
  * @param  {string}  level            - The tag level (<h1/> <h2/> etc), default: '1'
- * @param  {boolean} srOnlyTitle      - Title is visible to screen readers only
- * @param  {boolean} dark             - Add the dark variation class, optional
- * @param  {boolean} alt              - Add the alt variation class, optional
  * @param  {string}  children         - Anything inside
  * @param  {string}  className        - An additional class, optional
  * @param  {object}  attributeOptions - Any other attribute options
  */
-export const NSWCallout = ({ title, level, srOnlyTitle, dark, alt, description, children, className = '', ...attributeOptions }) => {
+export const Callout = ({ title, level, description, children, className = '', ...attributeOptions }) => {
 	const HeadingTag = `h${ level }`;
 
 	return (
 		<div
-			className={ `nsw-callout ${ className }${ dark ? ' nsw-callout--dark' : '' }${ alt ? ' nsw-callout--alt' : '' }` }
+			className={ `nsw-callout ${ className }` }
 			{ ...attributeOptions }
 		>
       <div class="nsw-callout__content">
   			<HeadingTag
   				children={ title }
-  				className={ `nsw-callout__title${ srOnlyTitle ? ' nsw-callout__title--sronly' : '' }` }
+  				className={ `nsw-callout__title` }
   			/>
   			{ children }
       </div>
@@ -48,19 +45,27 @@ export const NSWCallout = ({ title, level, srOnlyTitle, dark, alt, description, 
 	)
 };
 
-NSWCallout.propTypes = {
+Callout.propTypes = {
+  /**
+   * Callout title
+  */
 	title: PropTypes.string.isRequired,
+  /**
+   * heading level (e.g. '4' for H4)
+  */
 	level: PropTypes.number,
-	srOnlyTitle: PropTypes.bool,
-	dark: PropTypes.bool,
-	alt: PropTypes.bool,
+  /**
+   * Callout content
+  */
 	children: PropTypes.node.isRequired,
+  /**
+   * additional class names, optional
+  */
 	className: PropTypes.string,
 };
 
-NSWCallout.defaultProps = {
+Callout.defaultProps = {
 	level: 4,
-	srOnlyTitle: false,
 };
 
-export default NSWCallout;
+export default Callout;

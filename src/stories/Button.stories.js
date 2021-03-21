@@ -1,14 +1,44 @@
 import React from 'react';
-import NSWButton from "../components/button";
+import Button from "../components/button";
+
+const Preamble = `
+### Full documentation
+
+For usage, UX guidelines, and a library of usability testing visit the NSW Design System docs.
+
+### Installing
+
+Our design system react kit comes with all components
+
+\`\`\`bash
+npm install nsw-design-system-react
+\`\`\`
+
+### Importing
+
+To import this component
+
+\`\`\`javascript
+import Button from "nsw-design-system-react/components/button";
+\`\`\`
+
+`;
 
 export default {
-  title: 'Example/Button',
-  component: NSWButton,
-  argTypes: {
-  },
+  title: 'Transaction/Button',
+  component: Button,
+  parameters: {
+    docs: {
+      description: {
+        component: Preamble,
+      },
+      source: {
+      }
+    }
+  }
 };
 
-const Template = (args) => <NSWButton  {...args} />;
+const Template = (args) => <Button  {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

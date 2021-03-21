@@ -15,8 +15,13 @@ import moment from 'moment';
  * The card  component
  *
  * @param {string}   link               - The link that clicking the card goes to
- * @param {bool}     headline           - Adds a box shadow to card if true
- * @param {bool}     content            - Aligns all text to center if true
+ * @param {string}   tag                - The tag (optional)
+ * @param {string}   date               - The date (optional)
+ * @param {string}   dateMomentFormat   - The date display format (optional, def to '4th June 2021')
+ * @param {string}   image              - The image URL/path (optional)
+ * @param {string}   imageAlt           - The alt text for image (mandatory if image supplied)
+ * @param {string}   headline           - Title for card
+ * @param {bool}     content            - Removes highlight bar if true
  * @param {string}   className          - An additional class, optional
  * @param {object}   attributeOptions   - Default HTML attributes
  */
@@ -46,20 +51,45 @@ const Card = ({ link, headline, content, tag, date, dateMomentFormat, image, ima
 };
 
 Card.propTypes = {
+  /**
+   * The link that clicking the card goes to
+  */
 	link: PropTypes.string,
-	dark: PropTypes.bool,
-	alt: PropTypes.bool,
-	shadow: PropTypes.bool,
-	centred: PropTypes.bool,
-	className: PropTypes.string,
+  /**
+   * The tag to display (e.g. a category for news)
+  */
+  tag: PropTypes.string,
+  /**
+   * The date to display, format YYYY-MM-DD
+  */
+  date: PropTypes.string,
+  /**
+   * The date display format using momentum.js (Default to '4th June 2021')
+  */
+  dateMomentFormat: PropTypes.string,
+  /**
+   * The image URL/path (optional)
+  */
+  image: PropTypes.string,
+  /**
+   * Alt text for image (req if image supplied)
+  */
+  imageAlt: PropTypes.string,
+  /**
+   * Headline (required)
+  */
+  headline: PropTypes.string.isRequired,
+  /**
+   * Removes highlight bar if true
+  */
+  content: PropTypes.bool,
+  /**
+   * Additional class names
+  */
+  className: PropTypes.string,
 };
 
 Card.defaultProps = {
-	shadow: false,
-	centred: false,
-	clickable: false,
-	dark: false,
-	alt: false,
 	className: '',
   dateMomentFormat: 'Do MMMM YYYY'
 };

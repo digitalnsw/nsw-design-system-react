@@ -3,12 +3,12 @@ import React from "react";
 import Button from './components/button';
 import NSWNotification from './components/notification';
 import NSWTagList, {Tag} from './components/tags';
-import NSWCallout from './components/callout';
+import Callout from './components/callout';
 import NSWInpageNavLinks from './components/in-page-navigation';
 import NSWBreadcrumbs from './components/breadcrumbs';
-import NSWLinkList from './components/link-list';
+import { LinkList, StyledLinkList } from './components/link-list';
 import NSWCard, { CardContent, CardHeader, CardCopy, CardTag, CardDate } from './components/card';
-import NSWAccordion from "./components/accordion";
+import Accordion from "./components/accordion";
 import nextId from "react-id-generator";
 import * as Form from  './components/forms';
 
@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       <div class="nsw-container">
         <h2 class="section-title">Accordion</h2>
-        <NSWAccordion contents={[
+        <Accordion contents={[
             {
                 header: 'This is an accordion',
                 body: 'This is a body content of an accordion'
@@ -68,9 +68,9 @@ function App() {
         ]} />
 
         <h2 class="section-title">Callout</h2>
-        <NSWCallout title="Title of callout">
+        <Callout title="Title of callout">
             <p>Description of callout</p>
-        </NSWCallout>
+        </Callout>
 
         <h2 class="section-title">Cards</h2>
         <div class='nsw-grid'>
@@ -148,7 +148,7 @@ function App() {
         />
 
         <h2 class="section-title">Link list</h2>
-        <NSWLinkList
+        <StyledLinkList
           items={[
             {
               link: '#',
@@ -358,7 +358,28 @@ function App() {
           },
         ]}/>
 
+        <h2 className="section-title">Progress indicator</h2>
         <Form.ProgressIndicator step={3} of={5} />
+
+        <h2 className="section-title">Link lists</h2>
+        <LinkList items={[
+          {
+            link: 'link/one/',
+            text: 'Link 1',
+          },
+          {
+            link: 'link/two/',
+            text: 'Link 2',
+            className: 'is-active',
+            li: {
+              className: 'li-wrapping-class',
+            },
+          },
+          {
+            text: 'Link 3',
+            onClick: () => console.log('You clicked me!'),
+          },
+        ]} />
       </div>
     </div>
   );

@@ -54,10 +54,11 @@ CheckboxItem.propTypes = {
 
 
 /**
- * The text group component
+ * The checkbox group component
  *
  * @param  {string}  status           - Adds invalid state to form group
  * @param  {string}  errorText        - Text for error message
+ * @param  {string}  htmlId           - Unique ID for this checkbox group
  * @param  {string}  label            - Text for label
  * @param  {string}  helper           - Text for helper
  * @param  {array}   options          - The options for the select, format: { value: '', text: '' }
@@ -101,9 +102,38 @@ export const FormGroupCheckbox = (props) => (
 
 FormGroupCheckbox.propTypes = {
 	/**
-	 * Adds invalid state to form group
+	 * Adds invalid state to checkbox / group
 	 */
-	error: PropTypes.bool,
+	status: PropTypes.oneOf([ 'invalid', false ]),
+	/**
+	 * Text to show if field is in error state (ignored otherwise)
+	 */
+	errorText: PropTypes.string,
+	/**
+	 * Unique ID for the checkbox / group
+	 */
+	htmlId: PropTypes.string,
+	/**
+	 * Legend title for group (where `as` is 'group')
+	 */
+	 label: PropTypes.string,
+ 	/**
+ 	 * Set to group for group of checkboxes with legend
+ 	 */
+	 as: PropTypes.oneOf([ 'group', false ]),
+ 	/**
+ 	 * Helper text for the field
+ 	 */
+	helper: PropTypes.string,
+	/**
+	 * Schema for checkboxes
+	 */
+	options: PropTypes.arrayOf(
+		PropTypes.shape({
+			value: PropTypes.string,
+			text: PropTypes.string,
+		})
+	).isRequired,
 	/**
 	 * An additional class, optional
 	 */
@@ -111,7 +141,7 @@ FormGroupCheckbox.propTypes = {
 };
 
 FormGroupCheckbox.defaultProps = {
-	status: "valid",
+	status: false,
 	className: '',
   htmlId: nextId()
 }

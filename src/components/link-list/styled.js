@@ -2,9 +2,8 @@
 /*! [replace-name] v[replace-version] */
 /***************************************************************************************************************************************************************
  *
- * breadcrumbs function
+ * link list function
  *
- * Breadcrumbs help users understand where they are in the service and how they got there.
  *
  **************************************************************************************************************************************************************/
 
@@ -22,50 +21,17 @@ import PropTypes from 'prop-types';
  * DEFAULT
  * The breadcrumbs component
  *
+ * @param  {boolean} dark             - Add the dark variation class, optional
  * @param  {string}  label            - The aria label of the component
- * @param  {array}   items            - Items inside the breadcrumbs passed on to BreadcrumbLinkList
+ * @param  {array}   items            - Items inside the breadcrumbs passed on to LinkList
  * @param  {string}  linkComponent    - The component used for the link
  * @param  {string}  className        - An additional class, optional
  * @param  {object}  attributeOptions - Any other attribute options
  */
-const Breadcrumbs = ({ label, items, linkComponent, className = '', ...attributeOptions }) => (
-	<nav
-		className={ `nsw-breadcrumb ${ className }` }
-		aria-label={ label }
-		{ ...attributeOptions }
-	>
-		<BreadcrumbLinkList inline linkComponent={ linkComponent } items={ items } />
-	</nav>
-);
 
-Breadcrumbs.propTypes = {
-  /** Breadcrumb items */
-  items: PropTypes.arrayOf(
-		PropTypes.shape({
-      /** Item link */
-			link: PropTypes.string,
-      /** Item text */
-			text: PropTypes.string.isRequired,
-		})
-	).isRequired,
-  /** link component - a / func */
-	linkComponent: PropTypes.oneOfType([ PropTypes.string, PropTypes.func ]),
-  /**
-  * aria label
-  */
-	aria: PropTypes.string,
-  /**
-   * Additional class name
-  */
-  className: PropTypes.string,
-};
-
-Breadcrumbs.defaultProps = {
-	linkComponent: 'a',
-};
 
 /**
- * An item inside the BreadcrumbLinkList component
+ * An item inside the LinkList component
  *
  * @param  {node}   text             - The link Text or link html
  * @param  {string} link             - The link URL, optional
@@ -74,7 +40,7 @@ Breadcrumbs.defaultProps = {
  * @param  {object} onClick          - The onClick event handler
  * @param  {object} attributeOptions - Any other attribute options, optional
  */
-export const BreadcrumbLinkListItem = ({ text, link, linkComponent, li = {}, children, onClick, ...attributeOptions }) => {
+export const LinkListItem = ({ text, link, linkComponent, li = {}, children, onClick, ...attributeOptions }) => {
 	const LinkComponent = linkComponent;
 
 	// If there is no link provided and an onClick function
@@ -98,17 +64,20 @@ export const BreadcrumbLinkListItem = ({ text, link, linkComponent, li = {}, chi
 
 	if( link ){
 		return (
-			<li className='nsw-breadcrumb__item' { ...li }>
-				<LinkComponent className='nsw-breadcrumb__link' { ...attributeOptions }>{ text }</LinkComponent>
+			<li className='nsw-link-list__item' { ...li }>
+				<LinkComponent { ...attributeOptions }>
+        { text }
+        <i class="material-icons nsw-material-icons nsw-link-list__icon" focusable="false" aria-hidden="true">east</i>
+        </LinkComponent>
 				{ children }
 			</li>
 		)
 	}
 
-	return ( <li className='nsw-breadcrumb__item' { ...li }>{ text }{ children }</li> );
+	return ( <li className='nsw-link-list__item' { ...li }>{ text }{ children }</li> );
 };
 
-BreadcrumbLinkListItem.propTypes = {
+LinkListItem.propTypes = {
 	text: PropTypes.node.isRequired,
 	link: PropTypes.string,
 	li: PropTypes.object,
@@ -116,7 +85,7 @@ BreadcrumbLinkListItem.propTypes = {
 	linkComponent: PropTypes.oneOfType([ PropTypes.string, PropTypes.func ])
 };
 
-BreadcrumbLinkListItem.defaultProps = {
+LinkListItem.defaultProps = {
 	linkComponent: "a",
 };
 
@@ -125,22 +94,24 @@ BreadcrumbLinkListItem.defaultProps = {
  * DEFAULT
  * The Link List component
  *
- * @param  {array}   items            - All items inside the link list to be passed to BreadcrumbLinkListItem, format: { link: '', text: '', onClick: () }
+ * @param  {array}   items            - All items inside the link list to be passed to LinkListItem, format: { link: '', text: '', onClick: () }
  * @param  {string}  className        - An additional class, optional
  * @param  {string}  linkComponent    - The component used for the link
  * @param  {object}  attributeOptions - Any other attribute options, optional
  */
-const BreadcrumbLinkList = ({ inline, items, linkComponent, className = '', ...attributeOptions }) => (
-	<ol className={ `nsw-breadcrumb__list ${ className }${ inline ? ' nsw-breadcrumb__list--inline' : '' }` } { ...attributeOptions }>
-		{
-			items.map(
-				( item, i ) => <BreadcrumbLinkListItem linkComponent={ linkComponent } key={ i } { ...item } />
-			)
-		}
-	</ol>
+export const StyledLinkList = ({ inline, items, linkComponent, className = '', ...attributeOptions }) => (
+  <div class="nsw-link-list">
+  	<ol className={ `nsw-link-list__list ${ className }${ inline ? ' nsw-link-list__list--inline' : '' }` } { ...attributeOptions }>
+  		{
+  			items.map(
+  				( item, i ) => <LinkListItem linkComponent={ linkComponent } key={ i } { ...item } />
+  			)
+  		}
+  	</ol>
+  </div>
 );
 
-BreadcrumbLinkList.propTypes = {
+StyledLinkList.propTypes = {
 	inline: PropTypes.bool,
 	items: PropTypes.arrayOf(
 		PropTypes.shape({
@@ -152,8 +123,8 @@ BreadcrumbLinkList.propTypes = {
 	linkComponent: PropTypes.oneOfType([ PropTypes.string, PropTypes.func ])
 };
 
-BreadcrumbLinkList.defaultProps = {
+StyledLinkList.defaultProps = {
 	linkComponent: "a",
 };
 
-export default Breadcrumbs;
+export default StyledLinkList;

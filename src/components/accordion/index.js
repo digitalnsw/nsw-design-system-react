@@ -20,7 +20,7 @@ import { initSite } from "nsw-design-system/src/main.js";
 
 let IDstart = 0;
 
-class NSWAccordion extends React.PureComponent {
+class Accordion extends React.PureComponent {
     /**
      * Constructor
      * Create state and iterate over a unique ID
@@ -74,10 +74,20 @@ class NSWAccordion extends React.PureComponent {
     }
 };
 
-NSWAccordion.propTypes = {
-    children: PropTypes.node.isRequired,
-    header: PropTypes.string.isRequired,
+Accordion.propTypes = {
+    /**
+	   * Object of accordion contents
+	  */
+    contents: PropTypes.arrayOf(
+  		PropTypes.shape({
+  			header: PropTypes.string,
+  			body: PropTypes.string,
+  		})
+  	).isRequired,
+    /**
+  	 * Additional class name
+  	*/
     className: PropTypes.string,
 };
 
-export default NSWAccordion;
+export default Accordion;

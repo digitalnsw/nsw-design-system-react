@@ -39,13 +39,12 @@ const options = {
  * @param  {string}   link             - If this is a link the location it goes
  * @param  {string}   children         - Anything inside
  * @param  {string}   as               - The kind of button, can be either 'primary', 'secondary', 'tertiary', default: 'primary'
- * @param  {boolean}  dark             - Add the dark variation class, optional
  * @param  {string}   type             - The type attribute, default: 'button', optional
  * @param  {boolean}  block            - The block option, optional
  * @param  {string}   className        - An additional class, optional
  * @param  {object}   attributeOptions - Any other attribute options
  */
-const Button = ({ linkComponent, link, children, as, dark, type, block, className = '', ...attributeOptions }) => {
+const Button = ({ linkComponent, link, children, as, type, block, className = '', ...attributeOptions }) => {
 	if( link ) {
 		const LinkComponent = linkComponent;
 
@@ -60,7 +59,7 @@ const Button = ({ linkComponent, link, children, as, dark, type, block, classNam
 
 		return (
 			<LinkComponent
-				className={ `nsw-button ${ className } ${ options[ as ] }${ block ? ' nsw-button--block' : '' }${ dark ? ' nsw-button--dark' : '' }` }
+				className={ `nsw-button ${ className } ${ options[ as ] }${ block ? ' nsw-button--block' : '' }` }
 				{ ...attributeOptions }
 			>
 				{ children }
@@ -71,7 +70,7 @@ const Button = ({ linkComponent, link, children, as, dark, type, block, classNam
 		return (
 			<button
 				type={ type }
-				className={ `nsw-button ${ className } ${ options[ as ] }${ block ? ' nsw-button--block' : '' }${ dark ? ' nsw-button--dark' : '' }` }
+				className={ `nsw-button ${ className } ${ options[ as ] }${ block ? ' nsw-button--block' : '' }` }
 				{ ...attributeOptions }
 			>
 				{ children }
@@ -81,14 +80,34 @@ const Button = ({ linkComponent, link, children, as, dark, type, block, classNam
 };
 
 Button.propTypes = {
+  /**
+   * where the button links to, optional (see usage in docs)
+  */
 	link: PropTypes.string,
+  /**
+   * Content of the button
+  */
 	children: PropTypes.node.isRequired,
-	as: PropTypes.oneOf([ 'primary', 'secondary', 'danger' ]).isRequired,
-	dark: PropTypes.bool,
+  /**
+   * Button style - 'primary', 'secondary', 'danger', 'white', 'full-width'
+  */
+	as: PropTypes.oneOf([ 'primary', 'secondary', 'danger', 'white', 'full-width' ]).isRequired,
+  /**
+   * The type attribute, default: 'button', optional
+  */
 	type: PropTypes.string,
+  /**
+   * Displays button as block element if true
+  */
 	block: PropTypes.bool,
-	className: PropTypes.string,
+  /**
+   * Link component (a/func)
+  */
 	linkComponent: PropTypes.oneOfType([ PropTypes.string, PropTypes.func ]),
+  /**
+   * Additional class name
+  */
+  className: PropTypes.string,
 };
 
 Button.defaultProps = {
