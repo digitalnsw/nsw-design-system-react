@@ -62,3 +62,28 @@ Group.args = {
     }
   ]
 };
+
+export const WithError = Template.bind({});
+WithError.args = {
+  errorText:"Please select an option",
+  status:"invalid",
+  label:"Select a thing",
+  helper:"And only one thing",
+  htmlId:"uniqueID",
+  as:"group",
+  options:[
+    {
+      value: '1',
+      text: 'Option 1',
+    },
+    {
+      value: '2',
+      text: 'Option 2',
+      selected: 'selected'
+    },
+    {
+      value: '3',
+      text: 'Option 3',
+    }
+  ]
+};

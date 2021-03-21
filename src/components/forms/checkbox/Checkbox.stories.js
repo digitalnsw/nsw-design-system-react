@@ -74,3 +74,42 @@ Single.args = {
     }
   ]
 };
+
+export const GroupError = Template.bind({});
+GroupError.args = {
+  errorText:"Please select at least one option",
+  status:"invalid",
+  label:"Select a thing",
+  helper:"Or more than one thing",
+  htmlId:"uniqueID",
+  as:"group",
+  options:[
+    {
+      value: '1',
+      text: 'Option 1',
+    },
+    {
+      value: '2',
+      text: 'Option 2',
+      selected: 'selected'
+    },
+    {
+      value: '3',
+      text: 'Option 3',
+    }
+  ]
+};
+
+export const SingleError = Template.bind({});
+SingleError.args = {
+  errorText:"You must accept to continue",
+  status:"invalid",
+  label:"Select a thing",
+  htmlId:"uniqueID-2",
+  options:[
+    {
+      value: '1',
+      text: 'Accept the terms of this checkbox',
+    }
+  ]
+};

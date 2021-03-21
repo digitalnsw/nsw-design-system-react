@@ -64,3 +64,30 @@ AsFormItem.args = {
     },
   ]
 };
+
+export const WithError = Template.bind({});
+WithError.args = {
+  errorText:"Please select an option",
+  status:"invalid",
+  label:"Select a thing",
+  helper:"Select from the list",
+  options:[
+    {
+      value: '',
+      text: 'Please select',
+      selected: 'selected'
+    },
+    {
+      value: '1',
+      text: 'Option 1',
+    },
+    {
+      value: '2',
+      text: 'Option 2',
+    },
+    {
+      value: '3',
+      text: 'Option 3',
+    },
+  ]
+};
