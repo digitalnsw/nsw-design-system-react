@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormGroupRadio} from "../components/forms/radio";
+import {FormGroupSelect} from "./";
 
 const Preamble = `
 ### Full documentation
@@ -19,14 +19,14 @@ npm install nsw-design-system-react
 To import this component
 
 \`\`\`javascript
-import {FormGroupRadio} from "nsw-design-system-react/components/forms/radio";
+import {FormGroupSelect} from "nsw-design-system-react/components/forms/select";
 \`\`\`
 
 `;
 
 export default {
-  title: 'Transaction/Radio',
-  component: FormGroupRadio,
+  title: 'Transaction/Dropdown (select)',
+  component: FormGroupSelect,
   parameters: {
     docs: {
       description: {
@@ -38,15 +38,17 @@ export default {
   }
 };
 
-const Template = (args) => <FormGroupRadio  {...args} />;
+const Template = (args) => <FormGroupSelect  {...args} />;
 
-export const Group = Template.bind({});
-Group.args = {
+export const AsFormItem = Template.bind({});
+AsFormItem.args = {
   label:"Select a thing",
-  helper:"And only one thing",
-  htmlId:"uniqueID",
-  as:"group",
+  helper:"Select from the list",
   options:[
+    {
+      value: '',
+      text: 'Please select',
+    },
     {
       value: '1',
       text: 'Option 1',
@@ -59,6 +61,6 @@ Group.args = {
     {
       value: '3',
       text: 'Option 3',
-    }
+    },
   ]
 };

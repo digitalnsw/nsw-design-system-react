@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormGroupCheckbox} from "../components/forms/checkbox";
+import {FormGroupRadio} from "./";
 
 const Preamble = `
 ### Full documentation
@@ -19,14 +19,14 @@ npm install nsw-design-system-react
 To import this component
 
 \`\`\`javascript
-import {FormGroupCheckbox} from "nsw-design-system-react/components/forms/checkbox";
+import {FormGroupRadio} from "nsw-design-system-react/components/forms/radio";
 \`\`\`
 
 `;
 
 export default {
-  title: 'Transaction/Checkboxes',
-  component: FormGroupCheckbox,
+  title: 'Transaction/Radio',
+  component: FormGroupRadio,
   parameters: {
     docs: {
       description: {
@@ -38,12 +38,12 @@ export default {
   }
 };
 
-const Template = (args) => <FormGroupCheckbox  {...args} />;
+const Template = (args) => <FormGroupRadio  {...args} />;
 
 export const Group = Template.bind({});
 Group.args = {
   label:"Select a thing",
-  helper:"Or more than one thing",
+  helper:"And only one thing",
   htmlId:"uniqueID",
   as:"group",
   options:[
@@ -59,18 +59,6 @@ Group.args = {
     {
       value: '3',
       text: 'Option 3',
-    }
-  ]
-};
-
-export const Single = Template.bind({});
-Single.args = {
-  label:"Select a thing",
-  htmlId:"uniqueID-2",
-  options:[
-    {
-      value: '1',
-      text: 'Option 1',
     }
   ]
 };

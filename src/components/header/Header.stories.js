@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Logo } from '../components/header';
+import { Header, Logo } from './';
 
 const Preamble = `
 ### Full documentation

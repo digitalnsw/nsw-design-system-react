@@ -1,5 +1,5 @@
 import React from 'react';
-import Breadcrumbs from "../components/breadcrumbs";
+import Breadcrumbs from "./";
 import { Meta, Story, Canvas, Description } from '@storybook/addon-docs/blocks';
 
 const Preamble = `

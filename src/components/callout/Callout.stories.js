@@ -1,5 +1,5 @@
 import React from 'react';
-import Callout from "../components/callout";
+import Callout from "./";
 
 const Preamble = `
 ### Full documentation

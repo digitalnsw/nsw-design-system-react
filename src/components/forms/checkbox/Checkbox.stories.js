@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormGroupSelect} from "../components/forms/select";
+import {FormGroupCheckbox} from "./";
 
 const Preamble = `
 ### Full documentation
@@ -19,14 +19,14 @@ npm install nsw-design-system-react
 To import this component
 
 \`\`\`javascript
-import {FormGroupSelect} from "nsw-design-system-react/components/forms/select";
+import {FormGroupCheckbox} from "nsw-design-system-react/components/forms/checkbox";
 \`\`\`
 
 `;
 
 export default {
-  title: 'Transaction/Dropdown (select)',
-  component: FormGroupSelect,
+  title: 'Transaction/Checkboxes',
+  component: FormGroupCheckbox,
   parameters: {
     docs: {
       description: {
@@ -38,17 +38,15 @@ export default {
   }
 };
 
-const Template = (args) => <FormGroupSelect  {...args} />;
+const Template = (args) => <FormGroupCheckbox  {...args} />;
 
-export const AsFormItem = Template.bind({});
-AsFormItem.args = {
+export const Group = Template.bind({});
+Group.args = {
   label:"Select a thing",
-  helper:"Select from the list",
+  helper:"Or more than one thing",
+  htmlId:"uniqueID",
+  as:"group",
   options:[
-    {
-      value: '',
-      text: 'Please select',
-    },
     {
       value: '1',
       text: 'Option 1',
@@ -61,6 +59,18 @@ AsFormItem.args = {
     {
       value: '3',
       text: 'Option 3',
-    },
+    }
+  ]
+};
+
+export const Single = Template.bind({});
+Single.args = {
+  label:"Select a thing",
+  htmlId:"uniqueID-2",
+  options:[
+    {
+      value: '1',
+      text: 'Option 1',
+    }
   ]
 };
