@@ -42,15 +42,14 @@ InpageNavLinksItem.propTypes = {
 /**
  * The inpage-nav component
  *
- * @param  {boolean} dark             - Add the dark variation class, optional
  * @param  {string}  title            - The title of the content link block, default: Contents
  * @param  {array}   sections         - An array of objects of all sections, sample: { link: '', title: '', onClick: () }
  * @param  {string}  className        - An additional class, optional
  * @param  {string}  ariaLabel        - The aria-label attribute, optional
  * @param  {object}  attributeOptions - Any other attribute options
  */
-export const InpageNavLinks = ({ dark, title, sections, ariaLabel, className = '', ...attributeOptions }) => (
-	<nav className={ `nsw-page-nav ${ className }${ dark ? ' nsw-page-nav--dark' : '' }` } ariaLabel={ ariaLabel } { ...attributeOptions }>
+export const InpageNavLinks = ({ title, sections, ariaLabel, className = '', ...attributeOptions }) => (
+	<nav className={ `nsw-page-nav ${ className }` } ariaLabel={ ariaLabel } { ...attributeOptions }>
 		<h2 className="nsw-page-nav__title">{ title }</h2>
 
 		<ul className="nsw-page-nav__list">
@@ -60,20 +59,35 @@ export const InpageNavLinks = ({ dark, title, sections, ariaLabel, className = '
 );
 
 InpageNavLinks.propTypes = {
-	dark: PropTypes.bool,
+  /**
+	 * In-page nav title
+	*/
 	title: PropTypes.string.isRequired,
+  /**
+	 * Sections to list
+	*/
 	sections: PropTypes.arrayOf(
 		PropTypes.shape({
 			link: PropTypes.string.isRequired,
 			title: PropTypes.string.isRequired,
+      /**
+       * Optional
+      */
 			li: PropTypes.object,
 		})
 	).isRequired,
+  /**
+	 * An additional class, optional
+	*/
 	className: PropTypes.string,
+  /**
+	 * Aria label
+	*/
+	ariaLabel: PropTypes.string,
 };
 
 InpageNavLinks.defaultProps = {
-	title: 'Contents',
+	title: 'On this page',
 	ariaLabel: 'in page navigation',
 };
 
