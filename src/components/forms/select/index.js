@@ -129,6 +129,10 @@ FormGroupSelect.propTypes = {
 	 * An additional class, optional
 	 */
 	className: PropTypes.string,
+	/**
+	 * Unique ID for this field
+	 */
+	htmlId: PropTypes.string,
 };
 
 FormGroupSelect.defaultProps = {
