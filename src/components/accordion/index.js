@@ -20,7 +20,7 @@ import { initSite } from "nsw-design-system/src/main.js";
 
 let IDstart = 0;
 
-class Accordion extends React.PureComponent {
+export class Accordion extends React.PureComponent {
     /**
      * Constructor
      * Create state and iterate over a unique ID
