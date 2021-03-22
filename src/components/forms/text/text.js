@@ -1,4 +1,3 @@
-
 /***************************************************************************************************************************************************************
  *
  * form functions
@@ -8,7 +7,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import nextId from "react-id-generator";
-import { FormGroup } from  '../group-elements';
+import {FormGroup} from '../group-elements';
 
 // The following line will be replaced automatically with generic imports for the ES5 pipeline.
 // You can safely ignore this bit if you use this module with pancake
@@ -35,43 +34,43 @@ import { FormGroup } from  '../group-elements';
  * @param  {string}  className        - An additional class, optional
  * @param  {object}  attributeOptions - Any other attribute options
  */
-export const TextInput = ({ as, status, htmlId, block, number, error, type = 'text', className = '', ...attributeOptions }) => (
-	as === 'textarea'
-		? <textarea
-				className={
-					`nsw-form-input ${ className }` +
-					`${ block ? ' nsw-form-input--block' : '' }` +
-					`${ number ? ' nsw-form-input--number' : '' }`
-				}
-        aria-invalid={ status === "invalid" ?  'true' : '' }
-        aria-describedby={ status === "invalid" ?  `helper${htmlId} error${htmlId}` : `helper${htmlId}` }
-        id={htmlId}
-				{ ...attributeOptions } >
+export const TextInput = ({as, status, htmlId, block, number, error, type = 'text', className = '', ...attributeOptions}) => (
+    as === 'textarea'
+        ? <textarea
+            className={
+                `nsw-form-input ${className}` +
+                `${block ? ' nsw-form-input--block' : ''}` +
+                `${number ? ' nsw-form-input--number' : ''}`
+            }
+            aria-invalid={status === "invalid" ? 'true' : ''}
+            aria-describedby={status === "invalid" ? `helper${htmlId} error${htmlId}` : `helper${htmlId}`}
+            id={htmlId}
+            {...attributeOptions} >
 			</textarea>
-		: <input className={
-					`nsw-form-input ${ className }` +
-					`${ block ? ' nsw-form-input--block' : '' }` +
-					`${ number ? ' nsw-form-input--number' : '' }`
-				}
-        aria-invalid={ status === "invalid" ?  'true' : '' }
-        aria-describedby={ status === "invalid" ?  `helper${htmlId} error${htmlId}` : `helper${htmlId}` }
-				type={ type } { ...attributeOptions }
-        id={htmlId}
-			/>
+        : <input className={
+            `nsw-form-input ${className}` +
+            `${block ? ' nsw-form-input--block' : ''}` +
+            `${number ? ' nsw-form-input--number' : ''}`
+        }
+                 aria-invalid={status === "invalid" ? 'true' : ''}
+                 aria-describedby={status === "invalid" ? `helper${htmlId} error${htmlId}` : `helper${htmlId}`}
+                 type={type} {...attributeOptions}
+                 id={htmlId}
+        />
 );
 
 TextInput.propTypes = {
-  /**
- 	 * Set textarea for textarea
- 	 */
-	 as: PropTypes.oneOf([ 'input', 'text' ]),
-	 block: PropTypes.bool,
-	 className: PropTypes.string
+    /**
+     * Set textarea for textarea
+     */
+    as: PropTypes.oneOf(['input', 'text']),
+    block: PropTypes.bool,
+    className: PropTypes.string
 };
 
 TextInput.defaultProps = {
-	as: 'input',
-  htmlId: 0
+    as: 'input',
+    htmlId: 0
 };
 
 /**
@@ -86,48 +85,45 @@ TextInput.defaultProps = {
  * @param  {object}  attributeOptions - Any other attribute options
  */
 export const FormGroupText = (props) => (
-  <FormGroup {...props}>
-    <TextInput {...props} />
-  </FormGroup>
+    <FormGroup {...props}>
+        <TextInput {...props} />
+    </FormGroup>
 );
 
 FormGroupText.propTypes = {
-  /**
-	 * Adds invalid state to checkbox / group
-	 */
-	status: PropTypes.oneOf([ 'invalid', false ]),
-	/**
-	 * An additional class, optional
-	 */
-	className: PropTypes.string,
-  /**
- 	 * Set textarea for textarea
- 	*/
-  as: PropTypes.oneOf([ 'input', 'textarea' ]),
-  /**
-	 * Adds invalid state to checkbox / group
-	 */
-	status: PropTypes.oneOf([ 'invalid', false ]),
-	/**
-	 * Text to show if field is in error state (ignored otherwise)
-	 */
-	errorText: PropTypes.string,
-	/**
-	 * Legend title for group (where `as` is 'group')
-	 */
-	 label: PropTypes.string,
- 	/**
- 	 * Helper text for the field
- 	 */
-	helper: PropTypes.string,
-  /**
-	 * Unique ID for this field
-	 */
-	htmlId: PropTypes.string,
+    /**
+     * Adds invalid state to checkbox / group
+     */
+    status: PropTypes.oneOf(['invalid', false]),
+    /**
+     * An additional class, optional
+     */
+    className: PropTypes.string,
+    /**
+     * Set textarea for textarea
+     */
+    as: PropTypes.oneOf(['input', 'textarea']),
+
+    /**
+     * Text to show if field is in error state (ignored otherwise)
+     */
+    errorText: PropTypes.string,
+    /**
+     * Legend title for group (where `as` is 'group')
+     */
+    label: PropTypes.string,
+    /**
+     * Helper text for the field
+     */
+    helper: PropTypes.string,
+    /**
+     * Unique ID for this field
+     */
+    htmlId: PropTypes.string,
 };
 
 FormGroupText.defaultProps = {
-	status: "valid",
-	className: '',
-  htmlId: nextId()
+    status: "valid",
+    className: '',
+    htmlId: nextId()
 }
