@@ -1,5 +1,3 @@
-
-/*! [replace-name] v[replace-version] */
 /***************************************************************************************************************************************************************
  *
  * link list function
@@ -9,13 +7,6 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-
-
-// The following line will be replaced automatically with generic imports for the ES5 pipeline.
-// You can safely ignore this bit if you use this module with pancake
-//
-// [replace-imports]
-
 
 /**
  * DEFAULT
@@ -40,53 +31,54 @@ import PropTypes from 'prop-types';
  * @param  {object} onClick          - The onClick event handler
  * @param  {object} attributeOptions - Any other attribute options, optional
  */
-export const LinkListItem = ({ text, link, linkComponent, li = {}, children, onClick, ...attributeOptions }) => {
-	const LinkComponent = linkComponent;
+export const LinkListItem = ({text, link, linkComponent, li = {}, children, onClick, ...attributeOptions}) => {
+    const LinkComponent = linkComponent;
 
-	// If there is no link provided and an onClick function
-	if( typeof onClick === 'function' ) {
-		attributeOptions.onClick = onClick;
+    // If there is no link provided and an onClick function
+    if (typeof onClick === 'function') {
+        attributeOptions.onClick = onClick;
 
-		// if we find an onClick event but no link we make it a link so onClick can be added (no button support yet)
-		if( !link ) {
-			link = '#';
-		}
-	}
+        // if we find an onClick event but no link we make it a link so onClick can be added (no button support yet)
+        if (!link) {
+            link = '#';
+        }
+    }
 
-	// If we are using a normal link
-	if( LinkComponent === 'a' ) {
-		attributeOptions.href = link;
-	}
-	// If we are using a link component
-	else if( typeof LinkComponent === 'function' ) {
-		attributeOptions.to = link;
-	}
+    // If we are using a normal link
+    if (LinkComponent === 'a') {
+        attributeOptions.href = link;
+    }
+    // If we are using a link component
+    else if (typeof LinkComponent === 'function') {
+        attributeOptions.to = link;
+    }
 
-	if( link ){
-		return (
-			<li className='nsw-link-list__item' { ...li }>
-				<LinkComponent { ...attributeOptions }>
-        { text }
-        <i class="material-icons nsw-material-icons nsw-link-list__icon" focusable="false" aria-hidden="true">east</i>
-        </LinkComponent>
-				{ children }
-			</li>
-		)
-	}
+    if (link) {
+        return (
+            <li className='nsw-link-list__item' {...li}>
+                <LinkComponent {...attributeOptions}>
+                    {text}
+                    <i class="material-icons nsw-material-icons nsw-link-list__icon" focusable="false"
+                       aria-hidden="true">east</i>
+                </LinkComponent>
+                {children}
+            </li>
+        )
+    }
 
-	return ( <li className='nsw-link-list__item' { ...li }>{ text }{ children }</li> );
+    return (<li className='nsw-link-list__item' {...li}>{text}{children}</li>);
 };
 
 LinkListItem.propTypes = {
-	text: PropTypes.node.isRequired,
-	link: PropTypes.string,
-	li: PropTypes.object,
-	onClick: PropTypes.func,
-	linkComponent: PropTypes.oneOfType([ PropTypes.string, PropTypes.func ])
+    text: PropTypes.node.isRequired,
+    link: PropTypes.string,
+    li: PropTypes.object,
+    onClick: PropTypes.func,
+    linkComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
 };
 
 LinkListItem.defaultProps = {
-	linkComponent: "a",
+    linkComponent: "a",
 };
 
 
@@ -99,41 +91,41 @@ LinkListItem.defaultProps = {
  * @param  {string}  linkComponent    - The component used for the link
  * @param  {object}  attributeOptions - Any other attribute options, optional
  */
-export const StyledLinkList = ({ items, linkComponent, className = '', ...attributeOptions }) => (
-  <div class="nsw-link-list">
-  	<ol className={ `nsw-link-list__list ${ className }` } { ...attributeOptions }>
-  		{
-  			items.map(
-  				( item, i ) => <LinkListItem linkComponent={ linkComponent } key={ i } { ...item } />
-  			)
-  		}
-  	</ol>
-  </div>
+export const StyledLinkList = ({items, linkComponent, className = '', ...attributeOptions}) => (
+    <div class="nsw-link-list">
+        <ol className={`nsw-link-list__list ${className}`} {...attributeOptions}>
+            {
+                items.map(
+                    (item, i) => <LinkListItem linkComponent={linkComponent} key={i} {...item} />
+                )
+            }
+        </ol>
+    </div>
 );
 
 StyledLinkList.propTypes = {
-  /**
-   * Array of items for link list
-  */
-	items: PropTypes.arrayOf(
-		PropTypes.shape({
-			link: PropTypes.string,
-			text: PropTypes.node.isRequired,
-			li: PropTypes.object,
-		})
-	).isRequired,
-  /**
-   * Link component (a/func)
-  */
-	linkComponent: PropTypes.oneOfType([ PropTypes.string, PropTypes.func ]),
-  /**
-   * An additional class, optional
-  */
-  className: PropTypes.string,
+    /**
+     * Array of items for link list
+     */
+    items: PropTypes.arrayOf(
+        PropTypes.shape({
+            link: PropTypes.string,
+            text: PropTypes.node.isRequired,
+            li: PropTypes.object,
+        })
+    ).isRequired,
+    /**
+     * Link component (a/func)
+     */
+    linkComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    /**
+     * An additional class, optional
+     */
+    className: PropTypes.string,
 };
 
 StyledLinkList.defaultProps = {
-	linkComponent: "a",
+    linkComponent: "a",
 };
 
 export default StyledLinkList;

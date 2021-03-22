@@ -1,5 +1,4 @@
 
-/*! [replace-name] v[replace-version] */
 /***************************************************************************************************************************************************************
  *
  * breadcrumbs function
@@ -28,7 +27,7 @@ import PropTypes from 'prop-types';
  * @param  {string}  className        - An additional class, optional
  * @param  {object}  attributeOptions - Any other attribute options
  */
-const Breadcrumbs = ({ label, items, linkComponent, className = '', ...attributeOptions }) => (
+export const Breadcrumbs = ({ label, items, linkComponent, className = '', ...attributeOptions }) => (
 	<nav
 		className={ `nsw-breadcrumb ${ className }` }
 		aria-label={ label }
@@ -130,7 +129,7 @@ BreadcrumbLinkListItem.defaultProps = {
  * @param  {string}  linkComponent    - The component used for the link
  * @param  {object}  attributeOptions - Any other attribute options, optional
  */
-const BreadcrumbLinkList = ({ inline, items, linkComponent, className = '', ...attributeOptions }) => (
+export const BreadcrumbLinkList = ({ inline, items, linkComponent, className = '', ...attributeOptions }) => (
 	<ol className={ `nsw-breadcrumb__list ${ className }${ inline ? ' nsw-breadcrumb__list--inline' : '' }` } { ...attributeOptions }>
 		{
 			items.map(
@@ -155,5 +154,3 @@ BreadcrumbLinkList.propTypes = {
 BreadcrumbLinkList.defaultProps = {
 	linkComponent: "a",
 };
-
-export default Breadcrumbs;

@@ -1,5 +1,3 @@
-
-/*! [replace-name] v[replace-version] */
 /***************************************************************************************************************************************************************
  *
  * inpage-nav function
@@ -10,13 +8,6 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-
-
-// The following line will be replaced automatically with generic imports for the ES5 pipeline.
-// You can safely ignore this bit if you use this module with pancake
-//
-// [replace-imports]
-
 
 /**
  * The section component for the InpageNavLinks component

@@ -1,5 +1,5 @@
 import React from 'react';
-import Callout from "./";
+import TagList from "./tags";
 
 const Preamble = `
 ### Full documentation
@@ -19,26 +19,37 @@ npm install nsw-design-system-react
 To import this component
 
 \`\`\`javascript
-import Callout from "nsw-design-system/components/callout";
+import TagList from "nsw-design-system-react/components/tags";
 \`\`\`
+
 `;
 
+
 export default {
-    title: 'Content/Callout',
-    component: Callout,
+    title: 'Content/Tags',
+    component: TagList,
     parameters: {
       docs: {
         description: {
-          component: Preamble
-        },
+          component: Preamble,
+        }
       },
     },
 };
 
-const Template = (args) => <Callout  {...args} />;
+const Template = (args) => <TagList  {...args} />;
 
-export const NSWCallout = Template.bind({});
-NSWCallout.args = {
-    title: 'Title',
-    children: <p>This is a callout</p>
+export const Tags = Template.bind({});
+Tags.args = {
+     tags: [
+       {
+         text: 'foo',
+       },
+       {
+         text: 'bar',
+       },
+       {
+         text: 'baz',
+       },
+     ]
 };

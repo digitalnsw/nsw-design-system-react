@@ -1,5 +1,5 @@
 import React from 'react';
-import NSWnotification from "./";
+import Notification from "./notification";
 
 const Preamble = `
 ### Full documentation
@@ -27,7 +27,7 @@ import NSWNotification from "nsw-design-system-react/components/notification";
 
 export default {
     title: 'Content/Notification',
-    component: NSWnotification,
+    component: Notification,
     parameters: {
       docs: {
         description: {
@@ -37,7 +37,7 @@ export default {
     },
 };
 
-const Template = (args) => <NSWnotification  {...args} />;
+const Template = (args) => <Notification  {...args} />;
 
 export const Info = Template.bind({});
 Info.args = {

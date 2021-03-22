@@ -1,5 +1,5 @@
 import React from 'react';
-import {ProgressIndicator as ProgressIndicatorComponent} from "./";
+import { ProgressIndicator as ProgressIndicatorComponent } from "./progressIndicator";
 
 const Preamble = `
 ### Full documentation

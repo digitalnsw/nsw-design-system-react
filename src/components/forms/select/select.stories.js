@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormGroupSelect} from "./";
+import { FormGroupSelect } from "./select";
 
 const Preamble = `
 ### Full documentation

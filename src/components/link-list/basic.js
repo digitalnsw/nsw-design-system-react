@@ -1,4 +1,4 @@
-/*! [replace-name] v[replace-version] */
+
 /***************************************************************************************************************************************************************
  *
  * link-lists function
@@ -9,12 +9,6 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-
-
-// The following line will be replaced automatically with generic imports for the ES5 pipeline.
-// You can safely ignore this bit if you use this module with pancake
-//
-// [replace-imports]
 
 /**
  * An item inside the LinkList component

@@ -1,5 +1,5 @@
 import React from 'react';
-import Card, {CardCopy} from "./";
+import Card, { CardCopy } from "./card";
 
 const Preamble = `
 ### Full documentation

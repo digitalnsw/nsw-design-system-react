@@ -1,14 +1,14 @@
 import 'nsw-design-system/src/main.scss'
 import React from "react";
-import Button from './components/button';
-import NSWNotification from './components/notification';
-import NSWTagList, {Tag} from './components/tags';
-import Callout from './components/callout';
-import NSWInpageNavLinks from './components/in-page-navigation';
-import NSWBreadcrumbs from './components/breadcrumbs';
-import { LinkList, StyledLinkList } from './components/link-list';
-import NSWCard, { CardContent, CardHeader, CardCopy, CardTag, CardDate } from './components/card';
-import Accordion from "./components/accordion";
+import Button from './components/button/button';
+import NSWNotification from './components/notification/notification';
+import NSWTagList, {Tag} from './components/tags/tags';
+import Callout from './components/callout/callout';
+import NSWInpageNavLinks from './components/in-page-navigation/inPageNavLinks';
+import NSWBreadcrumbs from './components/breadcrumbs/breadcrumb';
+import { LinkList, StyledLinkList } from './components/link-list/linkList';
+import NSWCard, { CardContent, CardHeader, CardCopy, CardTag, CardDate } from './components/card/card';
+import Accordion from "./components/accordion/accordion";
 import nextId from "react-id-generator";
 import * as Form from  './components/forms';
 

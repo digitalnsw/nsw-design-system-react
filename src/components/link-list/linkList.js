@@ -3,5 +3,5 @@ import StyledLinkList from './styled.js';
 
 export {
 	StyledLinkList,
-  LinkList
+    LinkList
 }

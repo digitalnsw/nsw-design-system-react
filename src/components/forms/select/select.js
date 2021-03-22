@@ -1,4 +1,3 @@
-/*! [replace-name] v[replace-version] */
 /***************************************************************************************************************************************************************
  *
  * select functions
@@ -10,17 +9,6 @@ import PropTypes from 'prop-types';
 import { FormGroup } from  '../group-elements';
 import nextId from "react-id-generator";
 const defHtmlId = nextId();
-
-// The following line will be replaced automatically with generic imports for the ES5 pipeline.
-// You can safely ignore this bit if you use this module with pancake
-//
-// [replace-imports]
-
-// The following line will be replaced automatically with generic imports for the ES5 pipeline.
-// You can safely ignore this bit if you use this module with pancake
-//
-// [replace-imports]
-
 
 /**
  * An item inside the Select component

@@ -1,6 +1,5 @@
 import React from 'react';
-import {Accordion as AccordionComp} from "./";
-
+import { Accordion as AccordionComponent } from "./accordion";
 const Preamble = `
 ### Full documentation
 
@@ -25,7 +24,7 @@ import Accordion from "nsw-design-system/components/accordion";
 
 export default {
     title: 'Content/Accordion',
-    component: AccordionComp,
+    component: AccordionComponent,
     parameters: {
       docs: {
         description: {
@@ -35,7 +34,7 @@ export default {
     },
 };
 
-const Template = (args) => <AccordionComp  {...args} />;
+const Template = (args) => <AccordionComponent  {...args} />;
 
 export const Accordion = Template.bind({});
 Accordion.args = {

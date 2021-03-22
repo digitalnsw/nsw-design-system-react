@@ -1,5 +1,5 @@
 import React from 'react';
-import {InpageNavLinks as InpageNavLinksComp} from "./";
+import { InpageNavLinks as InpageNavLinksComp } from "./inPageNavLinks";
 
 const Preamble = `
 ### Full documentation

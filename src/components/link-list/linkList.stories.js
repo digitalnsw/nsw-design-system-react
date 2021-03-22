@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyledLinkList as StyledLinkListComp} from "./";
+import { StyledLinkList as StyledLinkListComp } from "./linkList";
 
 const Preamble = `
 ### Full documentation

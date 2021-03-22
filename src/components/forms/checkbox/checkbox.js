@@ -1,4 +1,4 @@
-/*! [replace-name] v[replace-version] */
+
 /***************************************************************************************************************************************************************
  *
  * select functions
@@ -29,22 +29,22 @@ const defHtmlId = nextId();
  * @param  {string}   value            - The value of this option
  * @param  {object}   attributeOptions - Any other attribute options
  */
-export const RadioItem = ({ text, htmlId, value, status, as, uniqueID=nextId(), checked='', ...attributeOptions }) => (
+export const CheckboxItem = ({ text, htmlId, value, status, as, uniqueID=nextId(), checked='', ...attributeOptions }) => (
 	<>
 		<input
-			class="nsw-form-radio__input"
-			type="radio"
+			class="nsw-form-checkbox__input"
+			type="checkbox"
 			name={htmlId}
 
-      aria-invalid={ status === "invalid" && as != "group" ?  'true' : '' }
+      aria-invalid={ (status === "invalid" && !(as == "group")) ?  'true' : '' }
       aria-describedby={ status === "invalid" ?  `helper${htmlId} error${htmlId}` : `helper${htmlId}` }
 
 			id={ uniqueID } { ...checked }></input>
-		<label class="nsw-form-radio__label" for={ uniqueID }>{ text }</label>
+		<label class="nsw-form-checkbox__label" for={ uniqueID }>{ text }</label>
 	</>
 );
 
-RadioItem.propTypes = {
+CheckboxItem.propTypes = {
 	text: PropTypes.string.isRequired,
 	value: PropTypes.string.isRequired,
 	className: PropTypes.string,
@@ -54,17 +54,18 @@ RadioItem.propTypes = {
 
 
 /**
- * The text group component
+ * The checkbox group component
  *
  * @param  {string}  status           - Adds invalid state to form group
  * @param  {string}  errorText        - Text for error message
+ * @param  {string}  htmlId           - Unique ID for this checkbox group
  * @param  {string}  label            - Text for label
  * @param  {string}  helper           - Text for helper
  * @param  {array}   options          - The options for the select, format: { value: '', text: '' }
  * @param  {string}  className        - An additional class, optional
  * @param  {object}  attributeOptions - Any other attribute options
  */
-export const FormGroupRadio = (props) => (
+export const FormGroupCheckbox = (props) => (
 		<div className={`nsw-form-group ${ props.className }`}
 		>
 			<fieldset class="nsw-form-fieldset" aria-invalid={ props.status === "invalid" ?  'true' : '' }>
@@ -83,10 +84,10 @@ export const FormGroupRadio = (props) => (
 					: ''
 				}
 
-				<div class="nsw-form-radio">
+				<div class="nsw-form-checkbox">
 					{
 						props.options.map(
-							( option, i ) => <RadioItem key={ i } { ...option } htmlId={props.htmlId} status={props.status} />
+							( option, i ) => <CheckboxItem key={ i } { ...option } as={props.as} htmlId={props.htmlId} status={props.status} />
 						)
 					}
 				</div>
@@ -99,7 +100,7 @@ export const FormGroupRadio = (props) => (
 		</div>
 );
 
-FormGroupRadio.propTypes = {
+FormGroupCheckbox.propTypes = {
 	/**
 	 * Adds invalid state to checkbox / group
 	 */
@@ -139,9 +140,8 @@ FormGroupRadio.propTypes = {
 	className: PropTypes.string,
 };
 
-FormGroupRadio.defaultProps = {
+FormGroupCheckbox.defaultProps = {
 	status: false,
 	className: '',
-  htmlId: nextId(),
-	as: "group"
+  htmlId: nextId()
 }

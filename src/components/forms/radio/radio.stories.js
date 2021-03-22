@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormGroupRadio} from "./";
+import { FormGroupRadio } from "./radio";
 
 const Preamble = `
 ### Full documentation
