@@ -34,7 +34,7 @@ const icons = {
 };
 
 /**
- * DEFAULT
+ * Docs gen
  * Page alert
  *
  * @param  {boolean} dark             - Add the dark variation class, optional
