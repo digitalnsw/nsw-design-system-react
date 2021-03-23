@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormGroupText } from "./text";
+import { FormGroupText } from "./formText";
 
 const Preamble = `
 ### Full documentation

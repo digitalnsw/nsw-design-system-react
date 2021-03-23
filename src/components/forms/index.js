@@ -6,11 +6,11 @@
  **************************************************************************************************************************************************************/
 
 import React from 'react';
-import { TextInput, FormGroupText } from './text/text';
-import { Select, FormGroupSelect, SelectItem } from './select/select';
+import { TextInput, FormGroupText } from './text/formText';
+import { Select, FormGroupSelect, SelectItem } from './select/formSelect';
 import { FormGroup } from  './group-elements';
-import { FormGroupCheckbox } from './checkbox/checkbox';
-import { FormGroupRadio } from './radio/radio';
+import { FormGroupCheckbox } from './checkbox/formCheckbox';
+import { FormGroupRadio } from './radio/formRadio';
 import { ProgressIndicator } from './progress-indicator/progressIndicator';
 
 export {

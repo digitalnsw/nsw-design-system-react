@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormGroupCheckbox } from "./checkbox";
+import { FormGroupCheckbox } from "./formCheckbox";
 
 const Preamble = `
 ### Full documentation
