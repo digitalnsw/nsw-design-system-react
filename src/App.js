@@ -5,12 +5,13 @@ import NSWNotification from './components/notification/notification';
 import NSWTagList, {Tag} from './components/tags/tags';
 import Callout from './components/callout/callout';
 import NSWInpageNavLinks from './components/in-page-navigation/inPageNavLinks';
-import NSWBreadcrumbs from './components/breadcrumbs/breadcrumb';
+import Breadcrumbs from './components/breadcrumbs/breadcrumb';
 import { LinkList, StyledLinkList } from './components/link-list/linkList';
 import NSWCard, { CardContent, CardHeader, CardCopy, CardTag, CardDate } from './components/card/card';
 import Accordion from "./components/accordion/accordion";
 import nextId from "react-id-generator";
 import * as Form from  './components/forms';
+import DirectionLink from "./components/direction-links/directionLink";
 
 function App() {
 
@@ -131,7 +132,7 @@ function App() {
         ]} />
 
         <h2 class="section-title">Breadcrumbs</h2>
-        <NSWBreadcrumbs label="Breadcrumb for this page"
+        <Breadcrumbs label="Breadcrumb for this page"
                         items={[
             {
               link: '#',
@@ -381,6 +382,22 @@ function App() {
           },
         ]} />
       </div>
+      <DirectionLink
+          links={[
+            {
+              url: '#',
+              direction: 'top',
+              text: 'top',
+              screenReader: 'of the page',
+            },
+            {
+              url: '#',
+              direction: 'bottom',
+              text: 'bottom',
+              screenReader: 'of the page',
+            },
+          ]}
+      />
     </div>
   );
 }

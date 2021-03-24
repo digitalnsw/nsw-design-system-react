@@ -154,3 +154,5 @@ BreadcrumbLinkList.propTypes = {
 BreadcrumbLinkList.defaultProps = {
 	linkComponent: "a",
 };
+
+export default Breadcrumbs

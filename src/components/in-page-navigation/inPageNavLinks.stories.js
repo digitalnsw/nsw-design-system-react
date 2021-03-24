@@ -39,8 +39,6 @@ export default {
 
 const Template = (args) => <InpageNavLinksComp  {...args} />;
 
-
-
 export const InpageNavLinks = Template.bind({});
 InpageNavLinks.args = {
     sections: [
