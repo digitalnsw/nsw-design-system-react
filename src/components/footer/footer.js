@@ -127,7 +127,7 @@ FooterLower.propTypes = {
  * @param  {string}  className        - An additional class, optional
  * @param  {object}  attributeOptions - Any other attribute options
  */
-export const Footer = ({children, className = '', ...attributeOptions}) => (
+const Footer = ({children, className = '', ...attributeOptions}) => (
     <footer
         className={`nsw-footer ${className}`}
         {...attributeOptions}
@@ -141,3 +141,5 @@ Footer.propTypes = {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
 };
+
+export default Footer;

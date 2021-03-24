@@ -12,7 +12,7 @@ import Accordion from "./components/accordion/accordion";
 import nextId from "react-id-generator";
 import * as Form from  './components/forms';
 import DirectionLink from "./components/direction-links/directionLink";
-import Footer, {FooterUpper, FooterLower, FooterSectionGroup, FooterLinks} from "./components/footer/footerLinks";
+import Footer, {FooterUpper, FooterLower, FooterSectionGroup, FooterLinks} from "./components/footer/footer";
 
 function App() {
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {DirectionLink as DirectionLinkComponent, DirectionLink as DirectionLinksComponent} from "./directionLink";
+import {DirectionLink as DirectionLinkComponent, DirectionLinks as DirectionLinksComponent} from "./directionLink";
 
 export default {
     title: 'Content/DirectionLink',

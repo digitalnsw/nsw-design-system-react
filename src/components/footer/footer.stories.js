@@ -1,14 +1,14 @@
 import React from 'react';
-import {Footer as FooterComponent, FooterLinks, FooterLower, FooterSectionGroup, FooterUpper} from "./footerLinks";
-
+import { FooterLinks, FooterLower, FooterSectionGroup, FooterUpper} from "./footer";
+import Footer from "./footer"
 
 export default {
-    title: 'Template/Footer',
-    components: FooterComponent,
+    title: 'Templates/Footer',
+    components: Footer,
 };
 
 const Template = () => (
-    <FooterComponent>
+    <Footer>
         <FooterUpper>
             <FooterSectionGroup
                 heading={{
@@ -90,7 +90,7 @@ const Template = () => (
                 <p>Copyright © 2021</p>
             </div>
         </FooterLower>
-    </FooterComponent>
+    </Footer>
 );
 
-export const Footer = Template.bind({});
+export const FooterTemplate = Template.bind({});
