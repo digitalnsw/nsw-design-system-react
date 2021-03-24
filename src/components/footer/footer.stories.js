@@ -7,7 +7,7 @@ export default {
     components: FooterComponent,
 };
 
-const Template = ({heading, sectionLinks}) => (
+const Template = () => (
     <FooterComponent>
         <FooterUpper>
             <FooterSectionGroup
