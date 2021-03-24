@@ -1,4 +1,3 @@
-
 /***************************************************************************************************************************************************************
  *
  * breadcrumbs function
@@ -27,40 +26,30 @@ import PropTypes from 'prop-types';
  * @param  {string}  className        - An additional class, optional
  * @param  {object}  attributeOptions - Any other attribute options
  */
-export const Breadcrumbs = ({ label, items, linkComponent, className = '', ...attributeOptions }) => (
-	<nav
-		className={ `nsw-breadcrumb ${ className }` }
-		aria-label={ label }
-		{ ...attributeOptions }
-	>
-		<BreadcrumbLinkList inline linkComponent={ linkComponent } items={ items } />
-	</nav>
+export const Breadcrumbs = ({label, items, linkComponent, className = '', ...attributeOptions}) => (
+    <nav
+        className={`nsw-breadcrumb ${className}`}
+        aria-label={label}
+        {...attributeOptions}
+    >
+        <BreadcrumbLinkList inline linkComponent={linkComponent} items={items}/>
+    </nav>
 );
 
 Breadcrumbs.propTypes = {
-  /** Breadcrumb items */
-  items: PropTypes.arrayOf(
-		PropTypes.shape({
-      /** Item link */
-			link: PropTypes.string,
-      /** Item text */
-			text: PropTypes.string.isRequired,
-		})
-	).isRequired,
-  /** link component - a / func */
-	linkComponent: PropTypes.oneOfType([ PropTypes.string, PropTypes.func ]),
-  /**
-  * aria label
-  */
-	aria: PropTypes.string,
-  /**
-   * Additional class name
-  */
-  className: PropTypes.string,
+    items: PropTypes.arrayOf(
+        PropTypes.shape({
+            link: PropTypes.string,
+            text: PropTypes.string.isRequired,
+        })
+    ).isRequired,
+    linkComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    aria: PropTypes.string,
+    className: PropTypes.string,
 };
 
 Breadcrumbs.defaultProps = {
-	linkComponent: 'a',
+    linkComponent: 'a',
 };
 
 /**
@@ -73,50 +62,50 @@ Breadcrumbs.defaultProps = {
  * @param  {object} onClick          - The onClick event handler
  * @param  {object} attributeOptions - Any other attribute options, optional
  */
-export const BreadcrumbLinkListItem = ({ text, link, linkComponent, li = {}, children, onClick, ...attributeOptions }) => {
-	const LinkComponent = linkComponent;
+export const BreadcrumbLinkListItem = ({text, link, linkComponent, li = {}, children, onClick, ...attributeOptions}) => {
+    const LinkComponent = linkComponent;
 
-	// If there is no link provided and an onClick function
-	if( typeof onClick === 'function' ) {
-		attributeOptions.onClick = onClick;
+    // If there is no link provided and an onClick function
+    if (typeof onClick === 'function') {
+        attributeOptions.onClick = onClick;
 
-		// if we find an onClick event but no link we make it a link so onClick can be added (no button support yet)
-		if( !link ) {
-			link = '#';
-		}
-	}
+        // if we find an onClick event but no link we make it a link so onClick can be added (no button support yet)
+        if (!link) {
+            link = '#';
+        }
+    }
 
-	// If we are using a normal link
-	if( LinkComponent === 'a' ) {
-		attributeOptions.href = link;
-	}
-	// If we are using a link component
-	else if( typeof LinkComponent === 'function' ) {
-		attributeOptions.to = link;
-	}
+    // If we are using a normal link
+    if (LinkComponent === 'a') {
+        attributeOptions.href = link;
+    }
+    // If we are using a link component
+    else if (typeof LinkComponent === 'function') {
+        attributeOptions.to = link;
+    }
 
-	if( link ){
-		return (
-			<li className='nsw-breadcrumb__item' { ...li }>
-				<LinkComponent className='nsw-breadcrumb__link' { ...attributeOptions }>{ text }</LinkComponent>
-				{ children }
-			</li>
-		)
-	}
+    if (link) {
+        return (
+            <li className='nsw-breadcrumb__item' {...li}>
+                <LinkComponent className='nsw-breadcrumb__link' {...attributeOptions}>{text}</LinkComponent>
+                {children}
+            </li>
+        )
+    }
 
-	return ( <li className='nsw-breadcrumb__item' { ...li }>{ text }{ children }</li> );
+    return (<li className='nsw-breadcrumb__item' {...li}>{text}{children}</li>);
 };
 
 BreadcrumbLinkListItem.propTypes = {
-	text: PropTypes.node.isRequired,
-	link: PropTypes.string,
-	li: PropTypes.object,
-	onClick: PropTypes.func,
-	linkComponent: PropTypes.oneOfType([ PropTypes.string, PropTypes.func ])
+    text: PropTypes.node.isRequired,
+    link: PropTypes.string,
+    li: PropTypes.object,
+    onClick: PropTypes.func,
+    linkComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
 };
 
 BreadcrumbLinkListItem.defaultProps = {
-	linkComponent: "a",
+    linkComponent: "a",
 };
 
 
@@ -129,30 +118,30 @@ BreadcrumbLinkListItem.defaultProps = {
  * @param  {string}  linkComponent    - The component used for the link
  * @param  {object}  attributeOptions - Any other attribute options, optional
  */
-export const BreadcrumbLinkList = ({ inline, items, linkComponent, className = '', ...attributeOptions }) => (
-	<ol className={ `nsw-breadcrumb__list ${ className }${ inline ? ' nsw-breadcrumb__list--inline' : '' }` } { ...attributeOptions }>
-		{
-			items.map(
-				( item, i ) => <BreadcrumbLinkListItem linkComponent={ linkComponent } key={ i } { ...item } />
-			)
-		}
-	</ol>
+export const BreadcrumbLinkList = ({inline, items, linkComponent, className = '', ...attributeOptions}) => (
+    <ol className={`nsw-breadcrumb__list ${className}${inline ? ' nsw-breadcrumb__list--inline' : ''}`} {...attributeOptions}>
+        {
+            items.map(
+                (item, i) => <BreadcrumbLinkListItem linkComponent={linkComponent} key={i} {...item} />
+            )
+        }
+    </ol>
 );
 
 BreadcrumbLinkList.propTypes = {
-	inline: PropTypes.bool,
-	items: PropTypes.arrayOf(
-		PropTypes.shape({
-			link: PropTypes.string,
-			text: PropTypes.node.isRequired,
-			li: PropTypes.object,
-		})
-	).isRequired,
-	linkComponent: PropTypes.oneOfType([ PropTypes.string, PropTypes.func ])
+    inline: PropTypes.bool,
+    items: PropTypes.arrayOf(
+        PropTypes.shape({
+            link: PropTypes.string,
+            text: PropTypes.node.isRequired,
+            li: PropTypes.object,
+        })
+    ).isRequired,
+    linkComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
 };
 
 BreadcrumbLinkList.defaultProps = {
-	linkComponent: "a",
+    linkComponent: "a",
 };
 
 export default Breadcrumbs

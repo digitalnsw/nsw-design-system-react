@@ -12,6 +12,7 @@ import Accordion from "./components/accordion/accordion";
 import nextId from "react-id-generator";
 import * as Form from  './components/forms';
 import DirectionLink from "./components/direction-links/directionLink";
+import Footer, {FooterUpper, FooterLower, FooterSectionGroup, FooterLinks} from "./components/footer/footerLinks";
 
 function App() {
 
@@ -381,23 +382,105 @@ function App() {
             onClick: () => console.log('You clicked me!'),
           },
         ]} />
+        <DirectionLink
+            links={[
+              {
+                url: '#',
+                direction: 'top',
+                text: 'top',
+                screenReader: 'of the page',
+              },
+              {
+                url: '#',
+                direction: 'bottom',
+                text: 'bottom',
+                screenReader: 'of the page',
+              },
+            ]}
+        />
       </div>
-      <DirectionLink
-          links={[
-            {
-              url: '#',
-              direction: 'top',
-              text: 'top',
-              screenReader: 'of the page',
-            },
-            {
-              url: '#',
-              direction: 'bottom',
-              text: 'bottom',
-              screenReader: 'of the page',
-            },
-          ]}
-      />
+      <Footer>
+        <FooterUpper>
+          <FooterSectionGroup
+              heading={{
+                url: '#',
+                text: 'Section Link 1'
+              }
+              }
+              sectionLinks={[
+                {
+                  url: '#',
+                  text: 'Section Link 1',
+                },
+                {
+                  url: '#',
+                  text: 'Section Link 1',
+                },
+                {
+                  url: '#',
+                  text: 'Section Link 1',
+                },
+                {
+                  url: '#',
+                  text: 'Section Link 1',
+                }
+              ]}
+          />
+          <FooterSectionGroup
+              heading={{
+                url: '#',
+                text: 'Section Link 1'
+              }
+              }
+              sectionLinks={[
+                {
+                  url: '#',
+                  text: 'Section Link 1',
+                },
+                {
+                  url: '#',
+                  text: 'Section Link 1',
+                },
+                {
+                  url: '#',
+                  text: 'Section Link 1',
+                },
+                {
+                  url: '#',
+                  text: 'Section Link 1',
+                }
+              ]}
+          />
+        </FooterUpper>
+        <FooterLower>
+          <div className="nsw-container">
+            <p>We pay respect to the Traditional Custodians and First Peoples of NSW, and acknowledge their continued
+              connection to their country and culture.</p>
+            <hr/>
+              <FooterLinks
+                  footerLinks={[
+                    {
+                      url: '#',
+                      text: 'Tertiary',
+                    },
+                    {
+                      url: '#',
+                      text: 'Tertiary',
+                    },
+                    {
+                      url: '#',
+                      text: 'Tertiary',
+                    },
+                    {
+                      url: '#',
+                      text: 'Tertiary',
+                    }
+                  ]}
+              />
+              <p>Copyright © 2019</p>
+          </div>
+        </FooterLower>
+      </Footer>
     </div>
   );
 }
