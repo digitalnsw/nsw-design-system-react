@@ -1,4 +1,6 @@
 import 'nsw-design-system/src/main.scss'
+import "@fontsource/montserrat"
+import "@fontsource/montserrat/600.css"
 import React from "react";
 import Button from './components/button/button';
 import NSWNotification from './components/notification/notification';
