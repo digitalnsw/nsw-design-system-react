@@ -17,13 +17,13 @@ import PropTypes from 'prop-types';
  * @param {string}   imageAlt           - The alt text for image (mandatory if image supplied)
  * @param {string}   copy               - The content of the content block
  * @param {string}   headline           - Title for card
- * @param {string}   viewMore           - Add a view more link
+ * @param {object}   mainLink           - Add a view more link
  * @param {bool}     content            - Removes highlight bar if true
  * @param {string}   className          - An additional class, optional
  * @param {array}    links               - A list of anchor tags and its links
  * @param {object}   attributeOptions   - Default HTML attributes
  */
-export const ContentBlock = ({links, viewMore, headline, copy, image, imageAlt, icon, className, children, ...attributesOptions}) => {
+export const ContentBlock = ({links, mainLink, headline, copy, image, imageAlt, icon, className, children, ...attributesOptions}) => {
     let ContentBlockContainer = 'div';
     return (
         <ContentBlockContainer className={`nsw-content-block ${className}`}>
@@ -39,7 +39,7 @@ export const ContentBlock = ({links, viewMore, headline, copy, image, imageAlt, 
                         ) : ''
                     }
                 </ul>
-                {viewMore ? <div className="nsw-content-block__link"><a href={viewMore}>View more</a></div> : ''}
+                {mainLink ? <div className="nsw-content-block__link"><a href={mainLink.url}>{mainLink.text}</a></div> : ''}
             </div>
             {image ? <ContentBlockImage src={image} alt={imageAlt}/> : ''}
             {icon ? <ContentBlockIcon>{icon}</ContentBlockIcon> : ''}
@@ -61,9 +61,23 @@ ContentBlock.propTypes = {
      */
     headline: PropTypes.string.isRequired,
     /**
-     * Removes highlight bar if true
+     * Array of link objects
      */
-    content: PropTypes.bool,
+    links: PropTypes.arrayOf(
+        PropTypes.shape({
+                url: PropTypes.string.isRequired,
+                text: PropTypes.string.isRequired,
+            }
+        )
+    ),
+    /**
+     * Array of link objects
+     */
+    mainLink: PropTypes.shape({
+                url: PropTypes.string.isRequired,
+                text: PropTypes.string.isRequired,
+            }
+    ),
     /**
      * Additional class names
      */

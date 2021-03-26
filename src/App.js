@@ -11,8 +11,9 @@ import NSWCard, { CardContent, CardHeader, CardCopy, CardTag, CardDate } from '.
 import Accordion from "./components/accordion/accordion";
 import nextId from "react-id-generator";
 import * as Form from  './components/forms';
-import DirectionLink from "./components/direction-links/directionLink";
+import DirectionLinks from "./components/direction-links/directionLink";
 import Footer, {FooterUpper, FooterLower, FooterSectionGroup, FooterLinks} from "./components/footer/footer";
+import Tabs, {TabItem, TabItems, TabSection} from "./components/tabs/tabs";
 
 function App() {
 
@@ -382,7 +383,7 @@ function App() {
             onClick: () => console.log('You clicked me!'),
           },
         ]} />
-        <DirectionLink
+        <DirectionLinks
             links={[
               {
                 url: '#',
@@ -398,6 +399,14 @@ function App() {
               },
             ]}
         />
+        <Tabs>
+          <TabItems>
+            <TabItem title='Tab 1' urlHash='tab1'></TabItem>
+            <TabItem title='Tab 2' urlHash='tab2'></TabItem>
+          </TabItems>
+          <TabSection urlHash='tab1'>This is a tab 1 content</TabSection>
+          <TabSection urlHash='tab2'>This is a tab 2 content</TabSection>
+        </Tabs>
       </div>
       <Footer>
         <FooterUpper>
