@@ -16,11 +16,34 @@ import * as Form from  './components/forms';
 import DirectionLinks from "./components/direction-links/directionLink";
 import Footer, {FooterUpper, FooterLower, FooterSectionGroup, FooterLinks} from "./components/footer/footer";
 import Tabs, {TabItem, TabItems, TabSection} from "./components/tabs/tabs";
+import {MainNav} from "./components/main-nav/mainNav";
 
 function App() {
 
   return (
     <div className="App">
+      <MainNav navItems={[
+        {
+          "text": "About DPC",
+          "url": "http://google.com",
+        },
+        {
+          "text": "Updates",
+          "url": "/index.html#updates"
+        },
+        {
+          "text": "Publications",
+          "url": "/index.html#publications"
+        },
+        {
+          "text": "Tools & Resources",
+          "url": "/index.html#tools-resources"
+        },
+        {
+          "text": "Contact us",
+          "url": "/index.html#contact-us"
+        }
+      ]}/>
       <div class="nsw-container">
         <h2 class="section-title">Accordion</h2>
         <Accordion contents={[
