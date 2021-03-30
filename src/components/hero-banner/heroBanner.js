@@ -27,15 +27,17 @@ export const HeroBanner = ({title, intro, cta, dark, wide, featured, image, list
 
     return (
         <div
-            className={`nsw-banner nsw-banner--wide ${dark ? ' nsw-banner--dark' : ''} ${wide ? ' nsw-banner--wide' : ''} ${featured ? ' nsw-banner--featured' : ''}  ${className}`} {...attributeOptions}>
+            className={`nsw-banner ${dark ? ' nsw-banner--dark' : ''} ${wide ? 'nsw-banner--wide' : ''} ${featured ? ' nsw-banner--featured' : ''}  ${className}`} {...attributeOptions}>
             <div className="nsw-banner__container">
                 <div className="nsw-banner__wrapper">
                     <div className="nsw-banner__content nsw-wysiwyg-content">
                         <h1>{title}</h1>
                         <p className="nsw-intro">{intro}</p>
-                        <div className="nsw-banner__button"><a href={cta.url}
-                                                               className={`nsw-button ${dark ? 'nsw-button--white' : 'nsw-button--primary'}`}>{cta.text}</a>
-                        </div>
+                        {
+                            cta ? <div className="nsw-banner__button">
+                            <a href={cta.url} className={`nsw-button ${dark ? 'nsw-button--white' : 'nsw-button--primary'}`}>{cta.text}</a></div> : ''
+                        }
+
                     </div>
                     {children}
                     <div className="nsw-banner__box" role="presentation">
@@ -66,7 +68,7 @@ HeroBanner.propTypes = {
     dark: PropTypes.bool,
     wide: PropTypes.bool,
     featured: PropTypes.bool,
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node,
     className: PropTypes.string,
 };
 

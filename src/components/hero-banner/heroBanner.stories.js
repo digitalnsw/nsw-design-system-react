@@ -31,28 +31,25 @@ const BannerLinkedList = (args) => (
 export const Default = Template.bind({});
 
 Default.args = {
-    title: 'This is a heading',
-    intro: 'This is a subheading',
-    cta: {url: '#', text: 'tertiary'},
+    title: 'Helping you deliver great government services',
+    intro: 'Find the building blocks for creating user-centred digital services, as well as policy, tools and guidance',
+    cta: {url: '#', text: 'Learn more'},
     image: {src: 'https://picsum.photos/id/237/2000/1250', alt: 'Labrador dog'}
 }
 
 export const Dark = Template.bind({});
 
 Dark.args = {
-    title: 'This is a heading',
+    title: 'Helping you deliver great government services',
     dark: true,
-    wide: true,
-    intro: 'This is a subheading',
-    cta: {url: '#', text: 'tertiary'},
+    intro: 'Find the building blocks for creating user-centred digital services, as well as policy, tools and guidance',
+    cta: {url: '#', text: 'Learn more'},
     image: {src: 'https://picsum.photos/id/237/2000/1250', alt: 'Labrador dog'}
 }
 
 export const LinkedList = BannerLinkedList.bind({})
 
 LinkedList.args = {
-    title: 'This is a heading',
-    wide: true,
-    intro: 'This is a subheading',
-    cta: {url: '#', text: 'tertiary'},
+    title: 'Helping you deliver great government services',
+    intro: 'Find the building blocks for creating user-centred digital services, as well as policy, tools and guidance',
 }
