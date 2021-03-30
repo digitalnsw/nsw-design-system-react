@@ -7,29 +7,220 @@ export default {
     component: MainNav,
 };
 
-const Template = () => (
-    <MainNav navItems={[
+// const Template = () => (
+//     <MainNav navItems={[
+//         {
+//             "text": "About DPC",
+//             "url": "http://google.com",
+//             "subNav": [
+//                 {
+//                     "text": "Level 2",
+//                     "url": "#"
+//                 }
+//             ]
+//         },
+//         {
+//             "text": "Updates",
+//             "url": "/index.html#updates"
+//         },
+//         {
+//             "text": "Publications",
+//             "url": "/index.html#publications"
+//         },
+//         {
+//             "text": "Tools & Resources",
+//             "url": "/index.html#tools-resources"
+//         },
+//         {
+//             "text": "Contact us",
+//             "url": "/index.html#contact-us"
+//         }
+//     ]}/>
+// );
+//
+// export const MainNavigation = Template.bind({});
+const megaNavTemplate = (args) => (
+    <MainNav {...args}/>
+)
+export const MegaNavigation = megaNavTemplate.bind({});
+MegaNavigation.args = {
+    navItems: [
         {
             "text": "About DPC",
-            "url": "http://google.com",
+            "url": "/index.html#about-dpc",
+            "id": "914d7e2",
+            "description": "Filium morte multavit si sine causa? quae fuerit causa, nollem.",
+            "subNav": [
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2",
+                    "id": "1138",
+                    "subNav": [
+                        {
+                            "text": "Level 3",
+                            "url": "/index.html#level-3"
+                        },
+                        {
+                            "text": "Level 3",
+                            "url": "/index.html#level-3"
+                        },
+                        {
+                            "text": "Level 3",
+                            "url": "/index.html#level-3"
+                        }
+                    ]
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                }
+            ]
         },
         {
             "text": "Updates",
-            "url": "/index.html#updates"
+            "url": "/index.html#updates",
+            "id": "3250fbee",
+            "subNav": [
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                }
+            ]
         },
         {
             "text": "Publications",
-            "url": "/index.html#publications"
+            "url": "/index.html#publications",
+            "id": "bd48c03b",
+            "subNav": [
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                }
+            ]
         },
         {
             "text": "Tools & Resources",
-            "url": "/index.html#tools-resources"
+            "url": "/index.html#tools-resources",
+            "id": "c457a536",
+            "subNav": [
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                },
+                {
+                    "text": "Level 2",
+                    "url": "/index.html#level-2"
+                }
+            ]
         },
         {
             "text": "Contact us",
-            "url": "/index.html#contact-us"
+            "url": "/index.html#contact-us",
+            "id": "017200ca"
         }
-    ]}/>
-);
-
-export const MainNavigation = Template.bind({});
+    ], megaMenu: true
+}

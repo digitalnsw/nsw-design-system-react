@@ -6,7 +6,8 @@
 
 import React from "react";
 import PropTypes from "prop-types";
-import {initSite} from "nsw-design-system/src/main";
+import {Navigation} from "nsw-design-system/src/main";
+import {v4 as uuidv4} from 'uuid';
 
 /**
  * Docs gen
@@ -26,23 +27,22 @@ export class MainNav extends React.PureComponent {
      */
     constructor(props) {
         super(props);
-
-        const {navItems, className = '', children, ...attributeOptions} = props;
-
+        const {navItems, megaMenu, className = '', children, ...attributeOptions} = props;
     }
 
-
     componentDidMount() {
-        initSite();
+        new Navigation().init()
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        initSite();
+        new Navigation().init()
     }
 
     render() {
         return (
-            <nav id="main-navigation" className="nsw-navigation js-open-navigation" aria-label="true">
+            <nav id="main-navigation"
+                 className={`nsw-navigation js-open-navigation ${this.props.megaMenu ? 'js-mega-menu' : ''}`}
+                 aria-label="true">
                 <div className="nsw-navigation__header">
                     <h2 id="nsw-navigation">Menu</h2>
                     <button type="button" className="nsw-navigation__close js-close-navigation" aria-expanded="true">
@@ -54,10 +54,23 @@ export class MainNav extends React.PureComponent {
                     {
                         this.props.navItems.map(
                             (navItem) => (
-                                <li className="nsw-navigation__list-item">
+                                <li className="nsw-navigation__list-item" key={uuidv4()}>
                                     <a href={navItem.url} className="nsw-navigation__link">
                                         <span className="nsw-navigation__link-text">{navItem.text}</span>
+                                        {navItem.subNav ?
+                                            <i className="material-icons nsw-material-icons nsw-navigation__link-icon"
+                                               focusable="false" aria-hidden="true">keyboard_arrow_right</i> : ''
+                                        }
                                     </a>
+                                    {navItem.subNav ?
+                                        <SubNav
+                                            subNav={navItem.subNav}
+                                            url={navItem.url}
+                                            text={navItem.text}
+                                            description={navItem.description}
+                                            id={navItem.id}
+                                        ></SubNav> : ''
+                                    }
                                 </li>
                             )
                         )
@@ -68,12 +81,93 @@ export class MainNav extends React.PureComponent {
     }
 };
 
+export const SubNavHeader = ({url, text, description, id}) => {
+    return (
+        <div>
+            <div className="nsw-subnavigation__header">
+                <button type="button" className="nsw-subnavigation__back-btn js-close-subnav"
+                        aria-controls={`subnav-` + id}
+                        aria-expanded="true">
+                    <i className="material-icons nsw-material-icons nsw-material-icons--rotate-180" focusable="false"
+                       aria-hidden="true">keyboard_arrow_right</i>
+                    <span>Back<span className="sr-only"> to previous menu</span></span>
+                </button>
+                <button type="button" className="nsw-navigation__close js-close-navigation" aria-expanded="true">
+                    <i className="material-icons nsw-material-icons" focusable="false" aria-hidden="true">close</i>
+                    <span className="sr-only">Close Menu</span>
+                </button>
+            </div>
+            <h2 className="nsw-subnavigation__title">
+                <a href={url} className="nsw-subnavigation__title-link">
+                    <span>{text}</span>
+                    <i className="material-icons nsw-material-icons nsw-card__icon" focusable="false"
+                       aria-hidden="true">east</i>
+                </a>
+            </h2>
+            <p className="nsw-subnavigation__description">{description}</p>
+        </div>
+    )
+}
 
+export const SubNav = ({subNav, url, text, description}) => {
+    const id = uuidv4();
+    return (
+        <div className="nsw-subnavigation" id={`subnav-` + id} role="region" aria-label={text}>
+            <SubNavHeader url={url}
+                          text={text}
+                          description={description}
+                          id={id}
+            ></SubNavHeader>
+            <ul className="nsw-subnavigation__list">
+                {subNav.map((subNavItem) => (
+                    <li className="nsw-subnavigation__list-item" key={uuidv4()}>
+                        <a href={subNavItem.url} className="nsw-subnavigation__link">
+                            <span className="nsw-navigation__link-text">
+                            {subNavItem.text}
+                            </span>
+                            {subNavItem.subNav ?
+                                <i className="material-icons nsw-material-icons nsw-navigation__link-icon"
+                                   focusable="false" aria-hidden="true">keyboard_arrow_right</i> : ''
+                            }
+                        </a>
+
+                            {subNavItem.subNav ?  <div className="nsw-subnavigation" id={`subnav-` + uuidv4()} role="region"
+                                                       aria-label={text + ' Submenu'}>
+                                <SubNavHeader url={url}
+                                              text={text}
+                                              description={description}
+                                ></SubNavHeader>
+                                <ul className="nsw-subnavigation__list">
+                                    {subNavItem.subNav.map((subSubNavItem) => (
+                                        <li className="nsw-subnavigation__list-item">
+                                            <a href={subSubNavItem.url} className="nsw-subnavigation__link">
+                            <span className="nsw-navigation__link-text">
+                            {subSubNavItem.text}
+                            </span>
+                                                {subSubNavItem.subNav ?
+                                                    <i className="material-icons nsw-material-icons nsw-navigation__link-icon"
+                                                       focusable="false"
+                                                       aria-hidden="true">keyboard_arrow_right</i> : ''
+                                                }
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div> : ''}
+                    </li>
+                ))}
+            </ul>
+        </div>
+    )
+}
 MainNav.propTypes = {
     navItems: PropTypes.arrayOf(
         PropTypes.shape({
             url: PropTypes.string,
             text: PropTypes.string,
+            description: PropTypes.string,
+            subNav: PropTypes.array
         })
-    ).isRequired
+    ).isRequired,
+    megaMenu: PropTypes.bool,
 }
