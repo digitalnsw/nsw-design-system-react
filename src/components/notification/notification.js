@@ -64,21 +64,9 @@ export const Notification = ({
 );
 
 Notification.propTypes = {
-    /**
-     * Type of notification
-     */
     as: PropTypes.oneOf(["info", "warning", "error", "success"]).isRequired,
-    /**
-     * Content of notification
-     */
     children: PropTypes.node.isRequired,
-    /**
-     * Additional class name
-     */
     className: PropTypes.string,
-    /**
-     * Notification title
-     */
     title: PropTypes.string,
 };
 
