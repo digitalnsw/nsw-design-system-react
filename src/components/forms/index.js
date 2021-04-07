@@ -1,26 +1,25 @@
-
-/***************************************************************************************************************************************************************
+/** *************************************************************************************************************************************************************
  *
  * form functions
  *
- **************************************************************************************************************************************************************/
+ ************************************************************************************************************************************************************* */
 
 import React from 'react';
 import { TextInput, FormGroupText } from './text/formText';
 import { Select, FormGroupSelect, SelectItem } from './select/formSelect';
-import { FormGroup } from  './group-elements';
+import { FormGroup } from './group-elements';
 import { FormGroupCheckbox } from './checkbox/formCheckbox';
 import { FormGroupRadio } from './radio/formRadio';
 import { ProgressIndicator } from './progress-indicator/progressIndicator';
 
 export {
-	TextInput,
+  TextInput,
   	FormGroup,
-	FormGroupText,
-	FormGroupSelect,
-	Select,
-	SelectItem,
-	FormGroupCheckbox,
-	FormGroupRadio,
-	ProgressIndicator
-}
+  FormGroupText,
+  FormGroupSelect,
+  Select,
+  SelectItem,
+  FormGroupCheckbox,
+  FormGroupRadio,
+  ProgressIndicator,
+};

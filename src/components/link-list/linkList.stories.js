@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledLinkList as StyledLinkListComp } from "./linkList";
+import StyledLinkListComponent from './linkList';
 
 const Preamble = `
 ### Full documentation
@@ -24,45 +24,42 @@ import {StyledLinkList} from "nsw-design-system-react/components/link-list";
 
 `;
 
-
 export default {
-    title: 'Content/Styled Link List',
-    component: StyledLinkListComp,
-    parameters: {
-      docs: {
-        description: {
-          component: Preamble,
-        }
+  title: 'Content/Styled Link List',
+  component: StyledLinkListComponent,
+  parameters: {
+    docs: {
+      description: {
+        component: Preamble,
       },
     },
+  },
 };
 
-const Template = (args) => <StyledLinkListComp  {...args} />;
-
-
+const Template = (args) => <StyledLinkListComponent {...args} />;
 
 export const StyledLinkList = Template.bind({});
 StyledLinkList.args = {
-    items: [
-      {
-        link: '#',
-        text: 'Link 1',
-      },
-      {
-        link: '#',
-        text: 'Link 2',
-      },
-      {
-        link: '#',
-        text: 'Link 3',
-      },
-      {
-        link: '#',
-        text: 'Link 4',
-      },
-      {
-        link: '#',
-        text: 'Link 5',
-      },
-    ]
+  items: [
+    {
+      link: '#',
+      text: 'Link 1',
+    },
+    {
+      link: '#',
+      text: 'Link 2',
+    },
+    {
+      link: '#',
+      text: 'Link 3',
+    },
+    {
+      link: '#',
+      text: 'Link 4',
+    },
+    {
+      link: '#',
+      text: 'Link 5',
+    },
+  ],
 };

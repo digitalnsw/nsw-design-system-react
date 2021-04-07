@@ -1,5 +1,5 @@
 import React from 'react';
-import TagList from "./tags";
+import TagList from './tags';
 
 const Preamble = `
 ### Full documentation
@@ -24,32 +24,31 @@ import TagList from "nsw-design-system-react/components/tags";
 
 `;
 
-
 export default {
-    title: 'Content/Tags',
-    component: TagList,
-    parameters: {
-      docs: {
-        description: {
-          component: Preamble,
-        }
+  title: 'Content/Tags',
+  component: TagList,
+  parameters: {
+    docs: {
+      description: {
+        component: Preamble,
       },
     },
+  },
 };
 
-const Template = (args) => <TagList  {...args} />;
+const Template = (args) => <TagList {...args} />;
 
 export const Tags = Template.bind({});
 Tags.args = {
-     tags: [
-       {
-         text: 'foo',
-       },
-       {
-         text: 'bar',
-       },
-       {
-         text: 'baz',
-       },
-     ]
+  tags: [
+    {
+      text: 'foo',
+    },
+    {
+      text: 'bar',
+    },
+    {
+      text: 'baz',
+    },
+  ],
 };

@@ -1,7 +1,7 @@
-import LinkList from './basic.js';
-import StyledLinkList from './styled.js';
+import { LinkList as LinkListComponent } from './basic';
+import { StyledLinkList as StyledLinkListComponent } from './styledLinkList';
 
-export {
-	StyledLinkList,
-    LinkList
-}
+export default {
+  StyledLinkListComponent,
+  LinkListComponent,
+};

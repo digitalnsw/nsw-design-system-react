@@ -1,11 +1,3 @@
-/***************************************************************************************************************************************************************
- *
- * table function
- *
- * Used to display tabular data
- *
- **************************************************************************************************************************************************************/
-
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -22,64 +14,70 @@ import PropTypes from 'prop-types';
  * @param {bool}     firstCellIsHeader  - If first cell is a header cell or not
  * @param {object}   attributeOptions   - Default HTML attributes
  */
-const Table = ({ caption, headers, data, striped, bordered, captionTop, className, firstCellIsHeader, ...attributeOptions }) => {
-    return (
-        <table className={`nsw-table ${ striped ? 'nsw-table--striped ' : ' '} ${ bordered ? 'nsw-table--bordered ' : ' '} ${ captionTop ? 'nsw-table--caption-top ' : ' '} ${className}`} { ...attributeOptions }>
-            {caption && <TableCaption tableCaption={caption} />}
-            <TableHead>
-                <TableRow>
-                    {headers.map( ( header, index ) => (
-                        <TableHeader
-                            title={header.title}
-                            key={index}
-                            width={header.width}
-                        />
-                    ))}
-                </TableRow>
-            </TableHead>
-            <TableBody>
-                { data.map( (row, rowIndex ) => (
-                    <TableRow key={rowIndex}>
-                        {
-                            headers.map( (header, columnIndex) => {
-                                // check to render first cell in rows as a header or not
-                                if( columnIndex === 0 && firstCellIsHeader === true  ) {
-                                    return (<TableHeader key={columnIndex} scope="row" title={row[header.key]? row[header.key] : ''} />)
-                                }
-                                else {
-                                    return (
-                                        <TableCell
-                                            key={columnIndex}
-                                            data={row[header.key]? row[header.key] : ''}
-                                            type={header.type}
-                                            render={header.render ? header.render( row[header.key], row ) : null}
-                                        />
-                                    )
-                                }
+const Table = ({
+  caption, headers, data, striped,
+  bordered, captionTop, className,
+  firstCellIsHeader, ...attributeOptions
+}) => (
+  <table className={`nsw-table ${striped ? 'nsw-table--striped ' : ' '} ${bordered ? 'nsw-table--bordered ' : ' '} ${captionTop ? 'nsw-table--caption-top ' : ' '} ${className}`} {...attributeOptions}>
+    {caption && <TableCaption tableCaption={caption} />}
+    <TableHead>
+      <TableRow>
+        {headers.map((header, index) => (
+          <TableHeader
+            title={header.title}
+            /* eslint-disable-next-line react/no-array-index-key */
+            key={index}
+            width={header.width}
+          />
+        ))}
+      </TableRow>
+    </TableHead>
+    <TableBody>
+      { data.map((row, rowIndex) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <TableRow key={rowIndex}>
+          {
+                            headers.map((header, columnIndex) => {
+                              // check to render first cell in rows as a header or not
+                              if (columnIndex === 0 && firstCellIsHeader === true) {
+                                // eslint-disable-next-line react/no-array-index-key
+                                return (<TableHeader key={columnIndex} scope="row" title={row[header.key] ? row[header.key] : ''} />);
+                              }
+                              return (
+                                <TableCell
+                                    /* eslint-disable-next-line react/no-array-index-key */
+                                  key={columnIndex}
+                                  data={row[header.key] ? row[header.key] : ''}
+                                  type={header.type}
+                                  render={
+                                    header.render ? header.render(row[header.key], row) : null
+                                  }
+                                />
+                              );
                             })
                         }
-                    </TableRow>
-                ))}
-            </TableBody>
-        </table>
-    )
-};
+        </TableRow>
+      ))}
+    </TableBody>
+  </table>
+);
 
 Table.propTypes = {
-    caption: PropTypes.string,
-    headers: PropTypes.arrayOf( Object ).isRequired,
-    data: PropTypes.arrayOf( Object ).isRequired,
-    striped: PropTypes.bool,
-    bordered: PropTypes.bool,
-    captionTop: PropTypes.bool,
-    className: PropTypes.string
+  caption: PropTypes.string,
+  headers: PropTypes.arrayOf(Object).isRequired,
+  data: PropTypes.arrayOf(Object).isRequired,
+  striped: PropTypes.bool,
+  bordered: PropTypes.bool,
+  captionTop: PropTypes.bool,
+  className: PropTypes.string,
+  firstCellIsHeader: PropTypes.bool,
 };
 
 Table.defaultProps = {
-    striped: false,
-    className: ''
+  striped: false,
+  className: '',
 };
-
 
 /**
  * The table body component
@@ -87,23 +85,17 @@ Table.defaultProps = {
  * @param {object} attributeOptions - Default HTML attributes
  *
  */
-export const TableBody = ({ className, ...attributeOptions }) => {
-    return (
-        <tbody className={className} {...attributeOptions}>
-
-        </tbody>
-    )
-};
+export const TableBody = ({ className, ...attributeOptions }) => (
+  <tbody className={className} {...attributeOptions} />
+);
 
 TableBody.propTypes = {
-    className: PropTypes.string
+  className: PropTypes.string,
 };
 
 TableBody.defaultProps = {
-    className: ''
+  className: '',
 };
-
-
 
 /**
  * The table head component
@@ -111,105 +103,113 @@ TableBody.defaultProps = {
  * @param {object} attributeOptions - Default HTML attributes
  *
  */
-export const TableHead = ({ children, className, ...attributeOptions }) => {
-    return (
-        <thead className={className} {...attributeOptions}>
-        {children}
-        </thead>
-    )
-};
+export const TableHead = ({ children, className, ...attributeOptions }) => (
+  <thead className={className} {...attributeOptions}>
+    {children}
+  </thead>
+);
 
 TableHead.propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string
-}
-
-TableHead.defaultProps = {
-    className: ''
+  children: PropTypes.node,
+  className: PropTypes.string,
 };
 
-
+TableHead.defaultProps = {
+  className: '',
+};
 
 /**
  * The table header component
  *
  * @param {string} title            - The title of table header/column
- * @param {string} type             - Type of the header, can be either text or numeric for left or right alignment respectively.
+ * @param {string} type             - Type of the header, can be either text or numeric
+ *                                    for left or right alignment respectively.
  * @param {string} width            - Width of the header/column in percentage
  * @param {string} scope            - Scope of the header, can be 'row' or 'col'
  * @param {string} className        - An additional class, optional
  * @param {object} attributeOptions - Default HTML attributes
  */
-export const TableHeader = ({ title, type, width, scope, className, ...attributeOptions }) => {
-    return 	<th className={className}
-                  width={width + `%`}
-                  scope={scope} {...attributeOptions}> { title } </th>
-};
+export const TableHeader = ({
+  title, type, width, scope, className, ...attributeOptions
+}) => (
+  <th
+    className={className}
+    width={`${width}%`}
+    scope={scope}
+    {...attributeOptions}
+  >
+    {' '}
+    { title }
+    {' '}
+
+  </th>
+);
 
 TableHeader.propTypes = {
-    title: PropTypes.string.isRequired,
-    width: PropTypes.number,
-    className: PropTypes.string
+  title: PropTypes.string.isRequired,
+  width: PropTypes.number,
+  className: PropTypes.string,
+  scope: PropTypes.string,
+  type: PropTypes.string,
 };
 
 TableHeader.defaultProps = {
-    className: '',
-    scope: 'col',
-    type: 'text'
+  className: '',
+  scope: 'col',
+  type: 'text',
 };
-
-
 
 /**
  * The data/cell component
  * @param {string} data       - The cell data
- * @param {string} type       - Type of the data, can be either text or numeric for left or right alignment respectively.
+ * @param {string} type       - Type of the data, can be either text or numeric for left or
+ *                              right alignment respectively.
  * @param {string} className  - An additional class, optional
  * @param {object} render     - The function for customised rendering on all cells in this column
  * @param {object} attributeOptions - Default HTML attributes
  *
  */
-export const TableCell = ( { data, type, className, render,...attributeOptions } ) => {
-    return 	<td className={className}
-                  {...attributeOptions}>
-        { render ? render : data}
-    </td>
-};
+export const TableCell = ({
+  data, type, className, render, ...attributeOptions
+}) => (
+  <td
+    className={className}
+    {...attributeOptions}
+  >
+    { render || data}
+  </td>
+);
 
 TableCell.propTypes = {
-    data: PropTypes.any,
-    type: PropTypes.oneOf(['text', 'numeric']).isRequired,
-    render: PropTypes.any
+  data: PropTypes.shape,
+  type: PropTypes.oneOf(['text', 'numeric']).isRequired,
+  render: PropTypes.shape,
+  className: PropTypes.string,
 };
 
 TableCell.defaultProps = {
-    className: '',
-    type: 'text'
+  className: '',
 };
-
-
 
 /**
  * The table row component
  * @param {string} className        - An additional class, optional
  * @param {object} attributeOptions - Default HTML attributes
  */
-export const TableRow = ( { children, className,...attributeOptions } ) => {
-    return <tr className={ className } { ...attributeOptions }>
-        {children}
-    </tr>
-};
+export const TableRow = ({ children, className, ...attributeOptions }) => (
+  <tr className={className} {...attributeOptions}>
+    {children}
+  </tr>
+);
 
 TableRow.defaultProps = {
-    className: ''
+  className: '',
 };
 
 TableRow.propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-}
-
-
+  children: PropTypes.node,
+  className: PropTypes.string,
+};
 
 /**
  * The table caption component
@@ -219,41 +219,36 @@ TableRow.propTypes = {
  * @param {object} attributeOptions - Default HTML attributes
  *
  */
-export const TableCaption = ({ captionId, tableCaption, className, ...attributeOptions }) => {
-    return (
-        <caption className={className} {...attributeOptions}>
-            { tableCaption }
-        </caption>
-    )
-};
+export const TableCaption = ({
+  captionId, tableCaption, className, ...attributeOptions
+}) => (
+  <caption className={className} {...attributeOptions}>
+    { tableCaption }
+  </caption>
+);
 
 TableCaption.propTypes = {
-    tableCaption: PropTypes.string,
-    captionId: PropTypes.string,
-    className: PropTypes.string
-}
-
-TableCaption.defaultProps = {
-    className: ''
+  tableCaption: PropTypes.string,
+  captionId: PropTypes.string,
+  className: PropTypes.string,
 };
 
-
+TableCaption.defaultProps = {
+  className: '',
+};
 
 /**
  * Table wrapper for responsive tables with horizontal scrolling on smaller devices
  * @param {node} children
  */
-export const TableResponsiveWrapper = ({ children}) => {
-    return (
-        <div className="nsw-table-responsive" role="region" tabindex="0">
-            {children}
-        </div>
-    )
-};
+export const TableResponsiveWrapper = ({ children }) => (
+  <div className="nsw-table-responsive" role="region">
+    {children}
+  </div>
+);
 
 TableResponsiveWrapper.propTypes = {
-    children: PropTypes.node
+  children: PropTypes.node,
 };
-
 
 export default Table;

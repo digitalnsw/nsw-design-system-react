@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
  * @param  {string} link             - The link URL, optional
  * @param  {string} linkComponent    - The component used for the link
  * @param  {object} li               - An additional object to be spread
- *                                     into the wrapping element, optional
+*                                      into the wrapping element, optional
  * @param  {object} onClick          - The onClick event handler
  * @param  {object} attributeOptions - Any other attribute options, optional
  */
@@ -21,6 +21,8 @@ export const LinkListItem = ({
   if (typeof onClick === 'function') {
     attributeOptions.onClick = onClick;
 
+    // if we find an onClick event but no link we make it a
+    // link so onClick can be added (no button support yet)
     if (!link) {
       link = '#';
     }
@@ -30,23 +32,32 @@ export const LinkListItem = ({
   if (LinkComponent === 'a') {
     attributeOptions.href = link;
   } else if (typeof LinkComponent === 'function') {
-    // If we are using a link component
+  // If we are using a link component
     attributeOptions.to = link;
   }
 
   if (link) {
     return (
-      <li {...li}>
-        <LinkComponent {...attributeOptions}>{ text }</LinkComponent>
-        { children }
+      <li className="nsw-link-list__item" {...li}>
+        <LinkComponent {...attributeOptions}>
+          {text}
+          <i
+            className="material-icons nsw-material-icons nsw-link-list__icon"
+            focusable="false"
+            aria-hidden="true"
+          >
+            east
+          </i>
+        </LinkComponent>
+        {children}
       </li>
     );
   }
 
   return (
-    <li {...li}>
-      { text }
-      { children }
+    <li className="nsw-link-list__item" {...li}>
+      {text}
+      {children}
     </li>
   );
 };
@@ -55,9 +66,9 @@ LinkListItem.propTypes = {
   text: PropTypes.node.isRequired,
   link: PropTypes.string,
   li: PropTypes.shape,
-  children: PropTypes.node,
   onClick: PropTypes.func,
   linkComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  children: PropTypes.node,
 };
 
 LinkListItem.defaultProps = {
@@ -74,20 +85,27 @@ LinkListItem.defaultProps = {
  * @param  {string}  linkComponent    - The component used for the link
  * @param  {object}  attributeOptions - Any other attribute options, optional
  */
-export const LinkList = ({
-  inline, items, linkComponent, className = '', ...attributeOptions
+export const StyledLinkList = ({
+  items, linkComponent, className = '', ...attributeOptions
 }) => (
-  <ul className={`${className}${inline ? '' : ''}`} {...attributeOptions}>
-    {
-          items.map(
-            (item) => <LinkListItem linkComponent={linkComponent} key={item.link} {...item} />,
-          )
-      }
-  </ul>
+  <div className="nsw-link-list">
+    <ol className={`nsw-link-list__list ${className}`} {...attributeOptions}>
+      {
+                items.map(
+                  (item) => (
+                    <LinkListItem
+                      linkComponent={linkComponent}
+                      key={item.link}
+                      {...item}
+                    />
+                  ),
+                )
+            }
+    </ol>
+  </div>
 );
 
-LinkList.propTypes = {
-  inline: PropTypes.bool,
+StyledLinkList.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       link: PropTypes.string,
@@ -99,8 +117,8 @@ LinkList.propTypes = {
   className: PropTypes.string,
 };
 
-LinkList.defaultProps = {
+StyledLinkList.defaultProps = {
   linkComponent: 'a',
 };
 
-export default LinkList;
+export default StyledLinkList;

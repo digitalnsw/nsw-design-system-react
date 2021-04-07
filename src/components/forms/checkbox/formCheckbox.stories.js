@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormGroupCheckbox } from "./formCheckbox";
+import { FormGroupCheckbox } from './formCheckbox';
 
 const Preamble = `
 ### Full documentation
@@ -25,90 +25,90 @@ import {FormGroupCheckbox} from "nsw-design-system-react/components/forms/checkb
 `;
 
 export default {
-    title: 'Transaction/Checkboxes',
-    component: FormGroupCheckbox,
-    parameters: {
-        docs: {
-            description: {
-                component: Preamble,
-            },
-            source: {}
-        }
-    }
+  title: 'Transaction/Checkboxes',
+  component: FormGroupCheckbox,
+  parameters: {
+    docs: {
+      description: {
+        component: Preamble,
+      },
+      source: {},
+    },
+  },
 };
 
-const Template = (args) => <FormGroupCheckbox  {...args} />;
+const Template = (args) => <FormGroupCheckbox {...args} />;
 
 export const Group = Template.bind({});
 Group.args = {
-    label: "Select a thing",
-    helper: "Or more than one thing",
-    htmlId: "uniqueID",
-    as: "group",
-    options: [
-        {
-            value: '1',
-            text: 'Option 1',
-        },
-        {
-            value: '2',
-            text: 'Option 2',
-            selected: 'selected'
-        },
-        {
-            value: '3',
-            text: 'Option 3',
-        }
-    ]
+  label: 'Select a thing',
+  helper: 'Or more than one thing',
+  htmlId: 'uniqueID',
+  as: 'group',
+  options: [
+    {
+      value: '1',
+      text: 'Option 1',
+    },
+    {
+      value: '2',
+      text: 'Option 2',
+      selected: 'selected',
+    },
+    {
+      value: '3',
+      text: 'Option 3',
+    },
+  ],
 };
 
 export const Single = Template.bind({});
 Single.args = {
-    label: "Select a thing",
-    htmlId: "uniqueID-2",
-    options: [
-        {
-            value: '1',
-            text: 'Option 1',
-        }
-    ]
+  label: 'Select a thing',
+  htmlId: 'uniqueID-2',
+  options: [
+    {
+      value: '1',
+      text: 'Option 1',
+    },
+  ],
 };
 
 export const GroupError = Template.bind({});
 GroupError.args = {
-    errorText: "Please select at least one option",
-    status: "invalid",
-    label: "Select a thing",
-    helper: "Or more than one thing",
-    htmlId: "uniqueID",
-    as: "group",
-    options: [
-        {
-            value: '1',
-            text: 'Option 1',
-        },
-        {
-            value: '2',
-            text: 'Option 2',
-            selected: 'selected'
-        },
-        {
-            value: '3',
-            text: 'Option 3',
-        }
-    ]
+  errorText: 'Please select at least one option',
+  status: 'invalid',
+  label: 'Select a thing',
+  helper: 'Or more than one thing',
+  htmlId: 'uniqueID',
+  as: 'group',
+  options: [
+    {
+      value: '1',
+      text: 'Option 1',
+    },
+    {
+      value: '2',
+      text: 'Option 2',
+      selected: 'selected',
+    },
+    {
+      value: '3',
+      text: 'Option 3',
+    },
+  ],
 };
 
 export const SingleError = Template.bind({});
 SingleError.args = {
-    errorText: "You must accept to continue",
-    status: "invalid",
-    label: "Select a thing",
-    htmlId: "uniqueID-2",
-    options: [
-        {
-            value: '1',
-            text: 'Accept the terms of this checkbox',
-        }
-    ]
+  errorText: 'You must accept to continue',
+  status: 'invalid',
+  label: 'Select a thing',
+  htmlId: 'uniqueID-2',
+  options: [
+    {
+      value: '1',
+      text: 'Accept the terms of this checkbox',
+    },
+  ],
 };

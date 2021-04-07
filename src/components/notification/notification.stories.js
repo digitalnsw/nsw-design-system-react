@@ -1,5 +1,5 @@
 import React from 'react';
-import Notification from "./notification";
+import { Notification } from './notification';
 
 const Preamble = `
 ### Full documentation
@@ -24,45 +24,44 @@ import NSWNotification from "nsw-design-system-react/components/notification";
 
 `;
 
-
 export default {
-    title: 'Content/Notification',
-    component: Notification,
-    parameters: {
-        docs: {
-            description: {
-                component: Preamble,
-            },
-        },
+  title: 'Content/Notification',
+  component: Notification,
+  parameters: {
+    docs: {
+      description: {
+        component: Preamble,
+      },
     },
+  },
 };
 
-const Template = (args) => <Notification  {...args} />;
+const Template = (args) => <Notification {...args} />;
 
 export const Info = Template.bind({});
 Info.args = {
-    as: 'info',
-    title: 'Info alert',
-    children: <p>Content of alert</p>,
+  as: 'info',
+  title: 'Info alert',
+  children: <p>Content of alert</p>,
 };
 
 export const Error = Template.bind({});
 Error.args = {
-    as: 'error',
-    title: 'Error alert',
-    children: <p>Content of alert</p>,
+  as: 'error',
+  title: 'Error alert',
+  children: <p>Content of alert</p>,
 };
 
 export const Warning = Template.bind({});
 Warning.args = {
-    as: 'warning',
-    title: 'Warning alert',
-    children: <p>Content of alert</p>
+  as: 'warning',
+  title: 'Warning alert',
+  children: <p>Content of alert</p>,
 };
 
 export const Success = Template.bind({});
 Success.args = {
-    as: 'success',
-    title: 'Success alert',
-    children: <p>Content of alert</p>
+  as: 'success',
+  title: 'Success alert',
+  children: <p>Content of alert</p>,
 };

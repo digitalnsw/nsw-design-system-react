@@ -1,5 +1,5 @@
 import React from 'react';
-import Card, { CardCopy } from "./card";
+import Card, { CardCopy } from './card';
 
 const Preamble = `
 ### Full documentation
@@ -24,7 +24,6 @@ import Card, {CardCopy} from "nsw-design-system-react/components/card";
 
 `;
 
-
 export default {
   title: 'Content/Card',
   component: Card,
@@ -34,26 +33,26 @@ export default {
         component: Preamble,
       },
       source: {
-      }
-    }
-  }
+      },
+    },
+  },
 };
 
-const Template = (args) => <div class='nsw-col nsw-col-md-4'><Card  {...args} /></div>;
+const Template = (args) => <Card {...args} />;
 
 export const Simple = Template.bind({});
 Simple.args = {
-  link: '#',
-  headline: 'Card Title',
+  link: '/',
+  headline: 'Energy Save',
   content: true,
-  children: <CardCopy>Some text</CardCopy>
+  children: <CardCopy>Helps you compare electricity and gas and switch providers.</CardCopy>,
 };
 
 export const Highlight = Template.bind({});
 Highlight.args = {
-  link: '#',
-  headline: 'Card Title',
-  children: <CardCopy>Some text</CardCopy>
+  link: '/',
+  headline: 'Family Rebate',
+  children: <CardCopy>Helps families with dependants to pay their energy bills.</CardCopy>,
 };
 
 export const AllFeatures = Template.bind({});
@@ -61,8 +60,8 @@ AllFeatures.args = {
   date: '2021-03-17',
   tag: 'Environment',
   link: '#',
-  headline: 'Card Title',
+  headline: 'Quality spaces and a million more trees for NSW',
   image: 'https://picsum.photos/id/292/400/200',
-  imageAlt: 'alt text',
-  children: <CardCopy>Some text</CardCopy>
+  imageAlt: 'Green space',
+  children: <CardCopy>The NSW Government will create more quality green spaces.</CardCopy>,
 };

@@ -1,20 +1,8 @@
-
-/***************************************************************************************************************************************************************
- *
- * form functions
- *
- **************************************************************************************************************************************************************/
-
 import React from 'react';
 import PropTypes from 'prop-types';
-import nextId from "react-id-generator";
+import nextId from 'react-id-generator';
 
 const defHtmlId = nextId();
-
-// The following line will be replaced automatically with generic imports for the ES5 pipeline.
-// You can safely ignore this bit if you use this module with pancake
-//
-// [replace-imports]
 
 /**
  * DEFAULT
@@ -25,14 +13,23 @@ const defHtmlId = nextId();
  * @param  {boolean} error         - Whether this helper is an error
  */
 
-export const FormHelper = ( { htmlId, children, className, error, ...attributeOptions } ) => (
+export const FormHelper = ({
+  htmlId, children, className, error, ...attributeOptions
+}) => (
 
-      <span id={`${ error ? `error` : `helper` }${htmlId}`} className={`nsw-form-helper ${ error ? ` nsw-form-helper--error` : '' } ${ className }`}>{children}</span>
+  <span id={`${error ? 'error' : 'helper'}${htmlId}`} className={`nsw-form-helper ${error ? ' nsw-form-helper--error' : ''} ${className}`} {...attributeOptions}>{children}</span>
 
 );
 
+FormHelper.propTypes = {
+  htmlId: PropTypes.string,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  error: PropTypes.string,
+};
+
 FormHelper.defaultProps = {
-  htmlId: defHtmlId
+  htmlId: defHtmlId,
 };
 
 /**
@@ -44,37 +41,29 @@ FormHelper.defaultProps = {
  * @param  {string}  className        - An additional class, optional
  * @param  {object}  attributeOptions - Any other attribute options
  */
-export const FormLabel = ( { text, dark, inline, className, ...attributeOptions } ) => (
-	<label className={`nsw-form-label ${ className }`}
-		{ ...attributeOptions }
-	>
+export const FormLabel = ({
+  htmlFor, text, dark, inline, className, ...attributeOptions
+}) => (
+  <label
+    htmlFor={htmlFor}
+    className={`nsw-form-label ${className}`}
+    {...attributeOptions}
+  >
     { text }
-	</label>
+  </label>
 );
 
 FormLabel.propTypes = {
-	/**
-	 * Text of the label, required
-	 */
-	text: PropTypes.string.isRequired,
-	/**
-	 * Add the dark variation class, optional
-	 */
-	dark: PropTypes.bool,
-	/**
-	 * Display the label inline, optional
-	 */
-	inline: PropTypes.bool,
-	/**
-	 * An additional class, optional
-	 */
-	className: PropTypes.string,
+  text: PropTypes.string.isRequired,
+  dark: PropTypes.bool,
+  inline: PropTypes.bool,
+  className: PropTypes.string,
+  htmlFor: PropTypes.string,
 };
 
-
 FormLabel.defaultProps = {
-	className: ''
-}
+  className: '',
+};
 
 /**
  * The form group component
@@ -88,39 +77,39 @@ FormLabel.defaultProps = {
  * @param  {string}  className        - An additional class, optional
  * @param  {object}  attributeOptions - Any other attribute options
  */
-export const FormGroup = ( { htmlId = nextId(), status, children, label, helper, errorText, error, options, className, ...attributeOptions } ) => (
+export const FormGroup = ({
+  htmlId = nextId(), status, children, label, helper, errorText, error,
+  className, ...attributeOptions
+}) => (
 
-    <div className={`nsw-form-group ${ className }`}
-  		{ ...attributeOptions }
-  	>
-      <FormLabel htmlFor={htmlId} text={label} />
-      {helper
-        ? <FormHelper htmlId={htmlId}>{helper}</FormHelper>
-        : ''
-      }
-      {React.Children.map(children, child => {
-          return React.cloneElement(child, { error })
-       })}
-      {status === "invalid"
-        ? <FormHelper htmlId={htmlId} error>{errorText}</FormHelper>
-        : ''
-      }
-    </div>
+  <div
+    className={`nsw-form-group ${className}`}
+    {...attributeOptions}
+  >
+    <FormLabel htmlFor={htmlId} text={label} />
+    {helper
+      ? <FormHelper htmlId={htmlId}>{helper}</FormHelper>
+      : ''}
+    {React.Children.map(children, (child) => React.cloneElement(child, { error }))}
+    {status === 'invalid'
+      ? <FormHelper htmlId={htmlId} error>{errorText}</FormHelper>
+      : ''}
+  </div>
 );
 
-
 FormGroup.propTypes = {
-	/**
-	 * Adds invalid state to form group
-	 */
-	error: PropTypes.bool,
-	/**
-	 * An additional class, optional
-	 */
-	className: PropTypes.string,
+  status: PropTypes.string,
+  error: PropTypes.bool,
+  className: PropTypes.string,
+  htmlId: PropTypes.string,
+  label: PropTypes.string,
+  children: PropTypes.node,
+  helper: PropTypes.string,
+  errorText: PropTypes.string,
+  uniqueID: nextId(),
 };
 
 FormGroup.defaultProps = {
-	status: "valid",
-	className: ''
-}
+  status: 'valid',
+  className: '',
+};
