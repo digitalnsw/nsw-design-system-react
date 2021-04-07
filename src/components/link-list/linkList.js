@@ -1,7 +1,7 @@
 import { LinkList as LinkListComponent } from './basic';
-import { StyledLinkList as StyledLinkListComponent } from './styledLinkList';
+import { StyledLinkList } from './styledLinkList';
 
 export default {
-  StyledLinkListComponent,
+  StyledLinkList,
   LinkListComponent,
 };
