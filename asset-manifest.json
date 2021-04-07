@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "./static/css/main.e81fcb64.chunk.css",
+    "main.js": "./main.ad498d8e00456eca070e.bundle.js",
+    "main.css.map": "./static/css/main.e81fcb64.chunk.css.map",
+    "main.js.map": "./main.ad498d8e00456eca070e.bundle.js.map",
+    "runtime~main.js": "./runtime~main.ad498d8e00456eca070e.bundle.js",
+    "runtime~main.js.map": "./runtime~main.ad498d8e00456eca070e.bundle.js.map",
+    "vendors~main.css": "./static/css/vendors~main.538ac068.chunk.css",
+    "vendors~main.js": "./vendors~main.ad498d8e00456eca070e.bundle.js",
+    "vendors~main.css.map": "./static/css/vendors~main.538ac068.chunk.css.map",
+    "vendors~main.js.map": "./vendors~main.ad498d8e00456eca070e.bundle.js.map",
+    "iframe.html": "./iframe.html",
+    "static/media/index.css": "./static/media/montserrat-vietnamese-400-normal.6325549b.woff2",
+    "static/media/600.css": "./static/media/montserrat-vietnamese-600-normal.b2d7de6e.woff2",
+    "vendors~main.ad498d8e00456eca070e.bundle.js.LICENSE.txt": "./vendors~main.ad498d8e00456eca070e.bundle.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "runtime~main.ad498d8e00456eca070e.bundle.js",
+    "static/css/vendors~main.538ac068.chunk.css",
+    "vendors~main.ad498d8e00456eca070e.bundle.js",
+    "static/css/main.e81fcb64.chunk.css",
+    "main.ad498d8e00456eca070e.bundle.js"
+  ]
+}
