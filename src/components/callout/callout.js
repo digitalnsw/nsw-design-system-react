@@ -24,8 +24,9 @@ export const Callout = ({
         <HeadingTag
           className="nsw-callout__title"
         >
-          { children }
+          { title }
         </HeadingTag>
+        { children }
       </div>
     </div>
   );
