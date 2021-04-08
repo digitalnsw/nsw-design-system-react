@@ -4,7 +4,6 @@
  *
  ************************************************************************************************************************************************************* */
 
-import React from 'react';
 import { TextInput, FormGroupText } from './text/formText';
 import { Select, FormGroupSelect, SelectItem } from './select/formSelect';
 import { FormGroup } from './group-elements';
@@ -14,7 +13,7 @@ import { ProgressIndicator } from './progress-indicator/progressIndicator';
 
 export {
   TextInput,
-  	FormGroup,
+  FormGroup,
   FormGroupText,
   FormGroupSelect,
   Select,

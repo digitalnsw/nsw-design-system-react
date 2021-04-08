@@ -28,7 +28,7 @@ export const ContentBlock = ({
           {
                         links ? links.map(
                           (link) => (
-                            <li><a href={link.href}>{link.title}</a></li>
+                            <li key={link.title}><a href={link.href}>{link.title}</a></li>
                           ),
                         ) : ''
                     }
@@ -45,12 +45,12 @@ ContentBlock.propTypes = {
   image: PropTypes.string,
   imageAlt: PropTypes.string,
   headline: PropTypes.string.isRequired,
-  icon: PropTypes.string,
+  icon: PropTypes.node,
   copy: PropTypes.string,
   links: PropTypes.arrayOf(
     PropTypes.shape({
-      url: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired,
+      url: PropTypes.string,
+      text: PropTypes.string,
     }),
   ),
   mainLink: PropTypes.shape({
@@ -72,16 +72,16 @@ ContentBlock.defaultProps = {
  * @param {object}   attributeOptions   - Default HTML attributes
  */
 export const ContentBlockImage = ({
-  src, className, alt, ...attributesOptions
+  src, className, imageAlt, ...attributesOptions
 }) => (
   <div className="nsw-content-block__image-area">
-    <img src={src} alt={alt} className="nsw-content-block__image" {...attributesOptions} />
+    <img src={src} alt={imageAlt} className="nsw-content-block__image" {...attributesOptions} />
   </div>
 );
 
 ContentBlockImage.propTypes = {
   src: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired,
+  imageAlt: PropTypes.string,
   className: PropTypes.string,
 };
 

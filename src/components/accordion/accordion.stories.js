@@ -1,5 +1,5 @@
 import React from 'react';
-import { Accordion as AccordionComponent } from './accordion';
+import { Accordion as AccordionComponent, AccordionGroup } from './accordion';
 
 const Preamble = `
 ### Full documentation
@@ -35,22 +35,21 @@ export default {
   },
 };
 
-const Template = (args) => <AccordionComponent {...args} />;
+const Template = () => (
+  <AccordionGroup>
+    <AccordionComponent
+      header="This is an accordion"
+      body={<p>This is the body of an accordion</p>}
+    />
+    <AccordionComponent
+      header="This is an accordion"
+      body={<p>This is the body of an accordion</p>}
+    />
+    <AccordionComponent
+      header="This is an accordion"
+      body={<p>This is the body of an accordion</p>}
+    />
+  </AccordionGroup>
+);
 
 export const Accordion = Template.bind({});
-Accordion.args = {
-  contents: [
-    {
-      header: 'This is an accordion',
-      body: 'This is a body content of an accordion',
-    },
-    {
-      header: 'This is an accordion',
-      body: 'This is a body content of an accordion',
-    },
-    {
-      header: 'This is an accordion',
-      body: 'This is a body content of an accordion',
-    },
-  ],
-};

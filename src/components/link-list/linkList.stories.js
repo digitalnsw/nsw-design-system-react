@@ -42,23 +42,23 @@ export const StyledLinkList = Template.bind({});
 StyledLinkList.args = {
   items: [
     {
-      link: '#',
+      link: 'link/one/',
       text: 'Link 1',
     },
     {
-      link: '#',
+      link: 'link/two/',
       text: 'Link 2',
     },
     {
-      link: '#',
+      link: 'link/three/',
       text: 'Link 3',
     },
     {
-      link: '#',
+      link: 'link/four/',
       text: 'Link 4',
     },
     {
-      link: '#',
+      link: 'link/five/',
       text: 'Link 5',
     },
   ],

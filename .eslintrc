@@ -24,6 +24,7 @@
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "react/require-default-props": "off",
         "react/jsx-one-expression-per-line": "off",
+        "no-unused-vars": "off",
         "max-len": "off",
         "no-param-reassign": 0,
         "jsx-a11y/label-has-associated-control": ["error", {

@@ -63,5 +63,20 @@ ImageBlock.args = {
   headline: 'Title',
   copy: 'this is a paragraph',
   image: 'https://picsum.photos/id/2/400/200',
+  imageAlt: 'Work desk',
+  links: [
+    {
+      title: 'link 1',
+      href: '#',
+    },
+    {
+      title: 'link 2',
+      href: '#',
+    },
+    {
+      title: 'link 3',
+      href: '#',
+    },
+  ],
   viewMore: '#',
 };

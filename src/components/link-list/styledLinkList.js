@@ -13,7 +13,7 @@ import PropTypes from 'prop-types';
  * @param  {object} attributeOptions - Any other attribute options, optional
  */
 export const LinkListItem = ({
-  text, link, linkComponent, li = {}, children, onClick, ...attributeOptions
+  text, link, linkComponent, children, onClick, ...attributeOptions
 }) => {
   const LinkComponent = linkComponent;
 
@@ -38,7 +38,7 @@ export const LinkListItem = ({
 
   if (link) {
     return (
-      <li className="nsw-link-list__item" {...li}>
+      <li className="nsw-link-list__item">
         <LinkComponent {...attributeOptions}>
           {text}
           <i
@@ -55,7 +55,7 @@ export const LinkListItem = ({
   }
 
   return (
-    <li className="nsw-link-list__item" {...li}>
+    <li className="nsw-link-list__item">
       {text}
       {children}
     </li>
@@ -65,7 +65,6 @@ export const LinkListItem = ({
 LinkListItem.propTypes = {
   text: PropTypes.node.isRequired,
   link: PropTypes.string,
-  li: PropTypes.shape,
   onClick: PropTypes.func,
   linkComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   children: PropTypes.node,
@@ -95,7 +94,7 @@ export const StyledLinkList = ({
                   (item) => (
                     <LinkListItem
                       linkComponent={linkComponent}
-                      key={item.link}
+                      key={item.text}
                       {...item}
                     />
                   ),
@@ -110,7 +109,6 @@ StyledLinkList.propTypes = {
     PropTypes.shape({
       link: PropTypes.string,
       text: PropTypes.node.isRequired,
-      li: PropTypes.shape,
     }),
   ).isRequired,
   linkComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),

@@ -12,7 +12,7 @@ const Template = (args) => (
   <HeroBanner {...args} />
 );
 
-const BannerLinkedList = (args) => (
+const BannerLinkList = (args) => (
   <HeroBanner {...args}>
     <HeroBannerList subtitle="Coronavirus links">
       <ul>
@@ -46,9 +46,9 @@ Dark.args = {
   image: { src: 'https://picsum.photos/id/237/2000/1250', alt: 'Labrador dog' },
 };
 
-export const LinkedList = BannerLinkedList.bind({});
+export const LinkList = BannerLinkList.bind({});
 
-LinkedList.args = {
+LinkList.args = {
   title: 'Helping you deliver great government services',
   intro: 'Find the building blocks for creating user-centred digital services, as well as policy, tools and guidance',
 };
