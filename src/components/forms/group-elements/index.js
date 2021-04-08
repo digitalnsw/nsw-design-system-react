@@ -25,7 +25,7 @@ FormHelper.propTypes = {
   htmlId: PropTypes.string,
   children: PropTypes.node,
   className: PropTypes.string,
-  error: PropTypes.string,
+  error: PropTypes.bool,
 };
 
 FormHelper.defaultProps = {

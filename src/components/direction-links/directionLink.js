@@ -51,7 +51,7 @@ DirectionLink.defaultProps = {
 
 export const DirectionLinks = ({ links }) => (
   <div>
-    { links.map((link) => (<DirectionLink {...link} />)) }
+    { links.map((link) => (<DirectionLink key={link.text} {...link} />)) }
   </div>
 );
 

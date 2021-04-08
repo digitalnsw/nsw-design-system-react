@@ -6,10 +6,9 @@ export default {
   component: Table,
 };
 const simpleHeaders = [
-  { title: 'First Name', key: 'fname', width: '33' },
-  { title: 'Last Name', key: 'lname', width: '33' },
-  { title: 'Email', key: 'email', width: '33' },
-
+  { title: 'First Name', key: 'fname', width: 33 },
+  { title: 'Last Name', key: 'lname', width: 33 },
+  { title: 'Email', key: 'email', width: 33 },
 ];
 
 const simpleData = [

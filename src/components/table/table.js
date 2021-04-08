@@ -130,7 +130,7 @@ TableHead.defaultProps = {
  * @param {object} attributeOptions - Default HTML attributes
  */
 export const TableHeader = ({
-  title, type, width, scope, className, ...attributeOptions
+  title, width, scope, className, ...attributeOptions
 }) => (
   <th
     className={className}
@@ -138,10 +138,7 @@ export const TableHeader = ({
     scope={scope}
     {...attributeOptions}
   >
-    {' '}
     { title }
-    {' '}
-
   </th>
 );
 
@@ -150,13 +147,11 @@ TableHeader.propTypes = {
   width: PropTypes.number,
   className: PropTypes.string,
   scope: PropTypes.string,
-  type: PropTypes.string,
 };
 
 TableHeader.defaultProps = {
   className: '',
   scope: 'col',
-  type: 'text',
 };
 
 /**
@@ -170,20 +165,18 @@ TableHeader.defaultProps = {
  *
  */
 export const TableCell = ({
-  data, type, className, render, ...attributeOptions
+  data, className, ...attributeOptions
 }) => (
   <td
     className={className}
     {...attributeOptions}
   >
-    { render || data}
+    { data }
   </td>
 );
 
 TableCell.propTypes = {
-  data: PropTypes.shape,
-  type: PropTypes.oneOf(['text', 'numeric']).isRequired,
-  render: PropTypes.shape,
+  data: PropTypes.string,
   className: PropTypes.string,
 };
 

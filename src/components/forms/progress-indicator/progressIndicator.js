@@ -8,10 +8,8 @@ export const ProgressIndicator = ({ step, of, ...attributeOptions }) => (
     </div>
     <div className="nsw-progress-indicator__bar">
       {
-      [...Array(step)].map(() => <ProgressIndicatorStep active />)
-    }
-      {
-      Array(of - step).fill(<ProgressIndicatorStep />)
+          // eslint-disable-next-line react/no-array-index-key
+          [...Array(of)].map((value, index) => (index + 1 <= step ? <ProgressIndicatorStep key={index} active /> : <ProgressIndicatorStep key={index} />))
     }
     </div>
   </div>
@@ -26,5 +24,5 @@ export const ProgressIndicatorStep = ({ active }) => (
 );
 
 ProgressIndicatorStep.propTypes = {
-  active: PropTypes.string,
+  active: PropTypes.bool,
 };

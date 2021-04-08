@@ -43,19 +43,19 @@ InpageNavLinks.args = {
   title: 'On this page',
   links: [
     {
-      link: '/',
+      url: '/',
       title: 'First home buyer grant and assistance',
     },
     {
-      link: '/',
+      url: '/',
       title: 'Buying and selling property',
     },
     {
-      link: '/',
+      url: '/',
       title: 'Building or renovating a home',
     },
     {
-      link: '/',
+      url: '/',
       title: 'Aged care housing, home living assistance and retirement villages',
     },
   ],

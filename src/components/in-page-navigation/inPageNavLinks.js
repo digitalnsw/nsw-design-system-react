@@ -11,17 +11,16 @@ import PropTypes from 'prop-types';
  * @param  {object} attributeOptions - Any other attribute options
  */
 export const InpageNavLinksItem = ({
-  url, title, li = {}, ...attributeOptions
+  url, title, ...attributeOptions
 }) => (
-  <li className="nsw-page-nav__list-item" {...li}>
-    <a className="nsw-page-nav__link" href={`#${url}`} {...attributeOptions}>{ title }</a>
+  <li className="nsw-page-nav__list-item">
+    <a className="nsw-page-nav__link" href={`${url}`} {...attributeOptions}>{ title }</a>
   </li>
 );
 
 InpageNavLinksItem.propTypes = {
-  url: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  li: PropTypes.shape,
+  url: PropTypes.string,
+  title: PropTypes.string,
 };
 
 /**
@@ -37,11 +36,11 @@ InpageNavLinksItem.propTypes = {
 export const InpageNavLinks = ({
   title, links, ariaLabel, className = '', ...attributeOptions
 }) => (
-  <nav className={`nsw-page-nav ${className}`} ariaLabel={ariaLabel} {...attributeOptions}>
+  <nav className={`nsw-page-nav ${className}`} aria-label={ariaLabel} {...attributeOptions}>
     <h2 className="nsw-page-nav__title">{ title }</h2>
 
     <ul className="nsw-page-nav__list">
-      { links.map((link) => <InpageNavLinksItem key={link.url} {...link} />) }
+      { links ? links.map((link) => <InpageNavLinksItem {...link} key={link.title} />) : '' }
     </ul>
   </nav>
 );
@@ -50,7 +49,7 @@ InpageNavLinks.propTypes = {
   title: PropTypes.string.isRequired,
   links: PropTypes.arrayOf(
     PropTypes.shape({
-      url: PropTypes.string.isRequired,
+      url: PropTypes.string,
       title: PropTypes.string.isRequired,
       li: PropTypes.shape,
     }),

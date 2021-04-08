@@ -70,7 +70,7 @@ export const TabSection = ({ urlHash, children }) => (
 
 TabSection.propTypes = {
   urlHash: PropTypes.string.isRequired,
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default Tabs;

@@ -4,14 +4,14 @@ import nextId from 'react-id-generator';
 import { FormHelper } from '../group-elements';
 
 /**
- * An item inside the Select component
+ * An item inside the Radio component
  *
  * @param  {string}   text             - The text of this option
  * @param  {string}   value            - The value of this option
  * @param  {object}   attributeOptions - Any other attribute options
  */
 export const RadioItem = ({
-  text, htmlId, value, status, uniqueID = nextId(), checked = '', ...attributeOptions
+  text, htmlId, value, status, uniqueID = nextId(), ...attributeOptions
 }) => (
   <>
     <input
@@ -20,7 +20,6 @@ export const RadioItem = ({
       name={htmlId}
       aria-describedby={status === 'invalid' ? `helper${htmlId} error${htmlId}` : `helper${htmlId}`}
       id={uniqueID}
-      {...checked}
       {...attributeOptions}
     />
     <label className="nsw-form-radio__label" htmlFor={uniqueID}>{text}</label>
@@ -32,14 +31,13 @@ RadioItem.propTypes = {
   value: PropTypes.string.isRequired,
   className: PropTypes.string,
   htmlId: PropTypes.string,
-  status: PropTypes.string,
+  status: PropTypes.oneOf(['invalid', false]),
   as: PropTypes.string,
-  uniqueID: nextId(),
-  checked: '',
+  uniqueID: PropTypes.func,
 };
 
 /**
- * The text group component
+ * The Form group radio component
  *
  * @param  {string}  status           - Adds invalid state to form group
  * @param  {string}  errorText        - Text for error message

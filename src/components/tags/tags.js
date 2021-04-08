@@ -58,6 +58,7 @@ const TagList = ({ tags, className = '', ...attributeOptions }) => (
             (tag) => (
 
               <Tag
+                key={tag.text}
                 linkComponent={tag.linkComponent}
                 link={tag.link}
                 text={tag.text}
