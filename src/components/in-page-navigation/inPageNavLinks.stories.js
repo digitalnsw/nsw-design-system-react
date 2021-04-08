@@ -1,5 +1,5 @@
 import React from 'react';
-import { InpageNavLinks as InpageNavLinksComp } from "./inPageNavLinks";
+import { InpageNavLinks as InpageNavLinksComp } from './inPageNavLinks';
 
 const Preamble = `
 ### Full documentation
@@ -24,31 +24,39 @@ import InpageNavLinks from "nsw-design-system-react/components/in-page-navigatio
 
 `;
 
-
 export default {
-    title: 'Content/Inpage Nav Links',
-    component: InpageNavLinksComp,
-    parameters: {
-      docs: {
-        description: {
-          component: Preamble,
-        }
+  title: 'Content/Inpage Nav Links',
+  component: InpageNavLinksComp,
+  parameters: {
+    docs: {
+      description: {
+        component: Preamble,
       },
     },
+  },
 };
 
-const Template = (args) => <InpageNavLinksComp  {...args} />;
+const Template = (args) => <InpageNavLinksComp {...args} />;
 
 export const InpageNavLinks = Template.bind({});
 InpageNavLinks.args = {
-    sections: [
-      {
-        link: 'section1',
-        title: 'Section 1',
-      },
-      {
-        link: 'section2',
-        title: 'Section 2',
-      },
-    ]
+  title: 'On this page',
+  links: [
+    {
+      url: '/',
+      title: 'First home buyer grant and assistance',
+    },
+    {
+      url: '/',
+      title: 'Buying and selling property',
+    },
+    {
+      url: '/',
+      title: 'Building or renovating a home',
+    },
+    {
+      url: '/',
+      title: 'Aged care housing, home living assistance and retirement villages',
+    },
+  ],
 };

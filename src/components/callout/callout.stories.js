@@ -1,5 +1,5 @@
 import React from 'react';
-import { Callout as CalloutComponent } from "./callout";
+import { Callout as CalloutComponent } from './callout';
 
 const Preamble = `
 ### Full documentation
@@ -24,21 +24,21 @@ import Callout from "nsw-design-system/components/callout";
 `;
 
 export default {
-    title: 'Content/Callout',
-    component: CalloutComponent,
-    parameters: {
-        docs: {
-            description: {
-                component: Preamble
-            },
-        },
+  title: 'Content/Callout',
+  component: CalloutComponent,
+  parameters: {
+    docs: {
+      description: {
+        component: Preamble,
+      },
     },
+  },
 };
 
-const Template = (args) => <CalloutComponent  {...args} />;
+const Template = (args) => <CalloutComponent {...args} />;
 
 export const Callout = Template.bind({});
 Callout.args = {
-    title: 'Title',
-    children: <p>This is a callout</p>
+  title: 'Title',
+  children: <p>This is a callout</p>,
 };

@@ -2,14 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Header from './components/header/header';
+import { Header as HeaderComponent } from './components/header/header';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Header hideSearch hideMobileMenu />
+    <HeaderComponent hideSearch hideMobileMenu />
     <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 // If you want to start measuring performance in your app, pass a function

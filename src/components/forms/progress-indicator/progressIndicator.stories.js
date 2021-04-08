@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProgressIndicator as ProgressIndicatorComponent } from "./progressIndicator";
+import { ProgressIndicator as ProgressIndicatorComponent } from './progressIndicator';
 
 const Preamble = `
 ### Full documentation
@@ -24,25 +24,22 @@ import ProgressIndicator from "nsw-design-system-react/components/forms/progress
 
 `;
 
-
 export default {
-    title: 'Transaction/Progress Indicator',
-    component: ProgressIndicatorComponent,
-    parameters: {
-      docs: {
-        description: {
-          component: Preamble,
-        }
+  title: 'Transaction/Progress Indicator',
+  component: ProgressIndicatorComponent,
+  parameters: {
+    docs: {
+      description: {
+        component: Preamble,
       },
     },
+  },
 };
 
-const Template = (args) => <ProgressIndicatorComponent  {...args} />;
-
-
+const Template = (args) => <ProgressIndicatorComponent {...args} />;
 
 export const ProgressIndicator = Template.bind({});
 ProgressIndicator.args = {
-    step: 3,
-    of: 5
+  step: 3,
+  of: 5,
 };

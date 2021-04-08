@@ -1,13 +1,5 @@
-/***************************************************************************************************************************************************************
- *
- * Page alert function
- *
- * Use page alert to notify and alert users of important application events.
- *
- **************************************************************************************************************************************************************/
-
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * All different kind of alerts
@@ -15,17 +7,22 @@ import PropTypes from "prop-types";
  * @type {Object}
  */
 const options = {
-    info: "nsw-notification--info",
-    warning: "nsw-notification--warning",
-    error: "nsw-notification--error",
-    success: "nsw-notification--success"
+  info: 'nsw-notification--info',
+  warning: 'nsw-notification--warning',
+  error: 'nsw-notification--error',
+  success: 'nsw-notification--success',
 };
 
+/**
+ * All different kind of alert icons
+ *
+ * @type {Object}
+ */
 const icons = {
-    info: "info",
-    warning: "cancel",
-    error: "error",
-    success: "check_circle"
+  info: 'info',
+  warning: 'cancel',
+  error: 'error',
+  success: 'check_circle',
 };
 
 /**
@@ -34,52 +31,40 @@ const icons = {
  *
  * @param  {boolean} dark             - Add the dark variation class, optional
  * @param  {boolean} alt              - Add the alt variation class, optional
- * @param  {string}  as               - What kind of alert this is, takes: 'info', 'warning', 'error', 'success'
+ * @param  {string}  as               - What kind of alert this is
  * @param  {node}    children         - Anything inside the component
  * @param  {string}  className        - An additional class, optional
  * @param  {object}  attributeOptions - Any other attribute options
  */
 export const Notification = ({
-                                 title = "",
-                                 as,
-                                 children,
-                                 className = "",
-                                 ...attributeOptions
-                             }) => (
-    <div
-        className={`nsw-notification ${className} ${options[as]}`}
-        {...attributeOptions}
+  title = '',
+  as,
+  children,
+  className = '',
+  ...attributeOptions
+}) => (
+  <div
+    className={`nsw-notification ${className} ${options[as]}`}
+    {...attributeOptions}
+  >
+    <i
+      focusable="false"
+      className="material-icons nsw-material-icons nsw-notification__icon"
     >
-        <i
-            focusable="false"
-            className="material-icons nsw-material-icons nsw-notification__icon"
-        >
-            {icons[as]}
-        </i>
-        <div class="nsw-notification__content">
-            <h4 class="nsw-notification__title">{title}</h4>
-            {children}
-        </div>
+      {icons[as]}
+    </i>
+    <div className="nsw-notification__content">
+      <h4 className="nsw-notification__title">{title}</h4>
+      {children}
     </div>
+  </div>
 );
 
 Notification.propTypes = {
-    /**
-     * Type of notification
-     */
-    as: PropTypes.oneOf(["info", "warning", "error", "success"]).isRequired,
-    /**
-     * Content of notification
-     */
-    children: PropTypes.node.isRequired,
-    /**
-     * Additional class name
-     */
-    className: PropTypes.string,
-    /**
-     * Notification title
-     */
-    title: PropTypes.string,
+  as: PropTypes.oneOf(['info', 'warning', 'error', 'success']).isRequired,
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  title: PropTypes.string,
 };
 
 export default Notification;

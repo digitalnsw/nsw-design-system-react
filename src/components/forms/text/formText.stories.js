@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormGroupText } from "./formText";
+import { FormGroupText } from './formText';
 
 const Preamble = `
 ### Full documentation
@@ -33,33 +33,33 @@ export default {
         component: Preamble,
       },
       source: {
-      }
-    }
-  }
+      },
+    },
+  },
 };
 
-const Template = (args) => <FormGroupText  {...args} />;
+const Template = (args) => <FormGroupText {...args} />;
 
 export const SingleLine = Template.bind({});
 SingleLine.args = {
-  label:"Your name",
-  helper:"as it appears on your birth certificate",
-  htmlId: "uniqueID"
+  label: 'Your name',
+  helper: 'as it appears on your birth certificate',
+  htmlId: 'uniqueID',
 };
 
 export const MultipleLine = Template.bind({});
 MultipleLine.args = {
-  label:"Your name",
-  helper:"as it appears on your birth certificate",
-  htmlId: "uniqueID-2",
-  as: "textarea"
+  label: 'Your name',
+  helper: 'as it appears on your birth certificate',
+  htmlId: 'uniqueID-2',
+  as: 'textarea',
 };
 
 export const WithError = Template.bind({});
 WithError.args = {
-  label:"Your name",
-  helper:"as it appears on your birth certificate",
-  errorText:"Please enter your name",
-  htmlId: "uniqueID-3",
-  status:"invalid"
+  label: 'Your name',
+  helper: 'as it appears on your birth certificate',
+  errorText: 'Please enter your name',
+  htmlId: 'uniqueID-3',
+  status: 'invalid',
 };

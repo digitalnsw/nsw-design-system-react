@@ -1,11 +1,3 @@
-/***************************************************************************************************************************************************************
- *
- * inpage-nav function
- *
- * Use inpage-nav links to help users scan and jump to content of a page.
- *
- **************************************************************************************************************************************************************/
-
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -14,72 +6,60 @@ import PropTypes from 'prop-types';
  *
  * @param  {object} link             - The link of this section
  * @param  {object} title            - The title of the section
- * @param  {object} li               - An additional object to be spread into the wrapping element, optional
+ * @param  {object} li               - An additional object to be spread
+*                                      into the wrapping element, optional
  * @param  {object} attributeOptions - Any other attribute options
  */
-export const InpageNavLinksItem = ({ link, title, li = {}, ...attributeOptions }) => (
-	<li className='nsw-page-nav__list-item' { ...li }>
-		<a className='nsw-page-nav__link' href={ `#${ link }` } { ...attributeOptions }>{ title }</a>
-	</li>
+export const InpageNavLinksItem = ({
+  url, title, ...attributeOptions
+}) => (
+  <li className="nsw-page-nav__list-item">
+    <a className="nsw-page-nav__link" href={`${url}`} {...attributeOptions}>{ title }</a>
+  </li>
 );
 
 InpageNavLinksItem.propTypes = {
-	link: PropTypes.string.isRequired,
-	title: PropTypes.string.isRequired,
-	li: PropTypes.object,
+  url: PropTypes.string,
+  title: PropTypes.string,
 };
-
 
 /**
  * The inpage-nav component
  *
  * @param  {string}  title            - The title of the content link block, default: Contents
- * @param  {array}   sections         - An array of objects of all sections, sample: { link: '', title: '', onClick: () }
+ * @param  {array}   sections         - An array of objects of all sections, sample:
+ *                                      { link: '', title: '', onClick: () }
  * @param  {string}  className        - An additional class, optional
  * @param  {string}  ariaLabel        - The aria-label attribute, optional
  * @param  {object}  attributeOptions - Any other attribute options
  */
-export const InpageNavLinks = ({ title, sections, ariaLabel, className = '', ...attributeOptions }) => (
-	<nav className={ `nsw-page-nav ${ className }` } ariaLabel={ ariaLabel } { ...attributeOptions }>
-		<h2 className="nsw-page-nav__title">{ title }</h2>
+export const InpageNavLinks = ({
+  title, links, ariaLabel, className = '', ...attributeOptions
+}) => (
+  <nav className={`nsw-page-nav ${className}`} aria-label={ariaLabel} {...attributeOptions}>
+    <h2 className="nsw-page-nav__title">{ title }</h2>
 
-		<ul className="nsw-page-nav__list">
-			{ sections.map( ( section, i ) => <InpageNavLinksItem key={ i } { ...section } /> ) }
-		</ul>
-	</nav>
+    <ul className="nsw-page-nav__list">
+      { links ? links.map((link) => <InpageNavLinksItem {...link} key={link.title} />) : '' }
+    </ul>
+  </nav>
 );
 
 InpageNavLinks.propTypes = {
-  /**
-	 * In-page nav title
-	*/
-	title: PropTypes.string.isRequired,
-  /**
-	 * Sections to list
-	*/
-	sections: PropTypes.arrayOf(
-		PropTypes.shape({
-			link: PropTypes.string.isRequired,
-			title: PropTypes.string.isRequired,
-      /**
-       * Optional
-      */
-			li: PropTypes.object,
-		})
-	).isRequired,
-  /**
-	 * An additional class, optional
-	*/
-	className: PropTypes.string,
-  /**
-	 * Aria label
-	*/
-	ariaLabel: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      url: PropTypes.string,
+      title: PropTypes.string.isRequired,
+      li: PropTypes.shape,
+    }),
+  ).isRequired,
+  className: PropTypes.string,
+  ariaLabel: PropTypes.string,
 };
 
 InpageNavLinks.defaultProps = {
-	title: 'On this page',
-	ariaLabel: 'in page navigation',
+  ariaLabel: 'in page navigation',
 };
 
 export default InpageNavLinks;

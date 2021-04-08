@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormGroupRadio } from "./formRadio";
+import { FormGroupRadio } from './formRadio';
 
 const Preamble = `
 ### Full documentation
@@ -33,20 +33,20 @@ export default {
         component: Preamble,
       },
       source: {
-      }
-    }
-  }
+      },
+    },
+  },
 };
 
-const Template = (args) => <FormGroupRadio  {...args} />;
+const Template = (args) => <FormGroupRadio {...args} />;
 
 export const Group = Template.bind({});
 Group.args = {
-  label:"Select a thing",
-  helper:"And only one thing",
-  htmlId:"uniqueID",
-  as:"group",
-  options:[
+  label: 'Select a thing',
+  helper: 'And only one thing',
+  htmlId: 'uniqueID',
+  as: 'group',
+  options: [
     {
       value: '1',
       text: 'Option 1',
@@ -54,24 +54,24 @@ Group.args = {
     {
       value: '2',
       text: 'Option 2',
-      selected: 'selected'
+      selected: 'selected',
     },
     {
       value: '3',
       text: 'Option 3',
-    }
-  ]
+    },
+  ],
 };
 
 export const WithError = Template.bind({});
 WithError.args = {
-  errorText:"Please select an option",
-  status:"invalid",
-  label:"Select a thing",
-  helper:"And only one thing",
-  htmlId:"uniqueID",
-  as:"group",
-  options:[
+  errorText: 'Please select an option',
+  status: 'invalid',
+  label: 'Select a thing',
+  helper: 'And only one thing',
+  htmlId: 'uniqueID',
+  as: 'group',
+  options: [
     {
       value: '1',
       text: 'Option 1',
@@ -79,11 +79,11 @@ WithError.args = {
     {
       value: '2',
       text: 'Option 2',
-      selected: 'selected'
+      selected: 'selected',
     },
     {
       value: '3',
       text: 'Option 3',
-    }
-  ]
+    },
+  ],
 };

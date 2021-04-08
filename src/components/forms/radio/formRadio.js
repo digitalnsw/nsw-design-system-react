@@ -1,47 +1,43 @@
-/***************************************************************************************************************************************************************
- *
- * select functions
- *
- **************************************************************************************************************************************************************/
-
 import React from 'react';
 import PropTypes from 'prop-types';
+import nextId from 'react-id-generator';
 import { FormHelper } from '../group-elements';
-import nextId from "react-id-generator";
 
 /**
- * An item inside the Select component
+ * An item inside the Radio component
  *
  * @param  {string}   text             - The text of this option
  * @param  {string}   value            - The value of this option
  * @param  {object}   attributeOptions - Any other attribute options
  */
-export const RadioItem = ({text, htmlId, value, status, as, uniqueID = nextId(), checked = '', ...attributeOptions}) => (
-    <>
-        <input
-            class="nsw-form-radio__input"
-            type="radio"
-            name={htmlId}
-
-            aria-invalid={status === "invalid" && as != "group" ? 'true' : ''}
-            aria-describedby={status === "invalid" ? `helper${htmlId} error${htmlId}` : `helper${htmlId}`}
-
-            id={uniqueID} {...checked}></input>
-        <label class="nsw-form-radio__label" for={uniqueID}>{text}</label>
-    </>
+export const RadioItem = ({
+  text, htmlId, value, status, uniqueID = nextId(), ...attributeOptions
+}) => (
+  <>
+    <input
+      className="nsw-form-radio__input"
+      type="radio"
+      name={htmlId}
+      aria-describedby={status === 'invalid' ? `helper${htmlId} error${htmlId}` : `helper${htmlId}`}
+      id={uniqueID}
+      {...attributeOptions}
+    />
+    <label className="nsw-form-radio__label" htmlFor={uniqueID}>{text}</label>
+  </>
 );
 
 RadioItem.propTypes = {
-    text: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    className: PropTypes.string,
-    uniqueID: nextId(),
-    checked: ''
+  text: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  htmlId: PropTypes.string,
+  status: PropTypes.oneOf(['invalid', false]),
+  as: PropTypes.string,
+  uniqueID: PropTypes.func,
 };
 
-
 /**
- * The text group component
+ * The Form group radio component
  *
  * @param  {string}  status           - Adds invalid state to form group
  * @param  {string}  errorText        - Text for error message
@@ -51,84 +47,66 @@ RadioItem.propTypes = {
  * @param  {string}  className        - An additional class, optional
  * @param  {object}  attributeOptions - Any other attribute options
  */
-export const FormGroupRadio = (props) => (
-    <div className={`nsw-form-group ${props.className}`}
-    >
-        <fieldset class="nsw-form-fieldset" aria-invalid={props.status === "invalid" ? 'true' : ''}>
-            {props.as === 'group'
-                ? <legend>
-                    <span class="nsw-form-legend-text">{props.label}</span>
-                    {props.helper
-                        ? <FormHelper htmlId={props.htmlId}>{props.helper}</FormHelper>
-                        : ''
-                    }
-                    {props.status === "invalid"
-                        ? <FormHelper htmlId={props.htmlId} error>{props.errorText}</FormHelper>
-                        : ''
-                    }
-                </legend>
-                : ''
-            }
+export const FormGroupRadio = ({
+  className, as, label, helper, status, htmlId, errorText, options,
+}) => (
+  <div className={`nsw-form-group ${className}`}>
+    <fieldset className="nsw-form-fieldset" aria-invalid={status === 'invalid' ? 'true' : ''}>
+      {as === 'group'
+        ? (
+          <legend>
+            <span className="nsw-form-legend-text">{label}</span>
+            {helper
+              ? <FormHelper htmlId={htmlId}>{helper}</FormHelper>
+              : ''}
+            {status === 'invalid'
+              ? <FormHelper htmlId={htmlId} error>{errorText}</FormHelper>
+              : ''}
+          </legend>
+        )
+        : ''}
 
-            <div class="nsw-form-radio">
-                {
-                    props.options.map(
-                        (option, i) => <RadioItem key={i} {...option} htmlId={props.htmlId} status={props.status}/>
-                    )
-                }
-            </div>
-            {props.status === "invalid" && props.as != 'group'
-                ? <FormHelper htmlId={props.htmlId} error>{props.errorText}</FormHelper>
-                : ''
-            }
+      <div className="nsw-form-radio">
+        {
+          options.map(
+            (option) => (
+              <RadioItem
+                key={option.value}
+                {...option}
+                htmlId={htmlId}
+                status={status}
+              />
+            ),
+          )
+        }
+      </div>
+      {status === 'invalid' && as !== 'group'
+        ? <FormHelper htmlId={htmlId} error>{errorText}</FormHelper>
+        : ''}
 
-        </fieldset>
-    </div>
+    </fieldset>
+  </div>
 );
 
 FormGroupRadio.propTypes = {
-    /**
-     * Adds invalid state to checkbox / group
-     */
-    status: PropTypes.oneOf(['invalid', false]),
-    /**
-     * Text to show if field is in error state (ignored otherwise)
-     */
-    errorText: PropTypes.string,
-    /**
-     * Unique ID for the checkbox / group
-     */
-    htmlId: PropTypes.string,
-    /**
-     * Legend title for group (where `as` is 'group')
-     */
-    label: PropTypes.string,
-    /**
-     * Set to group for group of checkboxes with legend
-     */
-    as: PropTypes.oneOf(['group', false]),
-    /**
-     * Helper text for the field
-     */
-    helper: PropTypes.string,
-    /**
-     * Schema for checkboxes
-     */
-    options: PropTypes.arrayOf(
-        PropTypes.shape({
-            value: PropTypes.string,
-            text: PropTypes.string,
-        })
-    ).isRequired,
-    /**
-     * An additional class, optional
-     */
-    className: PropTypes.string,
+  status: PropTypes.oneOf(['invalid', false]),
+  errorText: PropTypes.string,
+  htmlId: PropTypes.string,
+  label: PropTypes.string,
+  as: PropTypes.oneOf(['group', false]),
+  helper: PropTypes.string,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string,
+      text: PropTypes.string,
+    }),
+  ).isRequired,
+  className: PropTypes.string,
 };
 
 FormGroupRadio.defaultProps = {
-    status: false,
-    className: '',
-    htmlId: nextId(),
-    as: "group"
-}
+  status: false,
+  className: '',
+  htmlId: nextId(),
+  as: 'group',
+};

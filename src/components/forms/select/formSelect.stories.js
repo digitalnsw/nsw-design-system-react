@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormGroupSelect} from "./formSelect";
+import { FormGroupSelect } from './formSelect';
 
 const Preamble = `
 ### Full documentation
@@ -33,18 +33,18 @@ export default {
         component: Preamble,
       },
       source: {
-      }
-    }
-  }
+      },
+    },
+  },
 };
 
-const Template = (args) => <FormGroupSelect  {...args} />;
+const Template = (args) => <FormGroupSelect {...args} />;
 
 export const AsFormItem = Template.bind({});
 AsFormItem.args = {
-  label:"Select a thing",
-  helper:"Select from the list",
-  options:[
+  label: 'Select a thing',
+  helper: 'Select from the list',
+  options: [
     {
       value: '',
       text: 'Please select',
@@ -56,26 +56,26 @@ AsFormItem.args = {
     {
       value: '2',
       text: 'Option 2',
-      selected: 'selected'
+      selected: 'selected',
     },
     {
       value: '3',
       text: 'Option 3',
     },
-  ]
+  ],
 };
 
 export const WithError = Template.bind({});
 WithError.args = {
-  errorText:"Please select an option",
-  status:"invalid",
-  label:"Select a thing",
-  helper:"Select from the list",
-  options:[
+  errorText: 'Please select an option',
+  status: 'invalid',
+  label: 'Select a thing',
+  helper: 'Select from the list',
+  options: [
     {
       value: '',
       text: 'Please select',
-      selected: 'selected'
+      selected: 'selected',
     },
     {
       value: '1',
@@ -89,5 +89,5 @@ WithError.args = {
       value: '3',
       text: 'Option 3',
     },
-  ]
+  ],
 };

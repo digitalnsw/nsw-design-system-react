@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from "./button";
+import Button from './button';
 
 const Preamble = `
 ### Full documentation
@@ -33,28 +33,28 @@ export default {
         component: Preamble,
       },
       source: {
-      }
-    }
-  }
+      },
+    },
+  },
 };
 
-const Template = (args) => <Button  {...args} />;
+const Template = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  children: 'Button'
+  children: 'Button',
 };
 
 export const ButtonLink = Template.bind({});
 ButtonLink.args = {
   link: '/',
-  children: 'Button Link'
+  children: 'Button Link',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   children: 'Button',
-  as: 'secondary'
+  as: 'secondary',
 };
 
 export const Danger = Template.bind({});

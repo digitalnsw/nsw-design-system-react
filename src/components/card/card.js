@@ -1,14 +1,5 @@
-/***************************************************************************************************************************************************************
- *
- * card function
- *
- * A container for all types of content
- *
- **************************************************************************************************************************************************************/
-
 import React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
 
 /**
  * The card  component
@@ -24,75 +15,51 @@ import moment from 'moment';
  * @param {string}   className          - An additional class, optional
  * @param {object}   attributeOptions   - Default HTML attributes
  */
-const Card = ({ link, headline, content, tag, date, dateMomentFormat, image, imageAlt, className, children, ...attributesOptions }) => {
-	let CardContainer = 'div';
+const Card = ({
+  link, headline, content, tag, date,
+  image, imageAlt, className,
+  children, ...attributesOptions
+}) => {
+  let CardContainer = 'div';
 
-	if( link !== undefined ) {
-		CardContainer = 'div';
-		attributesOptions.href = link;
-	}
+  if (link !== undefined) {
+    CardContainer = 'div';
+    attributesOptions.href = link;
+  }
 
-	return (
-		<CardContainer className={`nsw-card ${className}` +
-								`${headline ? 'nsw-card--headline' : ''} ` +
-								`${content ? 'nsw-card--content' : ''} `}
-								{...attributesOptions}
-								>
+  return (
+    <CardContainer
+      className={`nsw-card ${className}`
+      + `${headline ? 'nsw-card--headline' : ''} `
+      + `${content ? 'nsw-card--content' : ''} `}
+      {...attributesOptions}
+    >
       <CardContent>
         {headline ? <CardHeader link={link}>{headline}</CardHeader> : ''}
         {children}
-        {date ? <CardDate date={date} dateMomentFormat={dateMomentFormat} /> : ''}
+        {date ? <CardDate date={date} /> : ''}
         {tag ? <CardTag>{tag}</CardTag> : ''}
       </CardContent>
       {image ? <CardImage src={image} alt={imageAlt} /> : ''}
-		</CardContainer>
-	)
+    </CardContainer>
+  );
 };
 
 Card.propTypes = {
-  /**
-   * The link that clicking the card goes to
-  */
-	link: PropTypes.string,
-  /**
-   * The tag to display (e.g. a category for news)
-  */
+  link: PropTypes.string,
   tag: PropTypes.string,
-  /**
-   * The date to display, format YYYY-MM-DD
-  */
   date: PropTypes.string,
-  /**
-   * The date display format using momentum.js (Default to '4th June 2021')
-  */
-  dateMomentFormat: PropTypes.string,
-  /**
-   * The image URL/path (optional)
-  */
   image: PropTypes.string,
-  /**
-   * Alt text for image (req if image supplied)
-  */
   imageAlt: PropTypes.string,
-  /**
-   * Headline (required)
-  */
   headline: PropTypes.string.isRequired,
-  /**
-   * Removes highlight bar if true
-  */
   content: PropTypes.bool,
-  /**
-   * Additional class names
-  */
   className: PropTypes.string,
+  children: PropTypes.node,
 };
 
 Card.defaultProps = {
-	className: '',
-  dateMomentFormat: 'Do MMMM YYYY'
+  className: null,
 };
-
 
 /**
  * An inner container for the card, with padding of 1 rem
@@ -100,54 +67,52 @@ Card.defaultProps = {
  * @param {object}   attributeOptions   - Default HTML attributes
  */
 export const CardContent = ({ className, children, ...attributesOptions }) => (
-	<div className={`nsw-card__content ${className}`} {...attributesOptions}>
-		{children}
+  <div className={`nsw-card__content ${className}`} {...attributesOptions}>
+    {children}
     <i className="material-icons nsw-material-icons nsw-card__icon" focusable="false" aria-hidden="true">east</i>
-	</div>
+  </div>
 );
 
 CardContent.propTypes = {
-	className: PropTypes.string
-}
+  className: PropTypes.string,
+  children: PropTypes.node,
+};
 
 CardContent.defaultProps = {
-	className: ''
-}
-
+  className: null,
+  children: null,
+};
 
 /**
  * An inner container for the card, with padding of 1 rem
  * @param {string}   className          - An additional class, optional
  * @param {object}   attributeOptions   - Default HTML attributes
  */
-export const CardHeader = ({ className, level, alt, dark, link, children, ...attributesOptions }) => {
-      const HeadingTag = `h${ level }`;
-      if(link != undefined){
-        return (
-          <HeadingTag className={`nsw-card__title`}><a href='' className='nsw-card__link'>{children}</a></HeadingTag>
-        )
-      } else {
-        return (
-          <HeadingTag className={`nsw-card__title`}>{children}</HeadingTag >
-        )
-      }
-
+export const CardHeader = ({
+  className, level, link, children,
+}) => {
+  const HeadingTag = level ? `h${level}` : '';
+  if (link !== undefined) {
+    return (
+      <HeadingTag className={`nsw-card__title ${className}`}><a href={link} className="nsw-card__link">{children}</a></HeadingTag>
+    );
+  }
+  return (
+    <HeadingTag className="nsw-card__title">{children}</HeadingTag>
+  );
 };
 
 CardHeader.propTypes = {
-	className: PropTypes.string,
-	dark: PropTypes.bool,
-	alt: PropTypes.bool,
-	level: PropTypes.oneOf([ '1', '2', '3', '4', '5', '6' ]),
-}
+  className: PropTypes.string,
+  level: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
+  link: PropTypes.string,
+  children: PropTypes.node,
+};
 
 CardHeader.defaultProps = {
-	className: '',
-	dark: false,
-	alt: false,
-  level: 2
-}
-
+  className: '',
+  level: 2,
+};
 
 /**
  * An image inside the card
@@ -155,84 +120,92 @@ CardHeader.defaultProps = {
  * @param {string}   className          - An additional class, optional
  * @param {object}   attributeOptions   - Default HTML attributes
  */
-export const CardImage = ({ src,className,alt, ...attributesOptions }) => (
-  <div class="nsw-card__image-area">
-    <img className={`nsw-card__image ${className}`} src={ src } alt={ alt } {...attributesOptions} />
+export const CardImage = ({
+  src, className, alt, ...attributesOptions
+}) => (
+  <div className="nsw-card__image-area">
+    <img className={`nsw-card__image ${className}`} src={src} alt={alt} {...attributesOptions} />
   </div>
 );
 
 CardImage.propTypes = {
-	src: PropTypes.string.isRequired,
-	className: PropTypes.string
+  src: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  alt: PropTypes.string,
 };
 
 CardImage.defaultProps = {
-	className: ''
+  className: '',
 };
-
 
 /**
  * An paragraph inside the card
  * @param {string}   className          - An additional class, optional
  * @param {object}   attributeOptions   - Default HTML attributes
  */
-export const CardCopy = ({ src, children, className, ...attributesOptions }) => (
-	<p className={`nsw-card__copy ${className}`}>
+export const CardCopy = ({
+  src, children, className, ...attributesOptions
+}) => (
+  <p className={`nsw-card__copy ${className}`} {...attributesOptions}>
     {children}
   </p>
 );
 
 CardCopy.propTypes = {
-	className: PropTypes.string
+  className: PropTypes.string,
+  src: PropTypes.string,
+  children: PropTypes.node,
 };
 
 CardCopy.defaultProps = {
-	className: ''
+  className: '',
 };
-
 
 /**
  * An tag inside the card
  * @param {string}   className          - An additional class, optional
  * @param {object}   attributeOptions   - Default HTML attributes
  */
-export const CardTag = ({ src, children, className, ...attributesOptions }) => (
-	<p className={`nsw-card__tag ${className}`}>
+export const CardTag = ({
+  children, className, ...attributesOptions
+}) => (
+  <p className={`nsw-card__tag ${className}`} {...attributesOptions}>
     {children}
   </p>
 );
 
 CardTag.propTypes = {
-	className: PropTypes.string
+  className: PropTypes.string,
+  children: PropTypes.node,
 };
 
 CardTag.defaultProps = {
-	className: ''
+  className: '',
 };
-
 
 /**
  * An date inside the card
  * @param {string}   className          - An additional class, optional
  * @param {object}   attributeOptions   - Default HTML attributes
  */
-export const CardDate = ({ src, children, className, dateMomentFormat, date, ...attributesOptions }) => (
-	<p className={`nsw-card__date ${className}`}>
-    <time datetime={date}>
-    {moment(date).format(dateMomentFormat)}
+export const CardDate = ({
+  className, date, ...attributesOptions
+}) => (
+  <p className={`nsw-card__date ${className}`} {...attributesOptions}>
+    <time dateTime={date}>
+      {date}
     </time>
   </p>
 );
 
 CardDate.propTypes = {
-	className: PropTypes.string
+  className: PropTypes.string,
+  date: PropTypes.string.isRequired,
 };
 
 CardDate.defaultProps = {
-	className: '',
-  dateMomentFormat: 'Do MMMM YYYY'
+  className: null,
 };
-
 
 /**
  * A horizontal rule used to divide content inside the card
@@ -240,18 +213,16 @@ CardDate.defaultProps = {
  * @param {object}   attributeOptions   - Default HTML attributes
  */
 export const CardDivider = ({ className, ...attributesOptions }) => (
-	<hr className={`nsw-card__divider ${className}`} {...attributesOptions} />
+  <hr className={`nsw-card__divider ${className}`} {...attributesOptions} />
 );
 
 CardDivider.propTypes = {
-	className: PropTypes.string
+  className: PropTypes.string,
 };
 
 CardDivider.defaultProps = {
-	className: ''
+  className: '',
 };
-
-
 
 /**
  * Use when making the entire click area of card clickable.
@@ -259,57 +230,49 @@ CardDivider.defaultProps = {
  * @param {string}   className          - An additional class, optional
  * @param {object}   attributeOptions   - Default HTML attributes
  */
-export const CardLink = ({ link, text, className, ...attributesOptions }) => (
-	<a href={link} className={`nsw-card--clickable__link ${className}`} {...attributesOptions}>
-		{text}
-	</a>
+export const CardLink = ({
+  link, text, className, ...attributesOptions
+}) => (
+  <a href={link} className={`nsw-card--clickable__link ${className}`} {...attributesOptions}>
+    {text}
+  </a>
 );
 
 CardLink.propTypes = {
-	link: PropTypes.string.isRequired,
-	text: PropTypes.string.isRequired,
-	className: PropTypes.string
+  link: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 
 CardLink.defaultProps = {
-	className: ''
+  className: '',
 };
-
-
 
 /**
  * The footer section of the card
  * @param {string}   className          - An additional class, optional
  * @param {object}   attributeOptions   - Default HTML attributes
  */
-export const CardFooter = ({ dark, alt, children, className, ...attributesOptions }) => {
-
-
-	let footerTheme = "";
-
-	if ( dark || alt ) {
-		footerTheme = `au-body ${ dark ? "au-body--dark" : "" } ${ alt ? "au-body--alt" : ""}`
-	};
-
-	return (
-		<div className={`nsw-card__footer ${footerTheme} ${className}`} {...attributesOptions}>
-			{children}
-		</div>
-)};
+export const CardFooter = ({
+  dark, alt, children, className, ...attributesOptions
+}) => (
+  <div className={`nsw-card__footer ${className}`} {...attributesOptions}>
+    {children}
+  </div>
+);
 
 CardFooter.propTypes = {
-	className: PropTypes.string,
-	dark: PropTypes.bool,
-	alt: PropTypes.bool,
-}
+  className: PropTypes.string,
+  dark: PropTypes.bool,
+  alt: PropTypes.bool,
+  children: PropTypes.node,
+};
 
 CardFooter.defaultProps = {
-	className: '',
-	dark: false,
-	alt: false,
-}
-
-
+  className: '',
+  dark: false,
+  alt: false,
+};
 
 /**
  * The footer section of the card
@@ -317,22 +280,24 @@ CardFooter.defaultProps = {
  * @param {string}   className          - An additional class, optional
  * @param {object}   attributeOptions   - Default HTML attributes
  */
-export const CardTitle = ({ children, className, level, ...attributeOptions }) => {
-	const HeadingTag = `h${ level }`;
+export const CardTitle = ({
+  children, className, level, ...attributeOptions
+}) => {
+  const HeadingTag = `h${level}`;
 
-	return (
-		<HeadingTag className={ `nsw-card__title ${ className }` } { ...attributeOptions }>{ children }</HeadingTag>
-	);
+  return (
+    <HeadingTag className={`nsw-card__title ${className}`} {...attributeOptions}>{ children }</HeadingTag>
+  );
 };
 
 CardTitle.propTypes = {
-	level: PropTypes.oneOf([ '1', '2', '3', '4', '5', '6' ]).isRequired,
-	className: PropTypes.string
+  level: PropTypes.oneOf(['1', '2', '3', '4', '5', '6']).isRequired,
+  className: PropTypes.string,
+  children: PropTypes.node,
 };
 
 CardTitle.defaultProps = {
-	className: ''
+  className: null,
 };
-
 
 export default Card;

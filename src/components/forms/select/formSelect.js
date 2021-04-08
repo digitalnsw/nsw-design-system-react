@@ -1,13 +1,8 @@
-/***************************************************************************************************************************************************************
- *
- * select functions
- *
- **************************************************************************************************************************************************************/
-
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormGroup } from  '../group-elements';
-import nextId from "react-id-generator";
+import nextId from 'react-id-generator';
+import { FormGroup } from '../group-elements';
+
 const defHtmlId = nextId();
 
 /**
@@ -18,15 +13,14 @@ const defHtmlId = nextId();
  * @param  {object}   attributeOptions - Any other attribute options
  */
 export const SelectItem = ({ text, value, ...attributeOptions }) => (
-	<option value={ value } { ...attributeOptions }>{ text }</option>
+  <option value={value} {...attributeOptions}>{ text }</option>
 );
 
 SelectItem.propTypes = {
-	text: PropTypes.string.isRequired,
-	value: PropTypes.string.isRequired,
-	className: PropTypes.string,
+  text: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
-
 
 /**
  * DEFAULT
@@ -38,36 +32,36 @@ SelectItem.propTypes = {
  * @param  {string}  className        - An additional class, optional
  * @param  {object}  attributeOptions - Any other attribute options
  */
-export const Select = ({ htmlId,  options, block, status, className = '', ...attributeOptions }) => {
-
-	return (
-		<select className={
-			`nsw-form-select ${ className }`}
-      aria-invalid={ status === "invalid" ?  'true' : '' }
-      aria-describedby={ status === "invalid" ?  `helper${htmlId} error${htmlId}` : `helper${htmlId}` }
-      id={htmlId}
-		 { ...attributeOptions }>
-			{
-				options.map(
-					( option, i ) => <SelectItem key={ i } { ...option } />
-				)
-			}
-		</select>
-	);
-};
+export const Select = ({
+  htmlId, options, block, status, className = '', ...attributeOptions
+}) => (
+  <select
+    className={`nsw-form-select ${className}`}
+    aria-invalid={status === 'invalid' ? 'true' : ''}
+    aria-describedby={status === 'invalid' ? `helper${htmlId} error${htmlId}` : `helper${htmlId}`}
+    id={htmlId}
+    {...attributeOptions}
+  >
+    {
+          options.map(
+            (option) => <SelectItem key={option.value} {...option} />,
+          )
+      }
+  </select>
+);
 
 Select.propTypes = {
-	options: PropTypes.arrayOf(
-		PropTypes.shape({
-			value: PropTypes.string.isRequired,
-			text: PropTypes.string.isRequired,
-		})
-	).isRequired,
-	block: PropTypes.bool,
-	status: PropTypes.oneOf([ false, 'invalid' ]),
-	className: PropTypes.string,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      text: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+  block: PropTypes.bool,
+  htmlId: PropTypes.string,
+  status: PropTypes.oneOf([false, 'invalid']),
+  className: PropTypes.string,
 };
-
 
 /**
  * The text group component
@@ -87,45 +81,26 @@ export const FormGroupSelect = (props) => (
 );
 
 FormGroupSelect.propTypes = {
-	/**
-	 * Adds invalid state to checkbox / group
-	 */
-	status: PropTypes.oneOf([ 'invalid', false ]),
-	/**
-	 * Text to show if field is in error state (ignored otherwise)
-	 */
-	errorText: PropTypes.string,
-	/**
-	 * Legend title for group (where `as` is 'group')
-	 */
-	 label: PropTypes.string,
- 	/**
- 	 * Helper text for the field
- 	 */
-	helper: PropTypes.string,
-	/**
-	 * Schema for options
-	 */
-	 options: PropTypes.arrayOf(
- 		PropTypes.shape({
- 			value: PropTypes.string.isRequired,
-			text: PropTypes.string.isRequired,
-			selected: PropTypes.oneOf([ 'selected', false ]),
- 		})
- 	).isRequired,
-	/**
-	 * An additional class, optional
-	 */
-	className: PropTypes.string,
-	/**
-	 * Unique ID for this field
-	 */
-	htmlId: PropTypes.string,
+  status: PropTypes.oneOf(['invalid', false]),
+  errorText: PropTypes.string,
+  label: PropTypes.string,
+
+  helper: PropTypes.string,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      text: PropTypes.string.isRequired,
+      selected: PropTypes.oneOf(['selected', false]),
+    }),
+  ).isRequired,
+  className: PropTypes.string,
+  htmlId: PropTypes.string,
+  as: PropTypes.bool,
 };
 
 FormGroupSelect.defaultProps = {
-	status: false,
-	className: '',
-	as: false,
-  htmlId: defHtmlId
-}
+  status: false,
+  className: '',
+  as: false,
+  htmlId: defHtmlId,
+};
