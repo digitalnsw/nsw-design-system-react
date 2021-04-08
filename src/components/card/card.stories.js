@@ -57,7 +57,7 @@ Highlight.args = {
 
 export const AllFeatures = Template.bind({});
 AllFeatures.args = {
-  date: '2021-03-17',
+  date: new Date().toLocaleDateString('en-au'),
   tag: 'Environment',
   link: '#',
   headline: 'Quality spaces and a million more trees for NSW',

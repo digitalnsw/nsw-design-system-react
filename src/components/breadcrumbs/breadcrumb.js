@@ -47,13 +47,11 @@ Breadcrumbs.defaultProps = {
  * @param  {node}   text             - The link Text or link html
  * @param  {string} link             - The link URL, optional
  * @param  {string} linkComponent    - The component used for the link
- * @param  {object} li               - An additional object to be spread into
- *                                      the wrapping element, optional
  * @param  {object} onClick          - The onClick event handler
  * @param  {object} attributeOptions - Any other attribute options, optional
  */
 export const BreadcrumbLinkListItem = ({
-  text, link, linkComponent, li = {}, children, onClick, ...attributeOptions
+  text, link, linkComponent, children, onClick, ...attributeOptions
 }) => {
   const LinkComponent = linkComponent;
 
@@ -77,7 +75,7 @@ export const BreadcrumbLinkListItem = ({
 
   if (link) {
     return (
-      <li className="nsw-breadcrumb__item" {...li}>
+      <li className="nsw-breadcrumb__item">
         <LinkComponent className="nsw-breadcrumb__link" {...attributeOptions}>{text}</LinkComponent>
         {children}
       </li>
@@ -85,7 +83,7 @@ export const BreadcrumbLinkListItem = ({
   }
 
   return (
-    <li className="nsw-breadcrumb__item" {...li}>
+    <li className="nsw-breadcrumb__item">
       {text}
       {children}
     </li>
@@ -95,7 +93,6 @@ export const BreadcrumbLinkListItem = ({
 BreadcrumbLinkListItem.propTypes = {
   text: PropTypes.node.isRequired,
   link: PropTypes.string,
-  li: PropTypes.shape,
   onClick: PropTypes.func,
   children: PropTypes.node,
   linkComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),

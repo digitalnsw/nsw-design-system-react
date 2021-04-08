@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
 
 /**
  * The card  component
@@ -18,7 +17,7 @@ import moment from 'moment';
  */
 const Card = ({
   link, headline, content, tag, date,
-  dateMomentFormat, image, imageAlt, className,
+  image, imageAlt, className,
   children, ...attributesOptions
 }) => {
   let CardContainer = 'div';
@@ -38,7 +37,7 @@ const Card = ({
       <CardContent>
         {headline ? <CardHeader link={link}>{headline}</CardHeader> : ''}
         {children}
-        {date ? <CardDate date={date} dateMomentFormat={dateMomentFormat} /> : ''}
+        {date ? <CardDate date={date} /> : ''}
         {tag ? <CardTag>{tag}</CardTag> : ''}
       </CardContent>
       {image ? <CardImage src={image} alt={imageAlt} /> : ''}
@@ -50,7 +49,6 @@ Card.propTypes = {
   link: PropTypes.string,
   tag: PropTypes.string,
   date: PropTypes.string,
-  dateMomentFormat: PropTypes.string,
   image: PropTypes.string,
   imageAlt: PropTypes.string,
   headline: PropTypes.string.isRequired,
@@ -61,7 +59,6 @@ Card.propTypes = {
 
 Card.defaultProps = {
   className: null,
-  dateMomentFormat: 'DD MMMM YYYY',
 };
 
 /**
@@ -94,7 +91,7 @@ CardContent.defaultProps = {
 export const CardHeader = ({
   className, level, link, children,
 }) => {
-  const HeadingTag = `h${level}`;
+  const HeadingTag = level ? `h${level}` : '';
   if (link !== undefined) {
     return (
       <HeadingTag className={`nsw-card__title ${className}`}><a href={link} className="nsw-card__link">{children}</a></HeadingTag>
@@ -107,7 +104,7 @@ export const CardHeader = ({
 
 CardHeader.propTypes = {
   className: PropTypes.string,
-  level: PropTypes.oneOf(['1', '2', '3', '4', '5', '6']),
+  level: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
   link: PropTypes.string,
   children: PropTypes.node,
 };
@@ -192,11 +189,11 @@ CardTag.defaultProps = {
  * @param {object}   attributeOptions   - Default HTML attributes
  */
 export const CardDate = ({
-  className, dateFormat, date, ...attributesOptions
+  className, date, ...attributesOptions
 }) => (
   <p className={`nsw-card__date ${className}`} {...attributesOptions}>
     <time dateTime={date}>
-      {moment(date).format(dateFormat)}
+      {date}
     </time>
   </p>
 );
@@ -204,12 +201,10 @@ export const CardDate = ({
 CardDate.propTypes = {
   className: PropTypes.string,
   date: PropTypes.string.isRequired,
-  dateFormat: PropTypes.string,
 };
 
 CardDate.defaultProps = {
   className: null,
-  dateFormat: 'DD MMMM YYYY',
 };
 
 /**

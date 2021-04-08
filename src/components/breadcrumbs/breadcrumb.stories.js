@@ -43,14 +43,15 @@ Breadcrumbs.args = {
   items: [
     {
       link: 'breadcrumb/one/',
-      text: 'breadcrumb 1',
+      text: 'Home',
     },
     {
       link: 'breadcrumb/two/',
-      text: 'breadcrumb 2',
+      text: 'About DPC',
     },
     {
-      text: 'breadcrumb 3',
+      link: 'breadcrumb/three/',
+      text: 'NSW Digital Design System',
     },
   ],
 };
