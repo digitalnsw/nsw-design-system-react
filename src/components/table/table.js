@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import nextId from 'react-id-generator';
 
 /**
  * The table component
@@ -26,8 +27,7 @@ const Table = ({
         {headers.map((header, index) => (
           <TableHeader
             title={header.title}
-            /* eslint-disable-next-line react/no-array-index-key */
-            key={index}
+            key={`tableHeader-${nextId()}`}
             width={header.width}
           />
         ))}
@@ -35,19 +35,16 @@ const Table = ({
     </TableHead>
     <TableBody>
       { data.map((row, rowIndex) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <TableRow key={rowIndex}>
+        <TableRow key={`tableRow-${nextId()}`}>
           {
                             headers.map((header, columnIndex) => {
                               // check to render first cell in rows as a header or not
                               if (columnIndex === 0 && firstCellIsHeader === true) {
-                                // eslint-disable-next-line react/no-array-index-key
-                                return (<TableHeader key={columnIndex} scope="row" title={row[header.key] ? row[header.key] : ''} />);
+                                return (<TableHeader key={`tableHeader-${nextId()}`} scope="row" title={row[header.key] ? row[header.key] : ''} />);
                               }
                               return (
                                 <TableCell
-                                    /* eslint-disable-next-line react/no-array-index-key */
-                                  key={columnIndex}
+                                  key={`tableCell-${nextId()}`}
                                   data={row[header.key] ? row[header.key] : ''}
                                   type={header.type}
                                   render={

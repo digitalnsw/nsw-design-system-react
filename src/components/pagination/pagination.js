@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import nextId from 'react-id-generator';
 
 /**
  * Docs gen
@@ -43,7 +44,7 @@ export const Pagination = ({
         </li>
         {
                     paginationItems ? paginationItems.map((paginationItem, i) => (
-                      <PaginationItem url={paginationItem.url} page={i + 1} />
+                      <PaginationItem url={paginationItem.url} page={i + 1} key={`pagination-${nextId()}`} />
                     )) : ''
                 }
         {children}
@@ -51,7 +52,6 @@ export const Pagination = ({
           <a className="nsw-direction-link" href={nextLink}>
             <span className="nsw-direction-link__text">
               Next
-              {' '}
               <span className="sr-only">page</span>
             </span>
             <i className="material-icons nsw-material-icons" focusable="false" aria-hidden="true">east</i>
@@ -69,7 +69,7 @@ Pagination.propTypes = {
     PropTypes.shape({
       url: PropTypes.string,
     }),
-  ).isRequired,
+  ),
   children: PropTypes.node,
   backLink: PropTypes.string,
   nextLink: PropTypes.string,

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Navigation } from 'nsw-design-system/src/main';
 import { v4 as uuidv4 } from 'uuid';
+import nextId from 'react-id-generator';
 
 /**
  * Docs gen
@@ -49,7 +50,7 @@ export class MainNav extends React.PureComponent {
           {
                         this.navItems.map(
                           (navItem) => (
-                            <li className="nsw-navigation__list-item" key={uuidv4()}>
+                            <li className="nsw-navigation__list-item" key={nextId()}>
                               <a href={navItem.url} className="nsw-navigation__link">
                                 <span className="nsw-navigation__link-text">{navItem.text}</span>
                                 {navItem.subNav
@@ -150,7 +151,7 @@ SubNavHeader.propTypes = {
 export const SubNav = ({
   subNav, url, text, description,
 }) => {
-  const id = uuidv4();
+  const id = nextId();
   return (
     <div className="nsw-subnavigation" id={`subnav-${id}`} role="region" aria-label={text}>
       <SubNavHeader
@@ -161,7 +162,7 @@ export const SubNav = ({
       />
       <ul className="nsw-subnavigation__list">
         {subNav.map((subNavItem) => (
-          <li className="nsw-subnavigation__list-item" key={uuidv4()}>
+          <li className="nsw-subnavigation__list-item" key={nextId()}>
             <a href={subNavItem.url} className="nsw-subnavigation__link">
               <span className="nsw-navigation__link-text">
                 {subNavItem.text}
@@ -181,7 +182,7 @@ export const SubNav = ({
             {subNavItem.subNav ? (
               <div
                 className="nsw-subnavigation"
-                id={`subnav-${uuidv4()}`}
+                id={`subnav-${nextId()}`}
                 role="region"
                 aria-label={`${text} Submenu`}
               >
@@ -192,7 +193,7 @@ export const SubNav = ({
                 />
                 <ul className="nsw-subnavigation__list">
                   {subNavItem.subNav.map((subSubNavItem) => (
-                    <li className="nsw-subnavigation__list-item">
+                    <li className="nsw-subnavigation__list-item" key={nextId()}>
                       <a href={subSubNavItem.url} className="nsw-subnavigation__link">
                         <span className="nsw-navigation__link-text">
                           {subSubNavItem.text}

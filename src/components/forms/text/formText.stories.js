@@ -1,4 +1,5 @@
 import React from 'react';
+import nextId from 'react-id-generator';
 import { FormGroupText } from './formText';
 
 const Preamble = `
@@ -44,14 +45,14 @@ export const SingleLine = Template.bind({});
 SingleLine.args = {
   label: 'Your name',
   helper: 'as it appears on your birth certificate',
-  htmlId: 'uniqueID',
+  htmlId: nextId(),
 };
 
 export const MultipleLine = Template.bind({});
 MultipleLine.args = {
   label: 'Your name',
   helper: 'as it appears on your birth certificate',
-  htmlId: 'uniqueID-2',
+  htmlId: nextId(),
   as: 'textarea',
 };
 
@@ -60,6 +61,6 @@ WithError.args = {
   label: 'Your name',
   helper: 'as it appears on your birth certificate',
   errorText: 'Please enter your name',
-  htmlId: 'uniqueID-3',
+  htmlId: nextId(),
   status: 'invalid',
 };

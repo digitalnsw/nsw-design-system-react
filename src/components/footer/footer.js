@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import nextId from 'react-id-generator';
 
 /**
  * A section for the footer that sits at the end
@@ -12,7 +13,7 @@ import PropTypes from 'prop-types';
 export const FooterLinks = ({ footerLinks, className = '', ...attributeOptions }) => (
   <ul className={`nsw-footer-links ${className}`} {...attributeOptions}>
     {footerLinks.map((footerLink) => (
-      <li className="nsw-footer-links__item">
+      <li className="nsw-footer-links__item" key={nextId()}>
         <a className="nsw-footer-links__link" href={footerLink.url}>{footerLink.text}</a>
       </li>
     ))}
@@ -45,7 +46,7 @@ export const FooterSectionGroup = ({
     <h3 className="section-links__heading"><a href={heading.url}>{heading.text}</a></h3>
     <ul className="section-links__list">
       {sectionLinks.map((sectionLink) => (
-        <li className="section-links__item">
+        <li className="section-links__item" key={nextId()}>
           <a href={sectionLink.url}>{sectionLink.text}</a>
         </li>
       ))}

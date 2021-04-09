@@ -32,8 +32,8 @@ CheckboxItem.propTypes = {
   value: PropTypes.string.isRequired,
   className: PropTypes.string,
   htmlId: PropTypes.string,
-  uniqueID: nextId(),
-  status: PropTypes.string,
+  uniqueID: PropTypes.func,
+  status: PropTypes.oneOf(['invalid', false]),
   as: PropTypes.string,
 };
 

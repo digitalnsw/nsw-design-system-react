@@ -6,7 +6,13 @@ export default {
   component: ContentBlockComponent,
 };
 
-const Template = (args) => <ContentBlockComponent {...args} />;
+const Template = (args) => (
+  <div className="nsw-grid nsw-grid--spaced">
+    <div className="nsw-col nsw-col-md-6">
+      <ContentBlockComponent {...args} />
+    </div>
+  </div>
+);
 const SvgHTML = (
   <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="22.248" cy="16.831" r="9.83" stroke="#333" strokeWidth="2" />

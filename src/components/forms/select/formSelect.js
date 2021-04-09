@@ -12,14 +12,15 @@ const defHtmlId = nextId();
  * @param  {string}   value            - The value of this option
  * @param  {object}   attributeOptions - Any other attribute options
  */
-export const SelectItem = ({ text, value, ...attributeOptions }) => (
-  <option value={value} {...attributeOptions}>{ text }</option>
+export const SelectItem = ({
+  text, value,
+}) => (
+  <option value={value}>{ text }</option>
 );
 
 SelectItem.propTypes = {
   text: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
-  className: PropTypes.string,
 };
 
 /**
@@ -30,16 +31,18 @@ SelectItem.propTypes = {
  * @param  {string}  block            - The block option
  * @param  {string}  status           - Mark this field as either 'valid' or 'invalid', optional
  * @param  {string}  className        - An additional class, optional
+ * @param  {string}  selected         - Option value of the selected item
  * @param  {object}  attributeOptions - Any other attribute options
  */
 export const Select = ({
-  htmlId, options, block, status, className = '', ...attributeOptions
+  htmlId, selected, options, block, status, className = '', ...attributeOptions
 }) => (
   <select
     className={`nsw-form-select ${className}`}
     aria-invalid={status === 'invalid' ? 'true' : ''}
     aria-describedby={status === 'invalid' ? `helper${htmlId} error${htmlId}` : `helper${htmlId}`}
     id={htmlId}
+    defaultValue={selected}
     {...attributeOptions}
   >
     {
@@ -60,6 +63,7 @@ Select.propTypes = {
   block: PropTypes.bool,
   htmlId: PropTypes.string,
   status: PropTypes.oneOf([false, 'invalid']),
+  selected: PropTypes.string,
   className: PropTypes.string,
 };
 
@@ -74,9 +78,11 @@ Select.propTypes = {
  * @param  {string}  className        - An additional class, optional
  * @param  {object}  attributeOptions - Any other attribute options
  */
-export const FormGroupSelect = (props) => (
-  <FormGroup {...props}>
-    <Select {...props} />
+export const FormGroupSelect = ({
+  status, selected, errorText, label, helper, options, htmlId, ...attributeOptions
+}) => (
+  <FormGroup status={status} errorText={errorText} label={label} helper={helper}>
+    <Select options={options} selected={selected} />
   </FormGroup>
 );
 
@@ -84,23 +90,20 @@ FormGroupSelect.propTypes = {
   status: PropTypes.oneOf(['invalid', false]),
   errorText: PropTypes.string,
   label: PropTypes.string,
-
   helper: PropTypes.string,
+  selected: PropTypes.string,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.string.isRequired,
       text: PropTypes.string.isRequired,
-      selected: PropTypes.oneOf(['selected', false]),
     }),
   ).isRequired,
   className: PropTypes.string,
   htmlId: PropTypes.string,
-  as: PropTypes.bool,
 };
 
 FormGroupSelect.defaultProps = {
   status: false,
   className: '',
-  as: false,
   htmlId: defHtmlId,
 };

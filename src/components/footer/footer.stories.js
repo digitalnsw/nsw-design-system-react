@@ -14,7 +14,7 @@ const Template = () => (
       <FooterSectionGroup
         heading={{
           url: '#',
-          text: 'Section Link',
+          text: 'Section Link 1',
         }}
         sectionLinks={[
           {

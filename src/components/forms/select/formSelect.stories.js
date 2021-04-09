@@ -44,6 +44,7 @@ export const AsFormItem = Template.bind({});
 AsFormItem.args = {
   label: 'Select a thing',
   helper: 'Select from the list',
+  selected: '1',
   options: [
     {
       value: '',
@@ -52,11 +53,11 @@ AsFormItem.args = {
     {
       value: '1',
       text: 'Option 1',
+      selected: 'selected',
     },
     {
       value: '2',
       text: 'Option 2',
-      selected: 'selected',
     },
     {
       value: '3',
@@ -71,11 +72,11 @@ WithError.args = {
   status: 'invalid',
   label: 'Select a thing',
   helper: 'Select from the list',
+  selected: '',
   options: [
     {
       value: '',
       text: 'Please select',
-      selected: 'selected',
     },
     {
       value: '1',
