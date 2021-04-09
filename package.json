@@ -1,7 +1,7 @@
 {
-  "name": "nsw-ds-react",
+  "name": "@nsw-ds-react",
   "version": "0.1.0",
-  "private": true,
+  "description": "Reusable React Components for NSW Design System",
   "dependencies": {
     "@fontsource/montserrat": "^4.2.2",
     "@testing-library/jest-dom": "^5.11.9",
@@ -16,6 +16,13 @@
     "sass": "^1.32.8",
     "uuid": "^8.3.2",
     "web-vitals": "^1.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digitalnsw/nsw-design-system-react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/digitalnsw/nsw-design-system-react/issues"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -44,6 +51,12 @@
       "last 1 safari version"
     ]
   },
+  "keywords": [
+    "design system",
+    "react component"
+  ],
+  "author": "Digital NSW",
+  "license": "MIT",
   "devDependencies": {
     "@storybook/addon-actions": "^6.1.21",
     "@storybook/addon-essentials": "^6.1.21",
