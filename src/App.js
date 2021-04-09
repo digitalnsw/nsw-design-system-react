@@ -392,7 +392,7 @@ function App() {
         <h2 className="section-title">Accordion</h2>
         <AccordionGroup>
           <Accordion
-            header="This is an accordion"
+            header="This is an accordion 1"
             body={<p>This is the body of an accordion</p>}
           />
         </AccordionGroup>

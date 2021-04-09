@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Navigation } from 'nsw-design-system/src/main';
-import { v4 as uuidv4 } from 'uuid';
 import nextId from 'react-id-generator';
 
 /**

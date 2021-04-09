@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { initSite } from 'nsw-design-system/src/main';
+import { Accordion as AccordionObject } from 'nsw-design-system/src/main';
 
 export class Accordion extends React.PureComponent {
   constructor(props) {
@@ -17,7 +17,10 @@ export class Accordion extends React.PureComponent {
   }
 
   componentDidMount() {
-    initSite();
+    const accordionsElem = document.querySelectorAll('.js-accordion');
+    accordionsElem.forEach((element) => {
+      new AccordionObject(element).init();
+    });
   }
 
   render() {

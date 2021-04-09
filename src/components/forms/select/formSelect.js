@@ -79,9 +79,9 @@ Select.propTypes = {
  * @param  {object}  attributeOptions - Any other attribute options
  */
 export const FormGroupSelect = ({
-  status, selected, errorText, label, helper, options, htmlId, ...attributeOptions
+  status, selected, errorText, label, helper, options, htmlId,
 }) => (
-  <FormGroup status={status} errorText={errorText} label={label} helper={helper}>
+  <FormGroup status={status} errorText={errorText} label={label} helper={helper} htmlId={htmlId}>
     <Select options={options} selected={selected} />
   </FormGroup>
 );
@@ -98,12 +98,10 @@ FormGroupSelect.propTypes = {
       text: PropTypes.string.isRequired,
     }),
   ).isRequired,
-  className: PropTypes.string,
   htmlId: PropTypes.string,
 };
 
 FormGroupSelect.defaultProps = {
   status: false,
-  className: '',
   htmlId: defHtmlId,
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { initSite } from 'nsw-design-system/src/main';
+import { Tabs as TabsObject } from 'nsw-design-system/src/main';
 
 export class Tabs extends React.PureComponent {
   /**
@@ -20,12 +20,13 @@ export class Tabs extends React.PureComponent {
   }
 
   componentDidMount() {
-    initSite();
+    const tabsElement = document.querySelectorAll('.js-tabs');
+    if (tabsElement) {
+      tabsElement.forEach((element) => {
+        new TabsObject(element).init();
+      });
+    }
   }
-
-  // componentDidUpdate(prevProps, prevState, snapshot) {
-  //   initSite();
-  // }
 
   render() {
     return (
