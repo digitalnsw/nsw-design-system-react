@@ -148,3 +148,5 @@ ContentBlockHeading.propTypes = {
 ContentBlockHeading.defaultProps = {
   className: null,
 };
+
+export default ContentBlock;

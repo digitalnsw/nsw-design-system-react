@@ -52,12 +52,9 @@ export const AccordionGroup = ({ className, children, ...attributeOptions }) => 
   <div className={`nsw-accordion js-accordion ${className}`} {...attributeOptions}>
     {children}
   </div>
-  // <p>test</p>
 );
 
 AccordionGroup.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
 };
-
-export default Accordion;

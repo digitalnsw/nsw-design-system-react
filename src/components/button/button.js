@@ -28,7 +28,7 @@ const options = {
  * @param  {string}   className        - An additional class, optional
  * @param  {object}   attributeOptions - Any other attribute options
  */
-const Button = ({
+export const Button = ({
   linkComponent, link, children, as, type, block, className = '', ...attributeOptions
 }) => {
   if (link) {
