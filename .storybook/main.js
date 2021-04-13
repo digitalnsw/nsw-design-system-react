@@ -4,6 +4,7 @@ module.exports = {
     "../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   "addons": [
+    "@whitespace/storybook-addon-html",
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/preset-create-react-app"
