@@ -1,41 +1,9 @@
 import React from 'react';
 import { FormGroupRadio } from './formRadio';
 
-const Preamble = `
-### Full documentation
-
-For usage, UX guidelines, and a library of usability testing visit the NSW Design System docs.
-
-### Installing
-
-Our design system react kit comes with all components
-
-\`\`\`bash
-npm install nsw-design-system-react
-\`\`\`
-
-### Importing
-
-To import this component
-
-\`\`\`javascript
-import {FormGroupRadio} from "nsw-design-system-react/components/forms/radio";
-\`\`\`
-
-`;
-
 export default {
   title: 'Transaction/Radio',
   component: FormGroupRadio,
-  parameters: {
-    docs: {
-      description: {
-        component: Preamble,
-      },
-      source: {
-      },
-    },
-  },
 };
 
 const Template = (args) => <FormGroupRadio {...args} />;

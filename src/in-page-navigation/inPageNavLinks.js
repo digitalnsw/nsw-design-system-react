@@ -33,7 +33,7 @@ InpageNavLinksItem.propTypes = {
  * @param  {string}  ariaLabel        - The aria-label attribute, optional
  * @param  {object}  attributeOptions - Any other attribute options
  */
-export const InpageNavLinks = ({
+export const InPageNavLinks = ({
   title, links, ariaLabel, className = '', ...attributeOptions
 }) => (
   <nav className={`nsw-page-nav ${className}`} aria-label={ariaLabel} {...attributeOptions}>
@@ -45,7 +45,7 @@ export const InpageNavLinks = ({
   </nav>
 );
 
-InpageNavLinks.propTypes = {
+InPageNavLinks.propTypes = {
   title: PropTypes.string.isRequired,
   links: PropTypes.arrayOf(
     PropTypes.shape({
@@ -58,8 +58,8 @@ InpageNavLinks.propTypes = {
   ariaLabel: PropTypes.string,
 };
 
-InpageNavLinks.defaultProps = {
+InPageNavLinks.defaultProps = {
   ariaLabel: 'in page navigation',
 };
 
-export default InpageNavLinks;
+export default InPageNavLinks;

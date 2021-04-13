@@ -1,18 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { Header as HeaderComponent } from './components/header/header';
-
-ReactDOM.render(
-  <React.StrictMode>
-    <HeaderComponent hideSearch hideMobileMenu />
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root'),
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+export { Accordion } from './accordion/accordion';
+export { default as Breadcrumbs } from './breadcrumbs/breadcrumb';
+export { default as Button } from './button/button';
+export { default as Callout } from './callout/callout';
+export { default as Card } from './card/card';
+export { default as ContentBlock } from './content-block/contenBlock';
+export { default as DirectionLinks } from './direction-links/directionLink';
+export { default as Footer } from './footer/footer';
+export * as FormComponent from './forms/index';
+export { default as GlobalAlert } from './global-alert/globalAlert';
+export { default as Header } from './header/header';
+export { default as HeroBanner } from './hero-banner/heroBanner';
+export { default as InPageNavLinks } from './in-page-navigation/inPageNavLinks';
+export { default as LinkList } from './link-list/linkList';
+export { MainNav } from './main-nav/mainNav';
+export { default as Notification } from './notification/notification';
+export { default as Pagination } from './pagination/pagination';
+export { default as Table } from './table/table';
+export { Tabs } from './tabs/tabs';
+export { default as TagList } from './tags/tags';

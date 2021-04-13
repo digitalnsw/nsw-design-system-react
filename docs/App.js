@@ -3,26 +3,22 @@ import '@fontsource/montserrat';
 import '@fontsource/montserrat/600.css';
 import React from 'react';
 import nextId from 'react-id-generator';
-import Button from './components/button/button';
-import { Notification } from './components/notification/notification';
-import TagList from './components/tags/tags';
-import { Callout } from './components/callout/callout';
-import { InpageNavLinks } from './components/in-page-navigation/inPageNavLinks';
-import { Breadcrumbs } from './components/breadcrumbs/breadcrumb';
-import { StyledLinkList } from './components/link-list/styledLinkList';
-import { LinkList } from './components/link-list/basic';
-import Card, { CardCopy } from './components/card/card';
-import { Accordion, AccordionGroup } from './components/accordion/accordion';
-import * as Form from './components/forms';
-import { DirectionLinks } from './components/direction-links/directionLink';
+import {
+  Button, Notification, TagList, Callout, InPageNavLinks,
+  Breadcrumbs, LinkList, Card,
+} from '../src';
+import { CardCopy } from '../src/card/card';
+import { Accordion, AccordionGroup } from '../src/accordion/accordion';
+import * as Form from '../src/forms';
+import { DirectionLinks } from '../src/direction-links/directionLink';
 import Footer, {
   FooterUpper, FooterLower, FooterSectionGroup, FooterLinks,
-} from './components/footer/footer';
+} from '../src/footer/footer';
 import {
   Tabs, TabItem, TabItems, TabSection,
-} from './components/tabs/tabs';
-import { MainNav } from './components/main-nav/mainNav';
-import { ContentBlock } from './components/content-block/contenBlock';
+} from '../src/tabs/tabs';
+import { MainNav } from '../src/main-nav/mainNav';
+import { ContentBlock } from '../src/content-block/contenBlock';
 
 function App() {
   return (
@@ -145,7 +141,7 @@ function App() {
         </div>
 
         <h2 className="section-title">In-page nav</h2>
-        <InpageNavLinks links={[
+        <InPageNavLinks links={[
           {
             link: 'section1',
             title: 'Section 1',

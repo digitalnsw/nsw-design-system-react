@@ -84,7 +84,7 @@ LinkListItem.defaultProps = {
  * @param  {string}  linkComponent    - The component used for the link
  * @param  {object}  attributeOptions - Any other attribute options, optional
  */
-export const StyledLinkList = ({
+export const LinkList = ({
   items, linkComponent, className = '', ...attributeOptions
 }) => (
   <div className="nsw-link-list">
@@ -104,7 +104,7 @@ export const StyledLinkList = ({
   </div>
 );
 
-StyledLinkList.propTypes = {
+LinkList.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       link: PropTypes.string,
@@ -115,8 +115,8 @@ StyledLinkList.propTypes = {
   className: PropTypes.string,
 };
 
-StyledLinkList.defaultProps = {
+LinkList.defaultProps = {
   linkComponent: 'a',
 };
 
-export default StyledLinkList;
+export default LinkList;

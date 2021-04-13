@@ -1,5 +1,5 @@
 {
-  "name": "@nsw-ds-react",
+  "name": "nsw-ds-react",
   "version": "0.1.0",
   "description": "Reusable React Components for NSW Design System",
   "dependencies": {
