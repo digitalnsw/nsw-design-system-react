@@ -2,6 +2,10 @@
   "name": "nsw-ds-react",
   "version": "0.1.0",
   "description": "Reusable React Components for NSW Design System",
+  "files": [
+    "src/{component/**/*.{js}",
+    "src/component/index.js"
+  ],
   "dependencies": {
     "@fontsource/montserrat": "^4.2.2",
     "@testing-library/jest-dom": "^5.11.9",
