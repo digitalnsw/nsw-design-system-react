@@ -13,7 +13,8 @@
     "react": "file:../node_modules/react",
     "react-dom": "file:../node_modules/react-dom",
     "react-scripts": "file:../node_modules/react-scripts",
-    "nsw-ds-react": "file:.."
+    "nsw-ds-react": "file:..",
+    "nsw-design-system": "file:../node_modules/nsw-design-system"
   },
   "devDependencies": {
     "@babel/plugin-syntax-object-rest-spread": "^7.8.3"

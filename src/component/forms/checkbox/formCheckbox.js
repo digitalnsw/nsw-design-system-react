@@ -13,7 +13,7 @@ import { FormHelper } from '../group-elements';
 export const CheckboxItem = ({
   text, htmlId, value, status, as, uniqueID = nextId(), ...attributeOptions
 }) => (
-  <>
+  <React.Fragment>
     <input
       className="nsw-form-checkbox__input"
       type="checkbox"
@@ -24,7 +24,7 @@ export const CheckboxItem = ({
       {...attributeOptions}
     />
     <label className="nsw-form-checkbox__label" htmlFor={uniqueID}>{ text }</label>
-  </>
+  </React.Fragment>
 );
 
 CheckboxItem.propTypes = {

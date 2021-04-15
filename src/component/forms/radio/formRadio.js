@@ -13,7 +13,7 @@ import { FormHelper } from '../group-elements';
 export const RadioItem = ({
   text, htmlId, value, status, uniqueID = nextId(), ...attributeOptions
 }) => (
-  <>
+  <React.Fragment>
     <input
       className="nsw-form-radio__input"
       type="radio"
@@ -23,7 +23,7 @@ export const RadioItem = ({
       {...attributeOptions}
     />
     <label className="nsw-form-radio__label" htmlFor={uniqueID}>{text}</label>
-  </>
+  </React.Fragment>
 );
 
 RadioItem.propTypes = {

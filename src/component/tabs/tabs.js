@@ -42,13 +42,13 @@ Tabs.propTypes = {
   children: PropTypes.node,
 };
 
-export const TabItems = ({ children }) => (
+export const TabItemWrapper = ({ children }) => (
   <ul className="nsw-tabs__list">
     {children}
   </ul>
 );
 
-TabItems.propTypes = {
+TabItemWrapper.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
