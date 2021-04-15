@@ -143,7 +143,31 @@ const App = () => {
             </Card>
           </div>
         </div>
-
+        <div className="nsw-grid nsw-grid--spaced">
+          <div className="nsw-col nsw-col-md-6">
+            <ContentBlock
+              headline="Title"
+              copy="this is a paragraph"
+              image="https://picsum.photos/id/2/400/200"
+              imageAlt="Work desk"
+              links={[
+                {
+                  title: 'link 1',
+                  href: '#'
+                },
+                {
+                  title: 'link 2',
+                  href: '#'
+                },
+                {
+                  title: 'link 3',
+                  href: '#'
+                }
+              ]}
+              viewMore="#"
+            />
+          </div>
+        </div>
         <h2 className="section-title">In-page nav</h2>
         <InPageNavLinks
           title="On this page"
@@ -465,34 +489,7 @@ const App = () => {
           <Tab.TabSection urlHash="tab1">This is a tab 1 content</Tab.TabSection>
           <Tab.TabSection urlHash="tab2">This is a tab 2 content</Tab.TabSection>
         </Tab.Tabs>
-        <div className="nsw-grid nsw-grid--spaced">
-          <div className="nsw-col nsw-col-md-6">
-            <ContentBlock
-              headline="Title"
-              copy="this is a paragraph"
-              image="https://picsum.photos/id/2/400/200"
-              imageAlt="Work desk"
-              links={[
-                {
-                  title: 'link 1',
-                  href: '#'
-                },
-                {
-                  title: 'link 2',
-                  href: '#'
-                },
-                {
-                  title: 'link 3',
-                  href: '#'
-                }
-              ]}
-              viewMore="#"
-            />
-          </div>
-        </div>
       </div>
-
-
       <FooterComp.Footer>
         <FooterComp.FooterUpper>
           <FooterComp.FooterSectionGroup
