@@ -1,8 +1,6 @@
 # nsw-ds-react
 
-> Reusable React Components from the NSW Design System
-
-[![NPM](http s://img.shields.io/npm/v/nsw-ds-react.svg)](https://www.npmjs.com/package/nsw-ds-react)
+[![npm version](https://badge.fury.io/js/nsw-ds-react.svg)](https://badge.fury.io/js/nsw-ds-react)
 
 ## Install
 
