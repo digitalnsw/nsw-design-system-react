@@ -1,10 +1,10 @@
 {
   "name": "nsw-ds-react",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Reusable React Components from the NSW Design System",
   "author": "digitalnsw",
   "license": "MIT",
-  "repository": "https://github.com/digitalnsw/react-components-test",
+  "repository": "https://github.com/digitalnsw/nsw-design-system-react",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",
