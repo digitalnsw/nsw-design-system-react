@@ -1,6 +1,8 @@
-# nsw-ds-react
+# NSW Design System React Library
 
 [![npm version](https://badge.fury.io/js/nsw-ds-react.svg)](https://badge.fury.io/js/nsw-ds-react)
+
+![alt text](https://www.digital.nsw.gov.au/sites/default/files/2021-04/nsw-ds-react_0.jpg "NSW DS + React Logo")
 
 ## Install
 
@@ -8,11 +10,13 @@
 npm install --save nsw-ds-react nsw-design-system
 ```
 
+
 Add the styles separately in your main `App.js` file
 
 ```js
 import 'nsw-design-system/dist/css/main.css'
 ```
+
 
 In your `index.html` document add this line of code inside the `<head>` tag. Or install [icon](https://www.npmjs.com/package/material-design-icons-iconfont) and [font](https://www.npmjs.com/package/fontsource-montserrat) from npm
 ```
