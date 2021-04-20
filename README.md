@@ -44,6 +44,10 @@ class Example extends Component {
   }
 }
 ```
+## Attribution
+The components library is adapted from:
+
+https://github.com/govau/design-system-components/
 
 ## License
 
