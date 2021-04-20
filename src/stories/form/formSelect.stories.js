@@ -1,41 +1,9 @@
 import React from 'react';
 import { FormGroupSelect } from '../../component/forms/select/formSelect';
 
-const Preamble = `
-### Full documentation
-
-For usage, UX guidelines, and a library of usability testing visit the NSW Design System docs.
-
-### Installing
-
-Our design system react kit comes with all components
-
-\`\`\`bash
-npm install nsw-design-system-react
-\`\`\`
-
-### Importing
-
-To import this component
-
-\`\`\`javascript
-import {FormGroupSelect} from "nsw-design-system-react/components/forms/select";
-\`\`\`
-
-`;
-
 export default {
-  title: 'Transaction/Dropdown (select)',
+  title: 'Forms and Transactions/Dropdown (select)',
   component: FormGroupSelect,
-  parameters: {
-    docs: {
-      description: {
-        component: Preamble,
-      },
-      source: {
-      },
-    },
-  },
 };
 
 const Template = (args) => <FormGroupSelect {...args} />;

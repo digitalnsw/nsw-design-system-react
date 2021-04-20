@@ -1,28 +1,6 @@
 import React from 'react';
 import { Header } from '../component/header/header';
 
-const Preamble = `
-### Full documentation
-
-For usage, UX guidelines, and a library of usability testing visit the NSW Design System docs.
-
-### Installing
-
-Our design system react kit comes with all components
-
-\`\`\`bash
-npm install nsw-design-system-react
-\`\`\`
-
-### Importing
-
-To import this component
-
-\`\`\`javascript
-import Header from "nsw-design-system/components/header";
-\`\`\`
-`;
-
 const Logo = () => (
   <>
     <svg className="nsw-header__logo" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 59.13">
@@ -36,15 +14,8 @@ const Logo = () => (
 );
 
 export default {
-  title: 'Templates/Header',
+  title: 'Globals/Header',
   component: Header,
-  parameters: {
-    docs: {
-      description: {
-        component: Preamble,
-      },
-    },
-  },
 };
 
 const Template = (args) => <Header {...args} />;

@@ -1,6 +1,5 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 
-
 <Meta title="Example/Introduction" />
 
 <style>{`
@@ -107,11 +106,50 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 `}</style>
 
-# Welcome to Storybook
+# NSW DS React Components Library
 
-Storybook helps you build UI components in isolation from your app's business logic, data, and context.
-That makes it easy to develop hard-to-reach states. Save these UI states as **stories** to revisit during development, testing, or QA.
+The NSW Design System React is built on top of the base NSW design system. The library reuses existing vanilla js and css implementation rewritten in JSX. NSW DS React provides the exact same UI design, accessibility features and cross-browser compatibility of the base library.
 
-Browse example stories now by navigating to them in the sidebar.
-View their code in the `src/stories` directory to learn how they work.
-We recommend building UIs with a [**component-driven**](https://componentdriven.org) process starting with atomic components and ending with pages.
+Storybook helps you build UI components in isolation from your app's business logic, data, and context. That makes it easy to develop hard-to-reach states. This also gives an easy documentation to install and to use the library.
+
+
+## Install
+
+```bash
+npm install --save nsw-ds-react nsw-design-system
+```
+
+
+Add the styles separately in your main `App.js` file
+
+```js
+import 'nsw-design-system/dist/css/main.css'
+```
+
+
+In your `index.html` document add this line of code inside the `<head>` tag. Or install [icon](https://www.npmjs.com/package/material-design-icons-iconfont) and [font](https://www.npmjs.com/package/fontsource-montserrat) from npm
+```
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+```
+
+## Usage
+
+Refer to individual components' usage
+
+Here's how you import the component:
+```jsx
+import React, { Component } from 'react'
+
+import { Callout } from 'nsw-ds-react'
+
+class Example extends Component {
+  render() {
+    return (
+     <Callout title="Title of callout">
+       <p>Description of callout</p>
+     </Callout>
+    )
+  }
+}
+```

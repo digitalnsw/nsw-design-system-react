@@ -1,5 +1,4 @@
 import React from 'react'
-
 import {
   MainNav,
   Callout,
@@ -19,7 +18,6 @@ import {
 import * as Form from 'nsw-ds-react'
 import * as Tab from 'nsw-ds-react'
 import * as FooterComp from 'nsw-ds-react'
-import 'nsw-ds-react/dist/index.css'
 import 'nsw-design-system/dist/css/main.css'
 import nextId from 'react-id-generator'
 import { Table, TableResponsiveWrapper } from 'nsw-ds-react'

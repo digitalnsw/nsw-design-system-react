@@ -2,7 +2,7 @@ import React from 'react';
 import { DirectionLink as DirectionLinkComponent, DirectionLinks as DirectionLinksComponent } from '../component/direction-links/directionLink';
 
 export default {
-  title: 'Content/DirectionLink',
+  title: 'Navigation/DirectionLink',
   component: DirectionLinkComponent,
 };
 

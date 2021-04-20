@@ -4,7 +4,7 @@ import Footer, {
 } from '../component/footer/footer';
 
 export default {
-  title: 'Templates/Footer',
+  title: 'Globals/Footer',
   components: Footer,
 };
 

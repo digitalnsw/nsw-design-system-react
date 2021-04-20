@@ -2,7 +2,7 @@ import React from 'react';
 import { InPageNavLinks as InPageNavLinksComp } from '../component/in-page-navigation/inPageNavLinks';
 
 export default {
-  title: 'Content/Inpage Nav Links',
+  title: 'Navigation/Inpage Nav Links',
   component: InPageNavLinksComp,
 };
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '../component/button/button';
 
 export default {
-  title: 'Transaction/Button',
+  title: 'Content/Button',
   component: Button,
 };
 

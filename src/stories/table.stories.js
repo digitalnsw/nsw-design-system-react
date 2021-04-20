@@ -2,7 +2,7 @@ import React from 'react';
 import Table, { TableResponsiveWrapper } from '../component/table/table';
 
 export default {
-  title: 'Content/Table',
+  title: 'Content/Tables',
   component: Table,
 };
 const simpleHeaders = [
