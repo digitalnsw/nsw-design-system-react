@@ -2,7 +2,7 @@ import React from 'react';
 import { FormGroupRadio } from '../../component/forms/radio/formRadio';
 
 export default {
-  title: 'Transaction/Radio',
+  title: 'Forms and Transactions/Radio',
   component: FormGroupRadio,
 };
 

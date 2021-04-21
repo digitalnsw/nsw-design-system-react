@@ -1,40 +1,9 @@
 import React from 'react';
 import { FormGroupCheckbox } from '../../component/forms/checkbox/formCheckbox';
 
-const Preamble = `
-### Full documentation
-
-For usage, UX guidelines, and a library of usability testing visit the NSW Design System docs.
-
-### Installing
-
-Our design system react kit comes with all components
-
-\`\`\`bash
-npm install nsw-design-system-react
-\`\`\`
-
-### Importing
-
-To import this component
-
-\`\`\`javascript
-import {FormGroupCheckbox} from "nsw-design-system-react/components/forms/checkbox";
-\`\`\`
-
-`;
-
 export default {
-  title: 'Transaction/Checkboxes',
+  title: 'Forms and Transactions/Checkboxes',
   component: FormGroupCheckbox,
-  parameters: {
-    docs: {
-      description: {
-        component: Preamble,
-      },
-      source: {},
-    },
-  },
 };
 
 const Template = (args) => <FormGroupCheckbox {...args} />;

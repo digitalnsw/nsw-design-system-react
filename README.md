@@ -7,7 +7,7 @@
 ## Install
 
 ```bash
-npm install --save nsw-ds-react nsw-design-system
+npm install nsw-ds-react nsw-design-system
 ```
 
 
@@ -44,6 +44,10 @@ class Example extends Component {
   }
 }
 ```
+## Attribution
+The components library is adapted from:
+
+https://github.com/govau/design-system-components/
 
 ## License
 

@@ -1,41 +1,9 @@
 import React from 'react';
 import Card, { CardCopy } from '../component/card/card';
 
-const Preamble = `
-### Full documentation
-
-For usage, UX guidelines, and a library of usability testing visit the NSW Design System docs.
-
-### Installing
-
-Our design system react kit comes with all components
-
-\`\`\`bash
-npm install nsw-design-system-react
-\`\`\`
-
-### Importing
-
-To import this component
-
-\`\`\`javascript
-import Card, {CardCopy} from "nsw-design-system-react/components/card";
-\`\`\`
-
-`;
-
 export default {
   title: 'Content/Card',
   component: Card,
-  parameters: {
-    docs: {
-      description: {
-        component: Preamble,
-      },
-      source: {
-      },
-    },
-  },
 };
 
 const Template = (args) => <Card {...args} />;

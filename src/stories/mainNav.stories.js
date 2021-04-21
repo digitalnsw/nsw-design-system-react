@@ -2,7 +2,7 @@ import React from 'react';
 import { MainNav } from '../component/main-nav/mainNav';
 
 export default {
-  title: 'Navigation/MainNav',
+  title: 'Navigation/Main Navigation',
   component: MainNav,
 };
 
