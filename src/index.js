@@ -20,8 +20,9 @@ import {
   SelectItem,
   FormGroupCheckbox,
   FormGroupRadio,
-  ProgressIndicator
+  ProgressIndicator,
 } from './component/forms/index'
+import { FormHelper, FormLabel } from './component/forms/group-elements'
 import GlobalAlert from './component/global-alert/globalAlert'
 import Header from './component/header/header'
 import HeroBanner from './component/hero-banner/heroBanner'
@@ -58,6 +59,8 @@ export {
   FormGroup,
   FormGroupText,
   FormGroupSelect,
+  FormHelper,
+  FormLabel,
   Select,
   SelectItem,
   FormGroupCheckbox,
