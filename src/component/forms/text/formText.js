@@ -28,7 +28,7 @@ export const TextInput = ({
                 + `${block ? ' nsw-form-input--block' : ''}`
                 + `${number ? ' nsw-form-input--number' : ''}`
             }
-        aria-invalid={status === 'invalid' ? 'true' : ''}
+        aria-invalid={status === 'invalid' ? 'true' : 'false'}
         aria-describedby={status === 'invalid' ? `helper${htmlId} error${htmlId}` : `helper${htmlId}`}
         id={htmlId}
         {...attributeOptions}
@@ -41,7 +41,7 @@ export const TextInput = ({
             + `${block ? ' nsw-form-input--block' : ''}`
             + `${number ? ' nsw-form-input--number' : ''}`
         }
-        aria-invalid={status === 'invalid' ? 'true' : ''}
+        aria-invalid={status === 'invalid' ? 'true' : 'false'}
         aria-describedby={status === 'invalid' ? `helper${htmlId} error${htmlId}` : `helper${htmlId}`}
         type={type}
         {...attributeOptions}
