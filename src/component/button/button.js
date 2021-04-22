@@ -54,7 +54,7 @@ export const Button = ({
 
   return (
     <button
-      type={type ? 'button' : 'submit'}
+      type={ type }
       className={`nsw-button ${className} ${options[as]}${block ? ' nsw-button--block' : ''}`}
       {...attributeOptions}
     >

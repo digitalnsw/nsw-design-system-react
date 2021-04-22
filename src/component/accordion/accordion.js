@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { uniqueId } from 'nsw-design-system/src/global/scripts/helpers/utilities';
 
