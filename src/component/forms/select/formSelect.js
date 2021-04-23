@@ -87,7 +87,7 @@ export const FormGroupSelect = ({
 );
 
 FormGroupSelect.propTypes = {
-  status: PropTypes.oneOf(['invalid', false]),
+  status: PropTypes.oneOf(['invalid', 'valid']),
   errorText: PropTypes.string,
   label: PropTypes.string,
   helper: PropTypes.string,
@@ -102,6 +102,6 @@ FormGroupSelect.propTypes = {
 };
 
 FormGroupSelect.defaultProps = {
-  status: false,
+  status: 'valid',
   htmlId: defHtmlId,
 };
