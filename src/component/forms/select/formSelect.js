@@ -87,7 +87,7 @@ export const FormGroupSelect = ({
 );
 
 FormGroupSelect.propTypes = {
-  status: PropTypes.oneOf(['invalid', 'valid']),
+  status: PropTypes.oneOf(['valid', 'invalid']),
   errorText: PropTypes.string,
   label: PropTypes.string,
   helper: PropTypes.string,
