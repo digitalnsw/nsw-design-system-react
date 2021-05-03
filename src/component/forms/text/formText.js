@@ -56,7 +56,7 @@ TextInput.propTypes = {
   number: PropTypes.bool,
   className: PropTypes.string,
   htmlId: PropTypes.string,
-  status: PropTypes.oneOf(['invalid', false]),
+  status: PropTypes.oneOf(['valid', 'invalid']),
   type: PropTypes.string,
 };
 
@@ -77,25 +77,26 @@ TextInput.defaultProps = {
  * @param  {object}  attributeOptions - Any other attribute options
  */
 export const FormGroupText = ({
-  status, className, as, errorText, label, helper, htmlId, ...attributeOptions
+  status, className, inputType, as, errorText, label, helper, htmlId, ...attributeOptions
 }) => (
   <FormGroup status={status} as={as} errorText={errorText} label={label} helper={helper} htmlId={htmlId}>
-    <TextInput status={status} htmlId={htmlId} {...attributeOptions} />
+    <TextInput status={status} htmlId={htmlId} {...attributeOptions} type={inputType} />
   </FormGroup>
 );
 
 FormGroupText.propTypes = {
-  status: PropTypes.oneOf(['invalid', false]),
+  status: PropTypes.oneOf(['valid', 'invalid']),
   className: PropTypes.string,
   as: PropTypes.oneOf(['input', 'textarea']),
   errorText: PropTypes.string,
   label: PropTypes.string,
   helper: PropTypes.string,
   htmlId: PropTypes.string,
+  inputType: PropTypes.string,
 };
 
 FormGroupText.defaultProps = {
-  status: false,
+  status: 'valid',
   className: '',
   htmlId: nextId(),
 };

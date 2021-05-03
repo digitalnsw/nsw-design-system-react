@@ -33,7 +33,7 @@ CheckboxItem.propTypes = {
   className: PropTypes.string,
   htmlId: PropTypes.string,
   uniqueID: PropTypes.func,
-  status: PropTypes.oneOf(['invalid', false]),
+  status: PropTypes.oneOf(['valid', 'invalid']),
   as: PropTypes.string,
 };
 
@@ -84,7 +84,7 @@ export const FormGroupCheckbox = ({
 );
 
 FormGroupCheckbox.propTypes = {
-  status: PropTypes.oneOf(['invalid', false]),
+  status: PropTypes.oneOf(['valid', 'invalid']),
   errorText: PropTypes.string,
   htmlId: PropTypes.string,
   label: PropTypes.string,
@@ -100,7 +100,7 @@ FormGroupCheckbox.propTypes = {
 };
 
 FormGroupCheckbox.defaultProps = {
-  status: false,
+  status: 'valid',
   className: '',
   htmlId: nextId(),
 };

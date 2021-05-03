@@ -3,7 +3,7 @@ import nextId from 'react-id-generator';
 import { FormGroupText } from '../../component/forms/text/formText';
 
 export default {
-  title: 'Forms and Transactions/Text',
+  title: 'Forms and Transactions/Text Input',
   component: FormGroupText,
 };
 
@@ -22,6 +22,20 @@ MultipleLine.args = {
   helper: 'as it appears on your birth certificate',
   htmlId: nextId(),
   as: 'textarea',
+};
+
+export const EmailInput = Template.bind({});
+EmailInput.args = {
+  label: 'Email',
+  inputType: 'email',
+  htmlId: nextId(),
+};
+
+export const PasswordInput = Template.bind({});
+PasswordInput.args = {
+  label: 'Password',
+  inputType: 'password',
+  htmlId: nextId(),
 };
 
 export const WithError = Template.bind({});

@@ -98,7 +98,7 @@ export const FormGroup = ({
 );
 
 FormGroup.propTypes = {
-  status: PropTypes.oneOf(['invalid', false]),
+  status: PropTypes.oneOf(['invalid', 'valid']),
   error: PropTypes.bool,
   className: PropTypes.string,
   htmlId: PropTypes.string,
