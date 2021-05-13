@@ -13,6 +13,7 @@ import {
   InPageNavLinks,
   LinkList,
   Card,
+  Header,
   CardCopy
 } from 'nsw-ds-react'
 import * as Form from 'nsw-ds-react'
@@ -25,6 +26,7 @@ import { Table, TableResponsiveWrapper } from 'nsw-ds-react'
 const App = () => {
   return (
     <div className="App">
+      <Header/>
       <MainNav navItems={[
         {
           text: 'About DPC',
