@@ -39,6 +39,7 @@ import {
   TabSection
 } from './component/tabs/tabs'
 import TagList from './component/tags/tags'
+import Media from './component/media/media'
 
 export {
   Accordion,
@@ -72,6 +73,7 @@ export {
   InPageNavLinks,
   LinkList,
   MainNav,
+  Media,
   Pagination,
   Notification,
   Table,

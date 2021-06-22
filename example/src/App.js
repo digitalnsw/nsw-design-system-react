@@ -14,7 +14,8 @@ import {
   LinkList,
   Card,
   Header,
-  CardCopy
+  CardCopy,
+  Media
 } from 'nsw-ds-react'
 import * as Form from 'nsw-ds-react'
 import * as Tab from 'nsw-ds-react'
@@ -25,8 +26,8 @@ import { Table, TableResponsiveWrapper } from 'nsw-ds-react'
 
 const App = () => {
   return (
-    <div className="App">
-      <Header/>
+    <div className="App nsw-body-content">
+      <Header />
       <MainNav navItems={[
         {
           text: 'About DPC',
@@ -462,6 +463,28 @@ const App = () => {
             onClick: () => console.log('You clicked me!')
           }
         ]}
+        />
+        <h2 className="section-title">Media</h2>
+        <p>Nunc vehicula neque nunc, ut placerat turpis luctus a. Aliquam euismod pretium accumsan. Nullam laoreet enim
+        <Media
+          caption="A long caption, ee mei labores adipiscing."
+          image="https://picsum.photos/id/237/2000/1250"
+          right="50"
+          title="A picture of a black dog"
+        />
+          vitae elit finibus, in commodo nulla aliquam. Vivamus ac varius dolor. Praesent hendrerit erat nec pulvinar
+          congue. </p>
+        <p>Mauris in sagittis lacus. Aliquam nec consectetur elit, ac gravida mi. Donec ullamcorper felis volutpat
+          venenatis maximus. Quisque facilisis leo at augue pulvinar, ac tincidunt urna egestas.</p>
+        <p>Phasellus id sem molestie, facilisis ipsum id, molestie orci. Proin velit erat, luctus et mi eget, maximus
+          aliquet dui. Integer nisl ipsum, malesuada ultrices ipsum a, scelerisque elementum risus. Donec erat urna,
+          fringilla id ornare id, mattis non urna. Duis faucibus ante ac magna rutrum sagittis.</p>
+
+        <Media
+          caption="A long caption, ee mei labores adipiscing."
+          center="80"
+          title="Digital.nsw launch with Victor Dominello MP at NSW Parliament House"
+          video="https://www.youtube.com/embed/HNHu2zRPSB4"
         />
         <h2 className="section-title">Direction Links</h2>
         <DirectionLinks
