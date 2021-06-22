@@ -465,13 +465,13 @@ const App = () => {
         ]}
         />
         <h2 className="section-title">Media</h2>
-        <p>Nunc vehicula neque nunc, ut placerat turpis luctus a. Aliquam euismod pretium accumsan. Nullam laoreet enim
         <Media
           caption="A long caption, ee mei labores adipiscing."
           image="https://picsum.photos/id/237/2000/1250"
           right="50"
           title="A picture of a black dog"
         />
+        <p>Nunc vehicula neque nunc, ut placerat turpis luctus a. Aliquam euismod pretium accumsan. Nullam laoreet enim
           vitae elit finibus, in commodo nulla aliquam. Vivamus ac varius dolor. Praesent hendrerit erat nec pulvinar
           congue. </p>
         <p>Mauris in sagittis lacus. Aliquam nec consectetur elit, ac gravida mi. Donec ullamcorper felis volutpat
