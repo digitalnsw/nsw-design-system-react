@@ -6,10 +6,15 @@ import PropTypes from 'prop-types'
  *
  * @param  {string}  image            - The file location of the image file
  * @param  {string}  video            - The file locaiton of the video file
- * @param  {alt}     title            - The alt text of the media file
+ * @param  {string}  title            - The alt text of the media file
+ * @param  {string}  caption          - Caption text to support or describe media image/video
+ * @param  {boolean} transparent      - Media caption background in white transparent background
+ * @param  {string}  left             - Media positioned to the left in percentage width with increments of 30, 40, 50
+ * @param  {string}  right            - Media positioned to the right in percentage width with increments of 30, 40, 50
+ * @param  {string}  center           - Media positioned to the center in percentage width with increments of 60, 70, 80, 90
  */
 export const Media = ({
-  image, video, title, caption, transparent, className, left, right, center
+  image, video, title, caption, transparent, left, right, center
 }) => (
   <figure className={`nsw-media${left === undefined || left == 'none' ? '': ` nsw-media--left-${left}`}
   ${right === undefined || right === 'none' ? '': ` nsw-media--right-${right}`}
