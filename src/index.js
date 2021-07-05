@@ -26,11 +26,15 @@ import { FormHelper, FormLabel } from './component/forms/group-elements'
 import GlobalAlert from './component/global-alert/globalAlert'
 import Header from './component/header/header'
 import HeroBanner from './component/hero-banner/heroBanner'
+import HeroBannerList from './component/hero-banner/heroBannerList'
 import InPageNavLinks from './component/in-page-navigation/inPageNavLinks'
 import LinkList from './component/link-list/linkList'
 import { MainNav } from './component/main-nav/mainNav'
+import { Masthead } from './component/header/masthead'
+import { SkipTo } from './component/header/skipTo'
 import Notification from './component/notification/notification'
 import Pagination from './component/pagination/pagination'
+
 import Table, { TableResponsiveWrapper } from './component/table/table'
 import {
   Tabs,
@@ -70,12 +74,15 @@ export {
   GlobalAlert,
   Header,
   HeroBanner,
+  HeroBannerList,
   InPageNavLinks,
   LinkList,
   MainNav,
+  Masthead,
   Media,
-  Pagination,
   Notification,
+  Pagination,
+  SkipTo,
   Table,
   TableResponsiveWrapper,
   Tabs,

@@ -8,6 +8,7 @@ import { FormHelper } from '../group-elements';
  *
  * @param  {string}   text             - The text of this option
  * @param  {string}   value            - The value of this option
+ * @param  {string}  status            - Mark this field as either 'valid' or 'invalid', optional
  * @param  {object}   attributeOptions - Any other attribute options
  */
 export const RadioItem = ({
@@ -89,7 +90,7 @@ export const FormGroupRadio = ({
 );
 
 FormGroupRadio.propTypes = {
-  status: PropTypes.oneOf(['invalid', false]),
+  status: PropTypes.oneOf(['valid', 'invalid']),
   errorText: PropTypes.string,
   htmlId: PropTypes.string,
   label: PropTypes.string,
@@ -105,7 +106,7 @@ FormGroupRadio.propTypes = {
 };
 
 FormGroupRadio.defaultProps = {
-  status: false,
+  status: 'valid',
   className: '',
   htmlId: nextId(),
   as: 'group',
