@@ -15,7 +15,9 @@ import {
   Card,
   Header,
   CardCopy,
-  Media
+  Media,
+  Masthead,
+  SkipTo
 } from 'nsw-ds-react'
 import * as Form from 'nsw-ds-react'
 import * as Tab from 'nsw-ds-react'
@@ -27,7 +29,10 @@ import { Table, TableResponsiveWrapper } from 'nsw-ds-react'
 const App = () => {
   return (
     <div className="App nsw-body-content">
-      <Header />
+      <SkipTo nav='#nav' content='#content' />
+      <Masthead />
+      <Header department='digital.nsw' headerUrl='#'
+              logo='https://www.digital.nsw.gov.au/themes/custom/corporateplus/nsw-digitalnsw-combined.svg' />
       <MainNav navItems={[
         {
           text: 'About DPC',

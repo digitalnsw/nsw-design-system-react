@@ -2,6 +2,17 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { initSite } from "nsw-design-system/src/main"
 
+/**
+ * Displays across the top of all NSW Government sites
+ *
+ * @param  {string}   department       - Department name
+ * @param  {string}   logo             - Location of the logo file
+ * @param  {string}   headerUrl        - Link to the homepage or root url
+ * @param  {string}   mobile           - Show responsive mobile menu
+ * @param  {string}   search           - Show search bar menu
+ * @param  {func}     onSubmit         - Event handler for header search
+ * @param  {object}   attributeOptions - Any other attribute options
+ */
 export class Header extends React.Component {
   constructor(props) {
     super(props)
@@ -10,8 +21,8 @@ export class Header extends React.Component {
       logo,
       headerUrl,
       mobile,
-      simple,
       search,
+      onSubmit,
       ...attributeOptions
     } = props
     this.department = department
@@ -20,6 +31,7 @@ export class Header extends React.Component {
     this.mobile = mobile
     this.search = search
     this.attributeOptions = attributeOptions
+    this.onSubmit = onSubmit
   }
 
   componentDidMount() {
@@ -96,7 +108,7 @@ export class Header extends React.Component {
                   className="nsw-search__area js-search-area"
                   hidden
                 >
-                  <form role="search">
+                  <form role="search" onSubmit={this.onSubmit}>
                     <label htmlFor="nsw-search__input" className="sr-only">
                       Search site for:
                     </label>
@@ -104,7 +116,7 @@ export class Header extends React.Component {
                       autoComplete="off"
                       className="nsw-search__input js-search-input"
                       id="nsw-search__input"
-                      name="input-autocomplete"
+                      name="searchInput"
                       type="text"
                     />
                     <button
@@ -148,10 +160,12 @@ export class Header extends React.Component {
 }
 
 Header.propTypes = {
+  department: PropTypes.string.isRequired,
+  logo: PropTypes.string.isRequired,
+  headerUrl: PropTypes.string.isRequired,
+  mobile: PropTypes.bool,
   search: PropTypes.bool,
-  department: PropTypes.string,
-  logo: PropTypes.string,
-  logoUrl: PropTypes.string
+  onSubmit: PropTypes.func
 }
 
 Header.defaultProps = {
