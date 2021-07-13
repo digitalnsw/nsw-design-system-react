@@ -18,7 +18,7 @@ import 'nsw-design-system/dist/css/main.css'
 ```
 
 
-In your `index.html` document add this line of code inside the `<head>` tag. Or install [icon](https://www.npmjs.com/package/material-design-icons-iconfont) and [font](https://www.npmjs.com/package/fontsource-montserrat) from npm
+In your `index.html` document add this line of code inside the `<head>` tag. Or install [icon](https://www.npmjs.com/package/material-icons) and [font](https://www.npmjs.com/package/@fontsource/montserrat) from npm
 ```
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
