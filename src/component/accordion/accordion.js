@@ -12,8 +12,6 @@ export class Accordion extends React.PureComponent {
     this.uID = uniqueId('accordion');
     this.className = className;
     this.attributeOptions = attributeOptions;
-    this.header = header;
-    this.body = body;
   }
 
   render() {
@@ -27,7 +25,7 @@ export class Accordion extends React.PureComponent {
             className={`nsw-accordion__button ${this.state.isOpen ? 'is-open' : ''}`}
             onClick={() => this.setState({ isOpen: !this.state.isOpen })}
           >
-            {this.header}
+            {this.props.header}
             <i
               className='material-icons nsw-material-icons nsw-accordion__icon'
               focusable='false'
@@ -41,7 +39,7 @@ export class Accordion extends React.PureComponent {
              id={ this.uID }
              hidden={ this.state.isOpen ? '' : 'hidden' }>
           <div className="nsw-wysiwyg-content">
-            {this.body}
+            {this.props.body}
           </div>
         </div>
       </div>
