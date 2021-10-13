@@ -7,7 +7,7 @@
 ## Install
 
 ```bash
-npm install nsw-ds-react nsw-design-system
+npm install nsw-ds-react nsw-design-system@2
 ```
 
 
