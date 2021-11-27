@@ -31,7 +31,7 @@ import LinkList from './component/link-list/linkList'
 import { MainNav } from './component/main-nav/mainNav'
 import { Masthead } from './component/header/masthead'
 import { SkipTo } from './component/header/skipTo'
-import Notification from './component/notification/notification'
+import Alert from './component/alert/alert'
 import Pagination from './component/pagination/pagination'
 
 import Table, { TableResponsiveWrapper } from './component/table/table'

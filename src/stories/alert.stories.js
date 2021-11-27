@@ -1,12 +1,12 @@
 import React from 'react';
-import { Notification } from '../component/notification/notification';
+import { Alert } from '../component/alert/alert';
 
 export default {
-  title: 'Content/Notification',
-  component: Notification,
+  title: 'Content/In-page Alert',
+  component: Alert,
 };
 
-const Template = (args) => <Notification {...args} />;
+const Template = (args) => <Alert {...args} />;
 
 export const Info = Template.bind({});
 Info.args = {

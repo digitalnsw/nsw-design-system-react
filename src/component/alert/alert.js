@@ -7,10 +7,10 @@ import PropTypes from 'prop-types';
  * @type {Object}
  */
 const options = {
-  info: 'nsw-notification--info',
-  warning: 'nsw-notification--warning',
-  error: 'nsw-notification--error',
-  success: 'nsw-notification--success',
+  info: 'nsw-in-page-alert--info',
+  warning: 'nsw-in-page-alert--warning',
+  error: 'nsw-in-page-alert--error',
+  success: 'nsw-in-page-alert--success',
 };
 
 /**
@@ -36,7 +36,7 @@ const icons = {
  * @param  {string}  className        - An additional class, optional
  * @param  {object}  attributeOptions - Any other attribute options
  */
-export const Notification = ({
+export const Alert = ({
   title = '',
   as,
   children,
@@ -44,27 +44,27 @@ export const Notification = ({
   ...attributeOptions
 }) => (
   <div
-    className={`nsw-notification ${className} ${options[as]}`}
+    className={`nsw-in-page-alert ${className} ${options[as]}`}
     {...attributeOptions}
   >
-    <i
+    <span
       focusable="false"
-      className="material-icons nsw-material-icons nsw-notification__icon"
+      className="material-icons nsw-material-icons nsw-in-page-alert__icon"
     >
       {icons[as]}
-    </i>
-    <div className="nsw-notification__content">
-      <h4 className="nsw-notification__title">{title}</h4>
+    </span>
+    <div className="nsw-in-page-alert__content">
+      <h4>{title}</h4>
       {children}
     </div>
   </div>
 );
 
-Notification.propTypes = {
+Alert.propTypes = {
   as: PropTypes.oneOf(['info', 'warning', 'error', 'success']).isRequired,
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   title: PropTypes.string,
 };
 
-export default Notification;
+export default Alert;
