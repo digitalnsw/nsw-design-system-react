@@ -4,7 +4,6 @@ import Button from './component/button/button'
 import Callout from './component/callout/callout'
 import Card, { CardCopy } from './component/card/card'
 import ContentBlock from './component/content-block/contenBlock'
-import DirectionLinks from './component/direction-links/directionLink'
 import Footer, {
   FooterUpper,
   FooterSectionGroup,
@@ -54,7 +53,6 @@ export {
   Card,
   CardCopy,
   ContentBlock,
-  DirectionLinks,
   Footer,
   FooterUpper,
   FooterSectionGroup,

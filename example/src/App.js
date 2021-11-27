@@ -7,7 +7,6 @@ import {
   ContentBlock,
   Accordion,
   AccordionGroup,
-  DirectionLinks,
   Notification,
   TagList,
   InPageNavLinks,
@@ -490,23 +489,6 @@ const App = () => {
           center="80"
           title="Digital.nsw launch with Victor Dominello MP at NSW Parliament House"
           video="https://www.youtube.com/embed/HNHu2zRPSB4"
-        />
-        <h2 className="section-title">Direction Links</h2>
-        <DirectionLinks
-          links={[
-            {
-              url: '#',
-              direction: 'top',
-              text: 'top',
-              screenReader: 'of the page'
-            },
-            {
-              url: '#',
-              direction: 'bottom',
-              text: 'bottom',
-              screenReader: 'of the page'
-            }
-          ]}
         />
         <h2 className="section-title">Tabs</h2>
         <Tab.Tabs>
