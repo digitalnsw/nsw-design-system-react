@@ -16,8 +16,8 @@ export class Accordion extends React.PureComponent {
 
   render() {
     return (
-      <div>
-        <h2 className='nsw-accordion__title'>
+      <>
+        <div className='nsw-accordion__title'>
           <button
             type='button'
             aria-expanded={ this.state.isOpen }
@@ -34,7 +34,7 @@ export class Accordion extends React.PureComponent {
               keyboard_arrow_right
             </i>
           </button>
-        </h2>
+        </div>
         <div className="nsw-accordion__content"
              id={ this.uID }
              hidden={ this.state.isOpen ? '' : 'hidden' }>
@@ -42,7 +42,7 @@ export class Accordion extends React.PureComponent {
             {this.props.body}
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }
@@ -58,7 +58,7 @@ Accordion.defaultProps = {
 };
 
 export const AccordionGroup = ({className, children, ...attributeOptions}) => (
-  <div className={`nsw-accordion is-ready ${className ? className : ''}`} {...attributeOptions}>
+  <div className={`nsw-accordion ready ${className ? className : ''}`} {...attributeOptions}>
     {children}
   </div>
 );

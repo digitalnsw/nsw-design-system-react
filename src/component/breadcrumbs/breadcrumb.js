@@ -15,7 +15,7 @@ export const Breadcrumbs = ({
   label, items, linkComponent, className = '', ...attributeOptions
 }) => (
   <nav
-    className={`nsw-breadcrumb ${className}`}
+    className={`nsw-breadcrumbs ${className}`}
     aria-label={label}
     {...attributeOptions}
   >
@@ -75,15 +75,15 @@ export const BreadcrumbLinkListItem = ({
 
   if (link) {
     return (
-      <li className="nsw-breadcrumb__item">
-        <LinkComponent className="nsw-breadcrumb__link" {...attributeOptions}>{text}</LinkComponent>
+      <li>
+        <LinkComponent {...attributeOptions}>{text}</LinkComponent>
         {children}
       </li>
     );
   }
 
   return (
-    <li className="nsw-breadcrumb__item">
+    <li>
       {text}
       {children}
     </li>

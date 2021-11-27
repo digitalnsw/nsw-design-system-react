@@ -7,10 +7,16 @@ import { initSite } from 'nsw-design-system/src/main';
  *
  * @type {Object}
  */
-const options = {
-  critical: 'nsw-sitewide-message--critical',
-  light: 'nsw-sitewide-message--light',
-};
+ const options = {
+   critical: 'nsw-global-alert--critical',
+   light: 'nsw-global-alert--light',
+ };
+
+ const buttonStyles = {
+   default: 'nsw-button nsw-button--white',
+   critical: 'nsw-button nsw-button--white',
+   light: 'nsw-button nsw-button--dark',
+ };
 
 export class GlobalAlert extends React.PureComponent {
   constructor(props) {
@@ -35,21 +41,24 @@ export class GlobalAlert extends React.PureComponent {
   render() {
     return (
       <div
-        className={`nsw-sitewide-message ${this.className} ${options[this.as]}`}
+        className={`nsw-global-alert ${this.className} ${options[this.as]}`}
         {...this.attributeOptions}
       >
-        <div className="nsw-sitewide-message__wrapper">
-          <div className="nsw-sitewide-message__content">
-            <h2 className="nsw-sitewide-message__title">
+        <div className="nsw-global-alert__wrapper">
+          <div className="nsw-global-alert__content">
+            <div className="nsw-global-alert__title">
               {this.title}
-            </h2>
+            </div>
             <p>{this.content}</p>
           </div>
-          {this.ctaText && this.ctaHref
-            ? <a href={this.ctaHref} className="nsw-button">{this.ctaText}</a>
-            : <button type="button" className="nsw-button">{this.ctaText}</button>}
-          <button type="button" className="nsw-sitewide-message__close">
-            <i className="material-icons nsw-material-icons" focusable="false" aria-hidden="true">close</i>
+          <p>
+            {this.ctaText && this.ctaHref
+              ? <a href={this.ctaHref} className={this.as ? buttonStyles[this.as] : buttonStyles['default']}>{this.ctaText}</a>
+              : <button type="button" className={this.as ? buttonStyles[this.as] : buttonStyles['default']}>{this.ctaText}</button>
+            }
+          </p>
+          <button type="button" className="nsw-icon-button">
+            <span className="material-icons nsw-material-icons" focusable="false" aria-hidden="true">close</span>
             <span className="sr-only">Close message</span>
           </button>
         </div>
