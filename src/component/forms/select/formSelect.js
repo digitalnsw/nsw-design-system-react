@@ -38,7 +38,7 @@ export const Select = ({
   htmlId, selected, options, block, status, className = '', ...attributeOptions
 }) => (
   <select
-    className={`nsw-form-select ${className}`}
+    className={`nsw-form__select ${className}`}
     aria-invalid={status === 'invalid' ? 'true' : ''}
     aria-describedby={status === 'invalid' ? `helper${htmlId} error${htmlId}` : `helper${htmlId}`}
     id={htmlId}
@@ -62,7 +62,7 @@ Select.propTypes = {
   ).isRequired,
   block: PropTypes.bool,
   htmlId: PropTypes.string,
-  status: PropTypes.oneOf([false, 'invalid']),
+  status: PropTypes.oneOf(['valid', 'invalid', 'default']),
   selected: PropTypes.string,
   className: PropTypes.string,
 };
@@ -87,7 +87,7 @@ export const FormGroupSelect = ({
 );
 
 FormGroupSelect.propTypes = {
-  status: PropTypes.oneOf(['valid', 'invalid']),
+  status: PropTypes.oneOf(['valid', 'invalid', 'default']),
   statusText: PropTypes.string,
   label: PropTypes.string,
   helper: PropTypes.string,
@@ -102,6 +102,6 @@ FormGroupSelect.propTypes = {
 };
 
 FormGroupSelect.defaultProps = {
-  status: 'valid',
+  status: 'default',
   htmlId: defHtmlId,
 };
