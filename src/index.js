@@ -45,6 +45,7 @@ import TagList from './component/tags/tags'
 import Media from './component/media/media'
 
 export {
+  Alert,
   Accordion,
   AccordionGroup,
   Breadcrumbs,
@@ -78,7 +79,6 @@ export {
   MainNav,
   Masthead,
   Media,
-  Notification,
   Pagination,
   SkipTo,
   Table,
