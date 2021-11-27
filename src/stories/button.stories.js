@@ -19,11 +19,31 @@ ButtonLink.args = {
   children: 'Button Link',
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
+export const DarkOutline = Template.bind({});
+DarkOutline.args = {
   children: 'Button',
-  as: 'secondary',
+  as: 'dark-outline',
 };
+
+export const DarkOutlineSolid = Template.bind({});
+DarkOutlineSolid.args = {
+  children: 'Button',
+  as: 'dark-outline-solid',
+};
+
+export const Light = Template.bind({});
+Light.args = {
+  children: 'Button',
+  as: 'light',
+};
+
+export const LightOutline = Template.bind({});
+LightOutline.args = {
+  children: 'Button',
+  as: 'light-outline',
+};
+
+
 
 export const Danger = Template.bind({});
 Danger.args = {
@@ -35,10 +55,4 @@ export const White = Template.bind({});
 White.args = {
   children: 'Button',
   as: 'white',
-};
-
-export const Fullwidth = Template.bind({});
-Fullwidth.args = {
-  children: 'Button',
-  as: 'full-width',
 };

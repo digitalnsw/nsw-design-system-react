@@ -6,13 +6,6 @@ import PropTypes from 'prop-types';
  *
  * @type {Object}
  */
-const options = {
-  primary: 'nsw-button--primary',
-  secondary: 'nsw-button--secondary',
-  danger: 'nsw-button--highlight',
-  white: 'nsw-button--white',
-  fullwidth: 'nsw-button--primary nsw-button--full-width',
-};
 
 /**
  * DEFAULT
@@ -44,7 +37,7 @@ export const Button = ({
 
     return (
       <LinkComponent
-        className={`nsw-button ${className} ${options[as]}${block ? ' nsw-button--block' : ''}`}
+        className={`nsw-button ${className} nsw-button--${as}${block ? ' nsw-button--block' : ''}`}
         {...attributeOptions}
       >
         { children }
@@ -55,7 +48,7 @@ export const Button = ({
   return (
     <button
       type={ type }
-      className={`nsw-button ${className} ${options[as]}${block ? ' nsw-button--block' : ''}`}
+      className={`nsw-button ${className} nsw-button--${as}${block ? ' nsw-button--block' : ''}`}
       {...attributeOptions}
     >
       { children }
@@ -66,7 +59,7 @@ export const Button = ({
 Button.propTypes = {
   link: PropTypes.string,
   children: PropTypes.node.isRequired,
-  as: PropTypes.oneOf(['primary', 'secondary', 'danger', 'white', 'full-width']),
+  as: PropTypes.oneOf(['dark', 'dark-outline', 'dark-outline-solid', 'light', 'light-outline','white','danger']),
   type: PropTypes.string,
   block: PropTypes.bool,
   linkComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
@@ -75,7 +68,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   type: 'button',
-  as: 'primary',
+  as: 'dark',
   linkComponent: 'a',
 };
 
