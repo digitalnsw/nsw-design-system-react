@@ -16,9 +16,9 @@ import PropTypes from 'prop-types'
 export const Media = ({
   image, video, title, caption, transparent, left, right, center
 }) => (
-  <figure className={`nsw-media${left === undefined || left == 'none' ? '': ` nsw-media--left-${left}`}
+  <figure className={`nsw-media${left === undefined || left === 'none' ? '': ` nsw-media--left-${left}`}
   ${right === undefined || right === 'none' ? '': ` nsw-media--right-${right}`}
-  ${center === undefined || center == 'none' ? '':` nsw-media--${center}`} ${transparent ? 'nsw-media--transparent' : ''}`}>
+  ${center === undefined || center === 'none' ? '':` nsw-media--${center}`} ${transparent ? 'nsw-media--transparent' : ''}`}>
     {video ? <div className="nsw-media__video">
       <iframe src={video} title={title} frameBorder="0" allowFullScreen></iframe>
     </div> : ''}
