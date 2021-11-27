@@ -33,6 +33,7 @@ import { Masthead } from './component/header/masthead'
 import { SkipTo } from './component/header/skipTo'
 import Alert from './component/alert/alert'
 import Pagination from './component/pagination/pagination'
+import Section from './component/section/section'
 
 import Table, { TableResponsiveWrapper } from './component/table/table'
 import {
@@ -80,6 +81,7 @@ export {
   Masthead,
   Media,
   Pagination,
+  Section,
   SkipTo,
   Table,
   TableResponsiveWrapper,
