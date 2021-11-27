@@ -18,7 +18,7 @@ export const FormHelper = ({
 }) => (
 
   <span id={`${status === 'invalid' ? 'error' : 'helper'}${htmlId}`} className={`nsw-form__helper ${status === 'invalid' ? ' nsw-form__helper--error' : ''} ${status === 'valid' ? ' nsw-form__helper--valid' : ''} ${className}`} {...attributeOptions}>
-    <span class="material-icons nsw-material-icons" focusable="false" aria-hidden="true">
+    <span className="material-icons nsw-material-icons" focusable="false" aria-hidden="true">
       {status === 'invalid' ? 'cancel' : ''}
       {status === 'valid' ? 'check_circle' : ''}
     </span>

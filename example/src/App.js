@@ -7,7 +7,7 @@ import {
   ContentBlock,
   Accordion,
   AccordionGroup,
-  Notification,
+  Alert,
   TagList,
   InPageNavLinks,
   LinkList,
@@ -16,7 +16,8 @@ import {
   CardCopy,
   Media,
   Masthead,
-  SkipTo
+  SkipTo,
+  HeroBanner
 } from 'nsw-ds-react'
 import * as Form from 'nsw-ds-react'
 import * as Tab from 'nsw-ds-react'
@@ -30,8 +31,7 @@ const App = () => {
     <div className="App nsw-body-content">
       <SkipTo nav='#nav' content='#content' />
       <Masthead />
-      <Header department='digital.nsw' headerUrl='#'
-              logo='https://www.digital.nsw.gov.au/themes/custom/corporateplus/nsw-digitalnsw-combined.svg' />
+      <Header siteTitle='digital.nsw' headerUrl='#' />
       <MainNav navItems={[
         {
           text: 'About DPC',
@@ -55,28 +55,73 @@ const App = () => {
         }
       ]}
       />
-      <div className="nsw-container">
+      <HeroBanner
+        as="dark"
+        cta={{
+          text: 'Learn more',
+          url: '/'
+        }}
+        image={{
+          alt: 'Labrador dog',
+          src: 'https://picsum.photos/id/237/2000/1250'
+        }}
+        intro="Find the building blocks for creating user-centred digital services, as well as policy, tools and guidance"
+        title="Helping you deliver great government services"
+      />
+      <HeroBanner
+        as="white"
+        cta={{
+          text: 'Learn more',
+          url: '/'
+        }}
+        image={{
+          alt: 'Labrador dog',
+          src: 'https://picsum.photos/id/237/2000/1250'
+        }}
+        intro="Find the building blocks for creating user-centred digital services, as well as policy, tools and guidance"
+        title="Helping you deliver great government services"
+      />
+      <HeroBanner
+        as="light"
+        cta={{
+          text: 'Learn more',
+          url: '/'
+        }}
+        image={{
+          alt: 'Labrador dog',
+          src: 'https://picsum.photos/id/237/2000/1250'
+        }}
+        intro="Find the building blocks for creating user-centred digital services, as well as policy, tools and guidance"
+        title="Helping you deliver great government services"
+      />
+      <div className="nsw-container nsw-p-top-lg">
         <h2 className="section-title">Buttons</h2>
-        <Button>Primary button</Button>
-        <Button as="secondary">Secondary button</Button>
-        <Button as="danger">Danger button</Button>
+        <div className="nsw-list--8">
+          <Button as="dark">Dark button</Button>
+          <Button as="dark-outline">Dark outline button</Button>
+          <Button as="dark-outline-solid">Dark outline solid button</Button>
+          <Button as="light">Light button</Button>
+          <Button as="light-outline">Light outline button</Button>
+          <Button as="white">White button</Button>
+          <Button as="danger">Danger button</Button>
+        </div>
 
         <h2 className="section-title">In-page notifications</h2>
-        <Notification as="info" title="Info alert">
+        <Alert as="info" title="Info alert">
           <p>Content of alert</p>
-        </Notification>
+        </Alert>
         <br />
-        <Notification as="error" title="Error alert">
+        <Alert as="error" title="Error alert">
           <p>Content of alert</p>
-        </Notification>
+        </Alert>
         <br />
-        <Notification as="warning" title="Warning alert">
+        <Alert as="warning" title="Warning alert">
           <p>Content of alert</p>
-        </Notification>
+        </Alert>
         <br />
-        <Notification as="success" title="Success alert">
+        <Alert as="success" title="Success alert">
           <p>Content of alert</p>
-        </Notification>
+        </Alert>
 
         <h2 className="section-title">Tags</h2>
         <TagList tags={[
@@ -99,55 +144,148 @@ const App = () => {
 
         <h2 className="section-title">Cards</h2>
         <div className="nsw-grid">
-          <div className="nsw-col nsw-col-md-4">
-            <Card
-              date="2021-03-17"
-              tag="Environment"
-              link="#"
-              headline="Card Title"
-              image="https://picsum.photos/id/292/400/200"
-              imageAlt="alt text"
-            >
-              <CardCopy>Some text</CardCopy>
-            </Card>
-          </div>
+        <div className="nsw-col nsw-col-md-4">
+          <Card
+            date="2021-03-17"
+            tag="Environment"
+            link="#"
+            headline="Card Title"
+            image="https://picsum.photos/id/292/400/200"
+            imageAlt="alt text"
+          >
+            <CardCopy>Some text</CardCopy>
+          </Card>
+        </div>
+        <div className="nsw-col nsw-col-md-4">
+          <Card
+            date="2021-03-17"
+            as="dark"
+            tag="Environment"
+            link="#"
+            headline="Card Title"
+            image="https://picsum.photos/id/292/400/200"
+            imageAlt="alt text"
+          >
+            <CardCopy>Some text</CardCopy>
+          </Card>
+        </div>
+        <div className="nsw-col nsw-col-md-4">
+          <Card
+            date="2021-03-17"
+            tag="Environment"
+            as="light"
+            link="#"
+            headline="Card Title"
+            image="https://picsum.photos/id/292/400/200"
+            imageAlt="alt text"
+          >
+            <CardCopy>Some text</CardCopy>
+          </Card>
+        </div>
         </div>
         <div className="nsw-grid">
-          <div className="nsw-col nsw-col-md-4">
-            <Card
-              content
-              date="2021-03-17"
-              tag="Environment"
-              link="#"
-              headline="Card Title"
-              image="https://picsum.photos/id/292/400/200"
-              imageAlt="alt text"
-            >
-              <CardCopy>Some text</CardCopy>
-            </Card>
-          </div>
+        <div className="nsw-col nsw-col-md-4">
+          <Card
+            highlight
+            date="2021-03-17"
+            tag="Environment"
+            link="#"
+            headline="Card Title"
+            image="https://picsum.photos/id/292/400/200"
+            imageAlt="alt text"
+          >
+            <CardCopy>Some text</CardCopy>
+          </Card>
+        </div>
+        <div className="nsw-col nsw-col-md-4">
+          <Card
+            highlight
+            as="dark"
+            date="2021-03-17"
+            tag="Environment"
+            link="#"
+            headline="Card Title"
+            image="https://picsum.photos/id/292/400/200"
+            imageAlt="alt text"
+          >
+            <CardCopy>Some text</CardCopy>
+          </Card>
+        </div>
+        <div className="nsw-col nsw-col-md-4">
+          <Card
+            highlight
+            as="light"
+            date="2021-03-17"
+            tag="Environment"
+            link="#"
+            headline="Card Title"
+            image="https://picsum.photos/id/292/400/200"
+            imageAlt="alt text"
+          >
+            <CardCopy>Some text</CardCopy>
+          </Card>
+        </div>
         </div>
         <div className="nsw-grid">
-          <div className="nsw-col nsw-col-md-4">
-            <Card
-              content
-              link="#"
-              headline="Card Title"
-            >
-              <CardCopy>Some text</CardCopy>
-            </Card>
-          </div>
+        <div className="nsw-col nsw-col-md-4">
+          <Card
+            highlight
+            link="#"
+            headline="Card Title"
+          >
+            <CardCopy>Some text</CardCopy>
+          </Card>
+        </div>
+        <div className="nsw-col nsw-col-md-4">
+          <Card
+            highlight
+            link="#"
+            headline="Card Title"
+            as="dark"
+          >
+            <CardCopy>Some text</CardCopy>
+          </Card>
+        </div>
+        <div className="nsw-col nsw-col-md-4">
+          <Card
+            highlight
+            link="#"
+            headline="Card Title"
+            as="light"
+          >
+            <CardCopy>Some text</CardCopy>
+          </Card>
+        </div>
         </div>
         <div className="nsw-grid">
-          <div className="nsw-col nsw-col-md-4">
-            <Card
-              link="#"
-              headline="Card Title"
-            >
-              <CardCopy>Some text</CardCopy>
-            </Card>
-          </div>
+        <div className="nsw-col nsw-col-md-4">
+          <Card
+            link="#"
+            headline="Card Title"
+          >
+            <CardCopy>Some text</CardCopy>
+          </Card>
         </div>
+        <div className="nsw-col nsw-col-md-4">
+          <Card
+            link="#"
+            headline="Card Title"
+            as="dark"
+          >
+            <CardCopy>Some text</CardCopy>
+          </Card>
+        </div>
+        <div className="nsw-col nsw-col-md-4">
+          <Card
+            link="#"
+            headline="Card Title"
+            as="light"
+          >
+            <CardCopy>Some text</CardCopy>
+          </Card>
+        </div>
+        </div>
+        <h2 className="section-title">Content blocks</h2>
         <div className="nsw-grid nsw-grid--spaced">
           <div className="nsw-col nsw-col-md-6">
             <ContentBlock
@@ -223,12 +361,12 @@ const App = () => {
         <Form.FormGroupText
           label="Your name"
           helper="as it is written on your drivers' licence"
-          statusText="Please enter your name"
+          statusText="Valid drivers licence"
+          status="valid"
           htmlId={nextId()}
         />
         <Form.FormGroupText
           label="Enter some long text"
-          statusText="the error"
           as="textarea"
           htmlId={nextId()}
         />
@@ -236,7 +374,6 @@ const App = () => {
         <Form.FormGroupSelect
           label="Select a thing"
           helper="But only one thing"
-          statusText="Please select a thing"
           htmlId={nextId()}
           options={[
             {
@@ -262,7 +399,6 @@ const App = () => {
         <Form.FormGroupCheckbox
           label="Select a thing"
           helper="Or more than one thing"
-          statusText="Please select at least 1 thing"
           htmlId={nextId()}
           as="group"
           options={[
@@ -285,7 +421,6 @@ const App = () => {
         <Form.FormGroupCheckbox
           label="Select a thing"
           helper="Or more than one thing"
-          statusText="Please select at least 1 thing"
           htmlId={nextId()}
           options={[
             {
@@ -298,7 +433,6 @@ const App = () => {
         <Form.FormGroupRadio
           label="Select a thing"
           helper="Only one thing"
-          statusText="Please select 1 thing"
           htmlId={nextId()}
           options={[
             {
@@ -432,7 +566,10 @@ const App = () => {
           />
         </AccordionGroup>
         <h2 className="section-title">Progress indicator</h2>
-        <Form.ProgressIndicator step={3} of={5} />
+        <Form.ProgressIndicator
+          of={5}
+          step={3}
+        />
 
         <h2 className="section-title">Table</h2>
         <TableResponsiveWrapper>

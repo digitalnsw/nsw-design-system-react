@@ -16,7 +16,7 @@ export class Accordion extends React.PureComponent {
 
   render() {
     return (
-      <>
+      <React.Fragment>
         <div className='nsw-accordion__title'>
           <button
             type='button'
@@ -42,7 +42,7 @@ export class Accordion extends React.PureComponent {
             {this.props.body}
           </div>
         </div>
-      </>
+      </React.Fragment>
     );
   }
 }

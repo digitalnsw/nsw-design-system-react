@@ -33,7 +33,7 @@ CheckboxItem.propTypes = {
   className: PropTypes.string,
   htmlId: PropTypes.string,
   uniqueID: PropTypes.func,
-  status: PropTypes.oneOf(['valid', 'invalid']),
+  status: PropTypes.oneOf(['valid', 'invalid','default']),
   as: PropTypes.string,
 };
 
