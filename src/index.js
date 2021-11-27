@@ -3,7 +3,7 @@ import Breadcrumbs from './component/breadcrumbs/breadcrumb'
 import Button from './component/button/button'
 import Callout from './component/callout/callout'
 import Card, { CardCopy } from './component/card/card'
-import ContentBlock from './component/content-block/contenBlock'
+import ContentBlock from './component/content-block/contentBlock'
 import Footer, {
   FooterUpper,
   FooterSectionGroup,
