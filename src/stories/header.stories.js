@@ -2,6 +2,7 @@ import React from 'react'
 import { Header } from '../component/header/header'
 import { Masthead } from '../component/header/masthead'
 import { SkipTo } from '../component/header/skipTo'
+import scLogo from './assets/seniorscardlogo.png';
 
 export default {
   title: 'Globals/Header',
@@ -26,10 +27,9 @@ const Template = (args) => (
 
 export const Search = Template.bind({})
 Search.args = {
-  logo:
-    'https://www.digital.nsw.gov.au/themes/custom/corporateplus/nsw-digitalnsw-combined.svg',
   headerUrl: '#',
-  department: 'digital.nsw',
+  siteTitle: 'digital.nsw',
+  siteDescriptor: 'Department of Customer Service',
   search: true,
   mobile: true,
   onSubmit: (event) => {
@@ -41,9 +41,9 @@ Search.args = {
 export const Simple = Template.bind({})
 Simple.args = {
   logo:
-    'https://www.digital.nsw.gov.au/themes/custom/corporateplus/nsw-digitalnsw-combined.svg',
+    scLogo,
   headerUrl: '#',
-  department: 'digital.nsw',
+  siteTitle: 'Seniors Card NSW',
   mobile: false,
   search: false
 }
