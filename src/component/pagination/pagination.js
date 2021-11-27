@@ -15,6 +15,7 @@ import nextId from 'react-id-generator';
 
 export const Pagination = ({
   backLink,
+  active,
   nextLink,
   paginationItems,
   className,
@@ -25,36 +26,30 @@ export const Pagination = ({
     className={`nsw-container ${className}`}
     {...attributeOptions}
   >
-    <nav aria-label="Pagination">
-      <ul className="nsw-pagination">
-        <li className="nsw-pagination__item nsw-pagination__item--prev-page">
-          <a className="nsw-direction-link nsw-direction-link--icon-left" href={backLink}>
-            <i
-              className="material-icons nsw-material-icons nsw-material-icons--rotate-180"
+    <nav className="nsw-pagination" aria-label="Pagination">
+      <ul>
+        <li>
+          <a className="nsw-icon-button" href={backLink}>
+            <span
+              className="material-icons nsw-material-icons"
               focusable="false"
               aria-hidden="true"
             >
-              east
-            </i>
-            <span className="nsw-direction-link__text">
-              Back
-              <span className="sr-only">a page</span>
+              keyboard_arrow_left
             </span>
+            <span className="sr-only">Back</span>
           </a>
         </li>
         {
                     paginationItems ? paginationItems.map((paginationItem, i) => (
-                      <PaginationItem url={paginationItem.url} page={i + 1} key={`pagination-${nextId()}`} />
+                      <PaginationItem url={paginationItem.url} page={i + 1} key={`pagination-${nextId()}`} active={active} />
                     )) : ''
                 }
         {children}
-        <li className="nsw-pagination__item">
-          <a className="nsw-direction-link" href={nextLink}>
-            <span className="nsw-direction-link__text">
-              Next
-              <span className="sr-only">page</span>
-            </span>
-            <i className="material-icons nsw-material-icons" focusable="false" aria-hidden="true">east</i>
+        <li>
+          <a href={nextLink} className="nsw-icon-button">
+            <span className="material-icons nsw-material-icons" focusable="false" aria-hidden="true">keyboard_arrow_right</span>
+            <span className="sr-only">Next</span>
           </a>
         </li>
       </ul>
@@ -63,7 +58,6 @@ export const Pagination = ({
 );
 
 Pagination.propTypes = {
-  title: PropTypes.string,
   className: PropTypes.string,
   paginationItems: PropTypes.arrayOf(
     PropTypes.shape({
@@ -73,12 +67,13 @@ Pagination.propTypes = {
   children: PropTypes.node,
   backLink: PropTypes.string,
   nextLink: PropTypes.string,
+  active: PropTypes.number,
 };
 
-export const PaginationItem = ({ url, page }) => (
-  <li className="nsw-pagination__item">
-    <a className="nsw-pagination__link" href={url}>
-      <span className="nsw-pagination__text">
+export const PaginationItem = ({ url, page, active }) => (
+  <li>
+    <a className={active === page ? 'active' : ''} href={url}>
+      <span>
         <span className="sr-only">Page </span>
         {page}
       </span>
@@ -87,18 +82,16 @@ export const PaginationItem = ({ url, page }) => (
 );
 
 export const PaginationEllipsis = () => (
-  <li className="nsw-pagination__item">
-    <div className="nsw-pagination__link">
-      <span className="nsw-pagination__text">
-        &hellip;
-        <span className="sr-only">More</span>
-      </span>
-    </div>
+  <li>
+    <span>
+      &hellip;
+    </span>
   </li>
 );
 
 PaginationItem.propTypes = {
   page: PropTypes.number,
+  active: PropTypes.number,
   url: PropTypes.string,
 };
 
