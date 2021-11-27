@@ -223,12 +223,12 @@ const App = () => {
         <Form.FormGroupText
           label="Your name"
           helper="as it is written on your drivers' licence"
-          errorText="Please enter your name"
+          statusText="Please enter your name"
           htmlId={nextId()}
         />
         <Form.FormGroupText
           label="Enter some long text"
-          errorText="the error"
+          statusText="the error"
           as="textarea"
           htmlId={nextId()}
         />
@@ -236,7 +236,7 @@ const App = () => {
         <Form.FormGroupSelect
           label="Select a thing"
           helper="But only one thing"
-          errorText="Please select a thing"
+          statusText="Please select a thing"
           htmlId={nextId()}
           options={[
             {
@@ -262,7 +262,7 @@ const App = () => {
         <Form.FormGroupCheckbox
           label="Select a thing"
           helper="Or more than one thing"
-          errorText="Please select at least 1 thing"
+          statusText="Please select at least 1 thing"
           htmlId={nextId()}
           as="group"
           options={[
@@ -285,7 +285,7 @@ const App = () => {
         <Form.FormGroupCheckbox
           label="Select a thing"
           helper="Or more than one thing"
-          errorText="Please select at least 1 thing"
+          statusText="Please select at least 1 thing"
           htmlId={nextId()}
           options={[
             {
@@ -298,7 +298,7 @@ const App = () => {
         <Form.FormGroupRadio
           label="Select a thing"
           helper="Only one thing"
-          errorText="Please select 1 thing"
+          statusText="Please select 1 thing"
           htmlId={nextId()}
           options={[
             {
@@ -321,13 +321,13 @@ const App = () => {
         <Form.FormGroupText
           label="Your name"
           helper="as it is written on your drivers' licence"
-          errorText="Please enter your name"
+          statusText="Please enter your name"
           htmlId={nextId()}
           status="invalid"
         />
         <Form.FormGroupText
           label="Enter some long text"
-          errorText="the error"
+          statusText="the error"
           as="textarea"
           htmlId={nextId()}
           status="invalid"
@@ -335,7 +335,7 @@ const App = () => {
         <Form.FormGroupSelect
           label="Select a thing"
           helper="But only one thing"
-          errorText="Please select a thing"
+          statusText="Please select a thing"
           htmlId={nextId()}
           status="invalid"
           options={[
@@ -362,7 +362,7 @@ const App = () => {
         <Form.FormGroupCheckbox
           label="Select a thing"
           helper="Or more than one thing"
-          errorText="Please select at least 1 thing"
+          statusText="Please select at least 1 thing"
           htmlId={nextId()}
           status="invalid"
           as="group"
@@ -386,7 +386,7 @@ const App = () => {
         <Form.FormGroupCheckbox
           label="Select a thing"
           helper="Or more than one thing"
-          errorText="Please select at least 1 thing"
+          statusText="Please select at least 1 thing"
           htmlId={nextId()}
           status="invalid"
           options={[
@@ -400,7 +400,7 @@ const App = () => {
         <Form.FormGroupRadio
           label="Select a thing"
           helper="Only one thing"
-          errorText="Please select 1 thing"
+          statusText="Please select 1 thing"
           status="invalid"
           htmlId={nextId()}
           options={[

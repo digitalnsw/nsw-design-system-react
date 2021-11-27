@@ -71,7 +71,7 @@ Select.propTypes = {
  * The text group component
  *
  * @param  {string}  status           - Adds invalid state to form group
- * @param  {string}  errorText        - Text for error message
+ * @param  {string}  statusText        - Text for error message
  * @param  {string}  label            - Text for label
  * @param  {string}  helper           - Text for helper
  * @param  {array}   options          - The options for the select, format: { value: '', text: '' }
@@ -79,16 +79,16 @@ Select.propTypes = {
  * @param  {object}  attributeOptions - Any other attribute options
  */
 export const FormGroupSelect = ({
-  status, selected, errorText, label, helper, options, htmlId,
+  status, selected, statusText, label, helper, options, htmlId,
 }) => (
-  <FormGroup status={status} errorText={errorText} label={label} helper={helper} htmlId={htmlId}>
+  <FormGroup status={status} statusText={statusText} label={label} helper={helper} htmlId={htmlId}>
     <Select options={options} selected={selected} />
   </FormGroup>
 );
 
 FormGroupSelect.propTypes = {
   status: PropTypes.oneOf(['valid', 'invalid']),
-  errorText: PropTypes.string,
+  statusText: PropTypes.string,
   label: PropTypes.string,
   helper: PropTypes.string,
   selected: PropTypes.string,

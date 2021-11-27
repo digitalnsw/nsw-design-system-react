@@ -45,7 +45,7 @@ Single.args = {
 
 export const GroupError = Template.bind({});
 GroupError.args = {
-  errorText: 'Please select at least one option',
+  statusText: 'Please select at least one option',
   status: 'invalid',
   label: 'Select a thing',
   helper: 'Or more than one thing',
@@ -68,16 +68,17 @@ GroupError.args = {
   ],
 };
 
-export const SingleError = Template.bind({});
-SingleError.args = {
-  errorText: 'You must accept to continue',
-  status: 'invalid',
-  label: 'Select a thing',
+export const SingleSuccess = Template.bind({});
+SingleSuccess.args = {
+  statusText: 'Terms & conditions accepted',
+  status: 'valid',
+  label: 'Legal stuff',
   htmlId: 'uniqueID-2',
   options: [
     {
       value: '1',
       text: 'Accept the terms of this checkbox',
+      checked: true,
     },
   ],
 };

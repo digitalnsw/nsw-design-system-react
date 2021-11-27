@@ -10,14 +10,20 @@ const defHtmlId = nextId();
  *
  * @param  {string}  children      - Message and children contained
  * @param  {string}  id            - uniqueId of the field reffered to by the helper
- * @param  {boolean} error         - Whether this helper is an error
+ * @param  {boolean} status         - Whether this helper is an error
  */
 
 export const FormHelper = ({
-  htmlId, children, className, error, ...attributeOptions
+  htmlId, children, className, status, ...attributeOptions
 }) => (
 
-  <span id={`${error ? 'error' : 'helper'}${htmlId}`} className={`nsw-form-helper ${error ? ' nsw-form-helper--error' : ''} ${className}`} {...attributeOptions}>{children}</span>
+  <span id={`${status === 'invalid' ? 'error' : 'helper'}${htmlId}`} className={`nsw-form__helper ${status === 'invalid' ? ' nsw-form__helper--error' : ''} ${status === 'valid' ? ' nsw-form__helper--valid' : ''} ${className}`} {...attributeOptions}>
+    <span class="material-icons nsw-material-icons" focusable="false" aria-hidden="true">
+      {status === 'invalid' ? 'cancel' : ''}
+      {status === 'valid' ? 'check_circle' : ''}
+    </span>
+    {children}
+  </span>
 
 );
 
@@ -46,7 +52,7 @@ export const FormLabel = ({
 }) => (
   <label
     htmlFor={htmlFor}
-    className={`nsw-form-label ${className}`}
+    className={`nsw-form__label ${className}`}
     {...attributeOptions}
   >
     { text }
@@ -70,7 +76,7 @@ FormLabel.defaultProps = {
  *
  * @param  {string}  status           - Adds invalid state to form group
  * @param  {boolean} error            - Whether the field is in error
- * @param  {string}  errorText        - Text for error message
+ * @param  {string}  statusText        - Text for error message
  * @param  {string}  label            - Text for label
  * @param  {string}  helper           - Text for helper
  * @param  {array}   options          - The options for the select, format: { value: '', text: '' }
@@ -78,12 +84,12 @@ FormLabel.defaultProps = {
  * @param  {object}  attributeOptions - Any other attribute options
  */
 export const FormGroup = ({
-  htmlId = nextId(), status, children, label, helper, errorText, error,
+  htmlId = nextId(), status, children, label, helper, statusText, error,
   className, ...attributeOptions
 }) => (
 
   <div
-    className={`nsw-form-group ${className}`}
+    className={`nsw-form__group ${className}`}
     {...attributeOptions}
   >
     <FormLabel htmlFor={htmlId} text={label} />
@@ -91,25 +97,25 @@ export const FormGroup = ({
       ? <FormHelper htmlId={htmlId}>{helper}</FormHelper>
       : ''}
     {React.Children.map(children, (child) => React.cloneElement(child, { error }))}
-    {status === 'invalid'
-      ? <FormHelper htmlId={htmlId} error>{errorText}</FormHelper>
+    {status
+      ? <FormHelper htmlId={htmlId} status={status}>{statusText}</FormHelper>
       : ''}
   </div>
 );
 
 FormGroup.propTypes = {
-  status: PropTypes.oneOf(['invalid', 'valid']),
+  status: PropTypes.oneOf(['invalid', 'valid', 'default']),
   error: PropTypes.bool,
   className: PropTypes.string,
   htmlId: PropTypes.string,
   label: PropTypes.string,
   children: PropTypes.node,
   helper: PropTypes.string,
-  errorText: PropTypes.string,
+  statusText: PropTypes.string,
   uniqueID: PropTypes.func,
 };
 
 FormGroup.defaultProps = {
-  status: 'valid',
+  status: 'default',
   className: '',
 };

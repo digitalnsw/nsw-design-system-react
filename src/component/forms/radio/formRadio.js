@@ -16,14 +16,14 @@ export const RadioItem = ({
 }) => (
   <React.Fragment>
     <input
-      className="nsw-form-radio__input"
+      className="nsw-form__radio-input"
       type="radio"
       name={htmlId}
       aria-describedby={status === 'invalid' ? `helper${htmlId} error${htmlId}` : `helper${htmlId}`}
       id={uniqueID}
       {...attributeOptions}
     />
-    <label className="nsw-form-radio__label" htmlFor={uniqueID}>{text}</label>
+    <label className="nsw-form__radio-label" htmlFor={uniqueID}>{text}</label>
   </React.Fragment>
 );
 
@@ -41,7 +41,7 @@ RadioItem.propTypes = {
  * The Form group radio component
  *
  * @param  {string}  status           - Adds invalid state to form group
- * @param  {string}  errorText        - Text for error message
+ * @param  {string}  statusText        - Text for error message
  * @param  {string}  label            - Text for label
  * @param  {string}  helper           - Text for helper
  * @param  {array}   options          - The options for the select, format: { value: '', text: '' }
@@ -49,25 +49,25 @@ RadioItem.propTypes = {
  * @param  {object}  attributeOptions - Any other attribute options
  */
 export const FormGroupRadio = ({
-  className, as, label, helper, status, htmlId, errorText, options,
+  className, as, label, helper, status, htmlId, statusText, options,
 }) => (
-  <div className={`nsw-form-group ${className}`}>
-    <fieldset className="nsw-form-fieldset" aria-invalid={status === 'invalid' ? 'true' : ''}>
+  <div className={`nsw-form__group ${className}`}>
+    <fieldset className="nsw-form__fieldset" aria-invalid={status === 'invalid' ? 'true' : ''}>
       {as === 'group'
         ? (
           <legend>
-            <span className="nsw-form-legend-text">{label}</span>
+            <span className="nsw-form__legend">{label}</span>
             {helper
               ? <FormHelper htmlId={htmlId}>{helper}</FormHelper>
               : ''}
-            {status === 'invalid'
-              ? <FormHelper htmlId={htmlId} error>{errorText}</FormHelper>
+            {status
+              ? <FormHelper htmlId={htmlId} status={status}>{statusText}</FormHelper>
               : ''}
           </legend>
         )
         : ''}
 
-      <div className="nsw-form-radio">
+      <div>
         {
           options.map(
             (option) => (
@@ -81,8 +81,8 @@ export const FormGroupRadio = ({
           )
         }
       </div>
-      {status === 'invalid' && as !== 'group'
-        ? <FormHelper htmlId={htmlId} error>{errorText}</FormHelper>
+      {status && as !== 'group'
+        ? <FormHelper htmlId={htmlId} status={status}>{statusText}</FormHelper>
         : ''}
 
     </fieldset>
@@ -90,8 +90,8 @@ export const FormGroupRadio = ({
 );
 
 FormGroupRadio.propTypes = {
-  status: PropTypes.oneOf(['valid', 'invalid']),
-  errorText: PropTypes.string,
+  status: PropTypes.oneOf(['valid', 'invalid', 'default']),
+  statusText: PropTypes.string,
   htmlId: PropTypes.string,
   label: PropTypes.string,
   as: PropTypes.oneOf(['group', false]),
@@ -106,7 +106,7 @@ FormGroupRadio.propTypes = {
 };
 
 FormGroupRadio.defaultProps = {
-  status: 'valid',
+  status: 'default',
   className: '',
   htmlId: nextId(),
   as: 'group',
