@@ -17,6 +17,7 @@ const Template = (args) => (
 export const Simple = Template.bind({})
 Simple.args = {
   link: '/',
+  as: 'dark',
   headline: 'Energy Save',
   children: <CardCopy>Helps you compare electricity and gas and switch providers.</CardCopy>
 }
