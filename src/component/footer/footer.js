@@ -11,10 +11,10 @@ import nextId from 'react-id-generator';
  * @param  {object} attributeOptions - Any other attribute options
  */
 export const FooterLinks = ({ footerLinks, className = '', ...attributeOptions }) => (
-  <ul className={`nsw-footer-links ${className}`} {...attributeOptions}>
+  <ul className={className} {...attributeOptions}>
     {footerLinks.map((footerLink) => (
-      <li className="nsw-footer-links__item" key={nextId()}>
-        <a className="nsw-footer-links__link" href={footerLink.url}>{footerLink.text}</a>
+      <li key={nextId()}>
+        <a href={footerLink.url}>{footerLink.text}</a>
       </li>
     ))}
   </ul>
@@ -42,11 +42,11 @@ FooterLinks.propTypes = {
 export const FooterSectionGroup = ({
   heading, sectionLinks, className = '', ...attributeOptions
 }) => (
-  <div className={`section-links__group ${className}`} {...attributeOptions}>
-    <h3 className="section-links__heading"><a href={heading.url}>{heading.text}</a></h3>
-    <ul className="section-links__list">
+  <div className={`nsw-footer__group ${className}`} {...attributeOptions}>
+    <h3 className="nsw-footer__heading"><a href={heading.url}>{heading.text}</a></h3>
+    <ul className="nsw-footer__list">
       {sectionLinks.map((sectionLink) => (
-        <li className="section-links__item" key={nextId()}>
+        <li key={nextId()}>
           <a href={sectionLink.url}>{sectionLink.text}</a>
         </li>
       ))}
@@ -80,7 +80,7 @@ export const FooterUpper = ({
   children, className = '', ariaLabel, ...attributeOptions
 }) => (
   <nav className={`nsw-footer__upper ${className}`} aria-label={ariaLabel} {...attributeOptions}>
-    <div className="nsw-container section-links">
+    <div className="nsw-container">
       {children}
     </div>
   </nav>
