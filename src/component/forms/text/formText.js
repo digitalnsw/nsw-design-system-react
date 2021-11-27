@@ -56,7 +56,7 @@ TextInput.propTypes = {
   number: PropTypes.bool,
   className: PropTypes.string,
   htmlId: PropTypes.string,
-  status: PropTypes.oneOf(['valid', 'invalid']),
+  status: PropTypes.oneOf(['valid', 'invalid','default']),
   type: PropTypes.string,
 };
 

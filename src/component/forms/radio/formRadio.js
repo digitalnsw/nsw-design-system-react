@@ -32,7 +32,7 @@ RadioItem.propTypes = {
   value: PropTypes.string.isRequired,
   className: PropTypes.string,
   htmlId: PropTypes.string,
-  status: PropTypes.oneOf(['valid', 'invalid']),
+  status: PropTypes.oneOf(['valid', 'invalid','default']),
   as: PropTypes.string,
   uniqueID: PropTypes.func,
 };
