@@ -40,7 +40,7 @@ export class MainNav extends React.PureComponent {
       >
         <div className="nsw-main-nav__header">
           <div id="nsw-main-nav__title">Menu</div>
-          <button type="button" className="nsw-icon-buttons js-close-nav" aria-expanded="true">
+          <button type="button" className="nsw-icon-button js-close-nav" aria-expanded="true">
             <span className="material-icons nsw-material-icons" focusable="false" aria-hidden="true">close</span>
             <span className="sr-only">Close Menu</span>
           </button>
