@@ -21,6 +21,7 @@ const options = {
  * @param  {boolean} container        - Whether to wrap children in nsw-container
  * @param  {node}    children         - Anything inside the component
  * @param  {string}  className        - An additional class, optional
+ * @param  {boolean}  box             - Whether the section is inline
  * @param  {object}  attributeOptions - Any other attribute options
  */
 export const Section = ({
@@ -28,11 +29,12 @@ export const Section = ({
   style,
   container,
   padding,
+  box,
   className = '',
   ...attributeOptions
 }) => (
   <div
-    className={`nsw-section ${className} ${options[padding]} nsw-section--${style}`}
+    className={`nsw-section ${className} ${options[padding]} nsw-section--${style} ${ box ? 'nsw-section--box' : ''}`}
     {...attributeOptions}
   >
 
@@ -49,11 +51,13 @@ Section.propTypes = {
   children: PropTypes.node.isRequired,
   container: PropTypes.bool,
   className: PropTypes.string,
+  box: PropTypes.bool,
 };
 Section.defaultProps = {
   padding: 'full',
   style: 'white',
   children: null,
   container: true,
+  box: false,
 };
 export default Section;

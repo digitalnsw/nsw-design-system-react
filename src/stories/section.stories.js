@@ -18,3 +18,10 @@ Dark.args = {
   style: 'brand-dark',
   children: <p>Content of section</p>,
 };
+
+export const InlineBox = Template.bind({});
+InlineBox.args = {
+  style: 'grey-01',
+  box: true,
+  children: <p>Content of section</p>,
+};
