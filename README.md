@@ -7,7 +7,7 @@
 ## Install
 
 ```bash
-npm install nsw-ds-react nsw-design-system@2
+npm install nsw-ds-react nsw-design-system
 ```
 
 
@@ -18,9 +18,9 @@ import 'nsw-design-system/dist/css/main.css'
 ```
 
 
-In your `index.html` document add this line of code inside the `<head>` tag. Or install [icon](https://www.npmjs.com/package/material-icons) and [font](https://www.npmjs.com/package/@fontsource/montserrat) from npm
+In your `index.html` document add this line of code inside the `<head>` tag. Or install [icon](https://www.npmjs.com/package/material-icons) and [font](https://www.npmjs.com/package/@fontsource/public-sans) from npm
 ```
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 ```
 

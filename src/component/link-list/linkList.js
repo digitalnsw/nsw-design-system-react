@@ -40,14 +40,14 @@ export const LinkListItem = ({
     return (
       <li className="nsw-link-list__item">
         <LinkComponent {...attributeOptions}>
-          {text}
-          <i
+          <span>{text}</span>
+          <span
             className="material-icons nsw-material-icons nsw-link-list__icon"
             focusable="false"
             aria-hidden="true"
           >
             east
-          </i>
+          </span>
         </LinkComponent>
         {children}
       </li>
@@ -88,7 +88,7 @@ export const LinkList = ({
   items, linkComponent, className = '', ...attributeOptions
 }) => (
   <div className="nsw-link-list">
-    <ol className={`nsw-link-list__list ${className}`} {...attributeOptions}>
+    <ul className={`nsw-link-list__list ${className}`} {...attributeOptions}>
       {
                 items.map(
                   (item) => (
@@ -100,7 +100,7 @@ export const LinkList = ({
                   ),
                 )
             }
-    </ol>
+    </ul>
   </div>
 );
 

@@ -13,8 +13,8 @@ import PropTypes from 'prop-types';
 export const InpageNavLinksItem = ({
   url, title, ...attributeOptions
 }) => (
-  <li className="nsw-page-nav__list-item">
-    <a className="nsw-page-nav__link" href={`${url}`} {...attributeOptions}>{ title }</a>
+  <li>
+    <a href={`${url}`} {...attributeOptions}>{ title }</a>
   </li>
 );
 
@@ -36,10 +36,10 @@ InpageNavLinksItem.propTypes = {
 export const InPageNavLinks = ({
   title, links, ariaLabel, className = '', ...attributeOptions
 }) => (
-  <nav className={`nsw-page-nav ${className}`} aria-label={ariaLabel} {...attributeOptions}>
-    <h2 className="nsw-page-nav__title">{ title }</h2>
+  <nav className={`nsw-in-page-nav ${className}`} aria-labelled-by={ariaLabel} {...attributeOptions}>
+    <div id={ariaLabel} className="nsw-in-page-nav__title">{ title }</div>
 
-    <ul className="nsw-page-nav__list">
+    <ul>
       { links ? links.map((link) => <InpageNavLinksItem {...link} key={link.title} />) : '' }
     </ul>
   </nav>

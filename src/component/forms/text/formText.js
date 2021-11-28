@@ -24,9 +24,9 @@ export const TextInput = ({
     ? (
       <textarea
         className={
-                `nsw-form-input ${className}`
-                + `${block ? ' nsw-form-input--block' : ''}`
-                + `${number ? ' nsw-form-input--number' : ''}`
+                `nsw-form__input ${className}`
+                + `${block ? ' nsw-form__input--block' : ''}`
+                + `${number ? ' nsw-form__input--number' : ''}`
             }
         aria-invalid={status === 'invalid' ? 'true' : 'false'}
         aria-describedby={status === 'invalid' ? `helper${htmlId} error${htmlId}` : `helper${htmlId}`}
@@ -37,9 +37,9 @@ export const TextInput = ({
     : (
       <input
         className={
-            `nsw-form-input ${className}`
-            + `${block ? ' nsw-form-input--block' : ''}`
-            + `${number ? ' nsw-form-input--number' : ''}`
+            `nsw-form__input ${className}`
+            + `${block ? ' nsw-form__input--block' : ''}`
+            + `${number ? ' nsw-form__input--number' : ''}`
         }
         aria-invalid={status === 'invalid' ? 'true' : 'false'}
         aria-describedby={status === 'invalid' ? `helper${htmlId} error${htmlId}` : `helper${htmlId}`}
@@ -56,7 +56,7 @@ TextInput.propTypes = {
   number: PropTypes.bool,
   className: PropTypes.string,
   htmlId: PropTypes.string,
-  status: PropTypes.oneOf(['valid', 'invalid']),
+  status: PropTypes.oneOf(['valid', 'invalid','default']),
   type: PropTypes.string,
 };
 
@@ -69,7 +69,7 @@ TextInput.defaultProps = {
  * The text group component
  *
  * @param  {string}  status           - Adds invalid state to form group
- * @param  {string}  errorText        - Text for error message
+ * @param  {string}  statusText        - Text for error message
  * @param  {string}  label            - Text for label
  * @param  {string}  helper           - Text for helper
  * @param  {array}   options          - The options for the select, format: { value: '', text: '' }
@@ -77,18 +77,18 @@ TextInput.defaultProps = {
  * @param  {object}  attributeOptions - Any other attribute options
  */
 export const FormGroupText = ({
-  status, className, inputType, as, errorText, label, helper, htmlId, ...attributeOptions
+  status, className, inputType, as, statusText, label, helper, htmlId, ...attributeOptions
 }) => (
-  <FormGroup status={status} as={as} errorText={errorText} label={label} helper={helper} htmlId={htmlId}>
+  <FormGroup status={status} as={as} statusText={statusText} label={label} helper={helper} htmlId={htmlId}>
     <TextInput status={status} htmlId={htmlId} {...attributeOptions} type={inputType} />
   </FormGroup>
 );
 
 FormGroupText.propTypes = {
-  status: PropTypes.oneOf(['valid', 'invalid']),
+  status: PropTypes.oneOf(['valid', 'invalid', 'default']),
   className: PropTypes.string,
   as: PropTypes.oneOf(['input', 'textarea']),
-  errorText: PropTypes.string,
+  statusText: PropTypes.string,
   label: PropTypes.string,
   helper: PropTypes.string,
   htmlId: PropTypes.string,
@@ -96,7 +96,7 @@ FormGroupText.propTypes = {
 };
 
 FormGroupText.defaultProps = {
-  status: 'valid',
+  status: 'default',
   className: '',
   htmlId: nextId(),
 };

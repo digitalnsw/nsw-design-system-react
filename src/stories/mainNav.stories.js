@@ -1,5 +1,6 @@
 import React from 'react';
 import { MainNav } from '../component/main-nav/mainNav';
+import { Header } from '../component/header/header'
 
 export default {
   title: 'Navigation/Main Navigation',
@@ -7,7 +8,16 @@ export default {
 };
 
 const megaNavTemplate = (args) => (
-  <MainNav {...args} />
+  <>
+    <Header
+      headerUrl="#"
+      mobile={true}
+      onSubmit={() => {}}
+      search={false}
+      siteTitle="digital.nsw"
+    />
+    <MainNav {...args} />
+  </>
 );
 export const MegaNavigation = megaNavTemplate.bind({});
 MegaNavigation.args = {

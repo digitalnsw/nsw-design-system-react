@@ -29,6 +29,8 @@ EmailInput.args = {
   label: 'Email',
   inputType: 'email',
   htmlId: nextId(),
+  status: 'valid',
+  statusText: 'Valid email address'
 };
 
 export const PasswordInput = Template.bind({});
@@ -42,7 +44,7 @@ export const WithError = Template.bind({});
 WithError.args = {
   label: 'Your name',
   helper: 'as it appears on your birth certificate',
-  errorText: 'Please enter your name',
+  statusText: 'Please enter your name',
   htmlId: nextId(),
   status: 'invalid',
 };

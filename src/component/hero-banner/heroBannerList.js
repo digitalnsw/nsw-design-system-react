@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 export const HeroBannerList = ({ subtitle, children }) => (
-  <div className="nsw-banner__links">
-    <div className="nsw-banner__list">
-      <div className="nsw-banner__sub-title">{subtitle}</div>
+  <div className="nsw-hero-banner__links">
+    <div className="nsw-hero-banner__list">
+      <div className="nsw-hero-banner__sub-title">{subtitle}</div>
       {children}
     </div>
   </div>

@@ -7,17 +7,19 @@ import {
   ContentBlock,
   Accordion,
   AccordionGroup,
-  DirectionLinks,
-  Notification,
+  Alert,
   TagList,
   InPageNavLinks,
   LinkList,
   Card,
   Header,
+  GlobalAlert,
   CardCopy,
   Media,
   Masthead,
-  SkipTo
+  SkipTo,
+  Section,
+  HeroBanner
 } from 'nsw-ds-react'
 import * as Form from 'nsw-ds-react'
 import * as Tab from 'nsw-ds-react'
@@ -30,9 +32,11 @@ const App = () => {
   return (
     <div className="App nsw-body-content">
       <SkipTo nav='#nav' content='#content' />
+      <GlobalAlert as="critical" title="Global critical alert" content="Nunc vehicula neque nunc, ut placerat turpis luctus a."></GlobalAlert>
+      <GlobalAlert as="light" title="Global light alert" content="Phasellus id sem molestie, facilisis ipsum id, molestie orci. Proin velit erat, luctus et mi eget, maximus aliquet dui. Integer nisl ipsum, malesuada ultrices ipsum a, scelerisque elementum risus."></GlobalAlert>
+      <GlobalAlert title="Global alert" content="Aliquam nec consectetur elit, ac gravida mi. Donec ullamcorper felis volutpat venenatis maximus."></GlobalAlert>
       <Masthead />
-      <Header department='digital.nsw' headerUrl='#'
-              logo='https://www.digital.nsw.gov.au/themes/custom/corporateplus/nsw-digitalnsw-combined.svg' />
+      <Header siteTitle='digital.nsw' headerUrl='#' />
       <MainNav navItems={[
         {
           text: 'About DPC',
@@ -56,28 +60,91 @@ const App = () => {
         }
       ]}
       />
-      <div className="nsw-container">
+      <HeroBanner
+        style="dark"
+        cta={{
+          text: 'Learn more',
+          url: '/'
+        }}
+        image={{
+          alt: 'Labrador dog',
+          src: 'https://picsum.photos/id/237/2000/1250'
+        }}
+        intro="Find the building blocks for creating user-centred digital services, as well as policy, tools and guidance"
+        title="Helping you deliver great government services"
+      />
+      <HeroBanner
+        style="white"
+        cta={{
+          text: 'Learn more',
+          url: '/'
+        }}
+        image={{
+          alt: 'Labrador dog',
+          src: 'https://picsum.photos/id/237/2000/1250'
+        }}
+        intro="Find the building blocks for creating user-centred digital services, as well as policy, tools and guidance"
+        title="Helping you deliver great government services"
+      />
+      <HeroBanner
+        style="light"
+        cta={{
+          text: 'Learn more',
+          url: '/'
+        }}
+        image={{
+          alt: 'Labrador dog',
+          src: 'https://picsum.photos/id/237/2000/1250'
+        }}
+        intro="Find the building blocks for creating user-centred digital services, as well as policy, tools and guidance"
+        title="Helping you deliver great government services"
+      />
+      <div className="nsw-container nsw-p-top-lg">
         <h2 className="section-title">Buttons</h2>
-        <Button>Primary button</Button>
-        <Button as="secondary">Secondary button</Button>
-        <Button as="danger">Danger button</Button>
+        <div className="nsw-grid">
+          <div className="nsw-col nsw-col-md-6 nsw-col-lg-4">
+            <Section style="brand-dark">
+              <div className="nsw-list--8">
+                <Button style="light">Light button</Button>
+                <Button style="light-outline">Light outline button</Button>
+                <Button style="white">White button</Button>
+              </div>
+            </Section>
+          </div>
+          <div className="nsw-col nsw-col-md-6 nsw-col-lg-4">
+            <Section style="white">
+              <div className="nsw-list--8">
+                <Button style="dark">Dark button</Button>
+                <Button style="dark-outline">Dark outline button</Button>
+                <Button style="danger">Danger button</Button>
+              </div>
+            </Section>
+          </div>
+          <div className="nsw-col nsw-col-md-6 nsw-col-lg-4">
+            <Section style="grey-04">
+              <div className="nsw-list--8">
+                <Button style="dark-outline-solid">Dark outline solid button</Button>
+              </div>
+            </Section>
+          </div>
+        </div>
 
         <h2 className="section-title">In-page notifications</h2>
-        <Notification as="info" title="Info alert">
+        <Alert as="info" title="Info alert">
           <p>Content of alert</p>
-        </Notification>
+        </Alert>
         <br />
-        <Notification as="error" title="Error alert">
+        <Alert as="error" title="Error alert">
           <p>Content of alert</p>
-        </Notification>
+        </Alert>
         <br />
-        <Notification as="warning" title="Warning alert">
+        <Alert as="warning" title="Warning alert">
           <p>Content of alert</p>
-        </Notification>
+        </Alert>
         <br />
-        <Notification as="success" title="Success alert">
+        <Alert as="success" title="Success alert">
           <p>Content of alert</p>
-        </Notification>
+        </Alert>
 
         <h2 className="section-title">Tags</h2>
         <TagList tags={[
@@ -100,55 +167,148 @@ const App = () => {
 
         <h2 className="section-title">Cards</h2>
         <div className="nsw-grid">
-          <div className="nsw-col nsw-col-md-4">
-            <Card
-              date="2021-03-17"
-              tag="Environment"
-              link="#"
-              headline="Card Title"
-              image="https://picsum.photos/id/292/400/200"
-              imageAlt="alt text"
-            >
-              <CardCopy>Some text</CardCopy>
-            </Card>
-          </div>
+        <div className="nsw-col nsw-col-md-4">
+          <Card
+            date="2021-03-17"
+            tag="Environment"
+            link="#"
+            headline="Card Title"
+            image="https://picsum.photos/id/292/400/200"
+            imageAlt="alt text"
+          >
+            <CardCopy>Some text</CardCopy>
+          </Card>
+        </div>
+        <div className="nsw-col nsw-col-md-4">
+          <Card
+            date="2021-03-17"
+            style="dark"
+            tag="Environment"
+            link="#"
+            headline="Card Title"
+            image="https://picsum.photos/id/292/400/200"
+            imageAlt="alt text"
+          >
+            <CardCopy>Some text</CardCopy>
+          </Card>
+        </div>
+        <div className="nsw-col nsw-col-md-4">
+          <Card
+            date="2021-03-17"
+            tag="Environment"
+            style="light"
+            link="#"
+            headline="Card Title"
+            image="https://picsum.photos/id/292/400/200"
+            imageAlt="alt text"
+          >
+            <CardCopy>Some text</CardCopy>
+          </Card>
+        </div>
         </div>
         <div className="nsw-grid">
-          <div className="nsw-col nsw-col-md-4">
-            <Card
-              content
-              date="2021-03-17"
-              tag="Environment"
-              link="#"
-              headline="Card Title"
-              image="https://picsum.photos/id/292/400/200"
-              imageAlt="alt text"
-            >
-              <CardCopy>Some text</CardCopy>
-            </Card>
-          </div>
+        <div className="nsw-col nsw-col-md-4">
+          <Card
+            highlight
+            date="2021-03-17"
+            tag="Environment"
+            link="#"
+            headline="Card Title"
+            image="https://picsum.photos/id/292/400/200"
+            imageAlt="alt text"
+          >
+            <CardCopy>Some text</CardCopy>
+          </Card>
+        </div>
+        <div className="nsw-col nsw-col-md-4">
+          <Card
+            highlight
+            style="dark"
+            date="2021-03-17"
+            tag="Environment"
+            link="#"
+            headline="Card Title"
+            image="https://picsum.photos/id/292/400/200"
+            imageAlt="alt text"
+          >
+            <CardCopy>Some text</CardCopy>
+          </Card>
+        </div>
+        <div className="nsw-col nsw-col-md-4">
+          <Card
+            highlight
+            style="light"
+            date="2021-03-17"
+            tag="Environment"
+            link="#"
+            headline="Card Title"
+            image="https://picsum.photos/id/292/400/200"
+            imageAlt="alt text"
+          >
+            <CardCopy>Some text</CardCopy>
+          </Card>
+        </div>
         </div>
         <div className="nsw-grid">
-          <div className="nsw-col nsw-col-md-4">
-            <Card
-              content
-              link="#"
-              headline="Card Title"
-            >
-              <CardCopy>Some text</CardCopy>
-            </Card>
-          </div>
+        <div className="nsw-col nsw-col-md-4">
+          <Card
+            highlight
+            link="#"
+            headline="Card Title"
+          >
+            <CardCopy>Some text</CardCopy>
+          </Card>
+        </div>
+        <div className="nsw-col nsw-col-md-4">
+          <Card
+            highlight
+            link="#"
+            headline="Card Title"
+            style="dark"
+          >
+            <CardCopy>Some text</CardCopy>
+          </Card>
+        </div>
+        <div className="nsw-col nsw-col-md-4">
+          <Card
+            highlight
+            link="#"
+            headline="Card Title"
+            style="light"
+          >
+            <CardCopy>Some text</CardCopy>
+          </Card>
+        </div>
         </div>
         <div className="nsw-grid">
-          <div className="nsw-col nsw-col-md-4">
-            <Card
-              link="#"
-              headline="Card Title"
-            >
-              <CardCopy>Some text</CardCopy>
-            </Card>
-          </div>
+        <div className="nsw-col nsw-col-md-4">
+          <Card
+            link="#"
+            headline="Card Title"
+          >
+            <CardCopy>Some text</CardCopy>
+          </Card>
         </div>
+        <div className="nsw-col nsw-col-md-4">
+          <Card
+            link="#"
+            headline="Card Title"
+            style="dark"
+          >
+            <CardCopy>Some text</CardCopy>
+          </Card>
+        </div>
+        <div className="nsw-col nsw-col-md-4">
+          <Card
+            link="#"
+            headline="Card Title"
+            style="light"
+          >
+            <CardCopy>Some text</CardCopy>
+          </Card>
+        </div>
+        </div>
+        <h2 className="section-title">Content blocks</h2>
         <div className="nsw-grid nsw-grid--spaced">
           <div className="nsw-col nsw-col-md-6">
             <ContentBlock
@@ -220,207 +380,207 @@ const App = () => {
             }
           ]}
         />
-        <h2 className="section-title">Text form groups</h2>
-        <Form.FormGroupText
-          label="Your name"
-          helper="as it is written on your drivers' licence"
-          errorText="Please enter your name"
-          htmlId={nextId()}
-        />
-        <Form.FormGroupText
-          label="Enter some long text"
-          errorText="the error"
-          as="textarea"
-          htmlId={nextId()}
-        />
-        <h2 className="section-title">Select form group</h2>
-        <Form.FormGroupSelect
-          label="Select a thing"
-          helper="But only one thing"
-          errorText="Please select a thing"
-          htmlId={nextId()}
-          options={[
-            {
-              value: '',
-              text: 'Please select'
-            },
-            {
-              value: '1',
-              text: 'Option 1'
-            },
-            {
-              value: '2',
-              text: 'Option 2',
-              selected: 'selected'
-            },
-            {
-              value: '3',
-              text: 'Option 3'
-            }
-          ]}
-        />
+      </div>
 
-        <Form.FormGroupCheckbox
-          label="Select a thing"
-          helper="Or more than one thing"
-          errorText="Please select at least 1 thing"
-          htmlId={nextId()}
-          as="group"
-          options={[
-            {
-              value: '1',
-              text: 'Option 1'
-            },
-            {
-              value: '2',
-              text: 'Option 2',
-              selected: 'selected'
-            },
-            {
-              value: '3',
-              text: 'Option 3'
-            }
-          ]}
-        />
+        <Section style="off-white" className="nsw-m-top-lg" container>
+          <h2 className="">Text form groups</h2>
+          <Form.FormGroupText
+            label="Your name"
+            helper="as it is written on your drivers' licence"
+            statusText="Valid drivers licence"
+            status="valid"
+            htmlId={nextId()}
+          />
+          <Form.FormGroupText
+            label="Enter some long text"
+            as="textarea"
+            htmlId={nextId()}
+          />
+          <h2 className="section-title">Select form group</h2>
+          <Form.FormGroupSelect
+            label="Select a thing"
+            helper="But only one thing"
+            htmlId={nextId()}
+            options={[
+              {
+                value: '',
+                text: 'Please select'
+              },
+              {
+                value: '1',
+                text: 'Option 1'
+              },
+              {
+                value: '2',
+                text: 'Option 2',
+                selected: 'selected'
+              },
+              {
+                value: '3',
+                text: 'Option 3'
+              }
+            ]}
+          />
 
-        <Form.FormGroupCheckbox
-          label="Select a thing"
-          helper="Or more than one thing"
-          errorText="Please select at least 1 thing"
-          htmlId={nextId()}
-          options={[
-            {
-              value: '1',
-              text: 'Just a lonely checkbox on its own'
-            }
-          ]}
-        />
+          <Form.FormGroupCheckbox
+            label="Select a thing"
+            helper="Or more than one thing"
+            htmlId={nextId()}
+            as="group"
+            options={[
+              {
+                value: '1',
+                text: 'Option 1'
+              },
+              {
+                value: '2',
+                text: 'Option 2',
+                selected: 'selected'
+              },
+              {
+                value: '3',
+                text: 'Option 3'
+              }
+            ]}
+          />
 
-        <Form.FormGroupRadio
-          label="Select a thing"
-          helper="Only one thing"
-          errorText="Please select 1 thing"
-          htmlId={nextId()}
-          options={[
-            {
-              value: '1',
-              text: 'Option 1'
-            },
-            {
-              value: '2',
-              text: 'Option 2',
-              selected: 'selected'
-            },
-            {
-              value: '3',
-              text: 'Option 3'
-            }
-          ]}
-        />
+          <Form.FormGroupCheckbox
+            label="Select a thing"
+            helper="Or more than one thing"
+            htmlId={nextId()}
+            options={[
+              {
+                value: '1',
+                text: 'Just a lonely checkbox on its own'
+              }
+            ]}
+          />
 
-        <h2 className="section-title">Error form group</h2>
-        <Form.FormGroupText
-          label="Your name"
-          helper="as it is written on your drivers' licence"
-          errorText="Please enter your name"
-          htmlId={nextId()}
-          status="invalid"
-        />
-        <Form.FormGroupText
-          label="Enter some long text"
-          errorText="the error"
-          as="textarea"
-          htmlId={nextId()}
-          status="invalid"
-        />
-        <Form.FormGroupSelect
-          label="Select a thing"
-          helper="But only one thing"
-          errorText="Please select a thing"
-          htmlId={nextId()}
-          status="invalid"
-          options={[
-            {
-              value: '',
-              text: 'Please select'
-            },
-            {
-              value: '1',
-              text: 'Option 1'
-            },
-            {
-              value: '2',
-              text: 'Option 2',
-              selected: 'selected'
-            },
-            {
-              value: '3',
-              text: 'Option 3'
-            }
-          ]}
-        />
+          <Form.FormGroupRadio
+            label="Select a thing"
+            helper="Only one thing"
+            htmlId={nextId()}
+            options={[
+              {
+                value: '1',
+                text: 'Option 1'
+              },
+              {
+                value: '2',
+                text: 'Option 2',
+                selected: 'selected'
+              },
+              {
+                value: '3',
+                text: 'Option 3'
+              }
+            ]}
+          />
 
-        <Form.FormGroupCheckbox
-          label="Select a thing"
-          helper="Or more than one thing"
-          errorText="Please select at least 1 thing"
-          htmlId={nextId()}
-          status="invalid"
-          as="group"
-          options={[
-            {
-              value: '1',
-              text: 'Option 1'
-            },
-            {
-              value: '2',
-              text: 'Option 2',
-              selected: 'selected'
-            },
-            {
-              value: '3',
-              text: 'Option 3'
-            }
-          ]}
-        />
+          <h2 className="section-title">Error form group</h2>
+          <Form.FormGroupText
+            label="Your name"
+            helper="as it is written on your drivers' licence"
+            statusText="Please enter your name"
+            htmlId={nextId()}
+            status="invalid"
+          />
+          <Form.FormGroupText
+            label="Enter some long text"
+            statusText="the error"
+            as="textarea"
+            htmlId={nextId()}
+            status="invalid"
+          />
+          <Form.FormGroupSelect
+            label="Select a thing"
+            helper="But only one thing"
+            statusText="Please select a thing"
+            htmlId={nextId()}
+            status="invalid"
+            options={[
+              {
+                value: '',
+                text: 'Please select'
+              },
+              {
+                value: '1',
+                text: 'Option 1'
+              },
+              {
+                value: '2',
+                text: 'Option 2',
+                selected: 'selected'
+              },
+              {
+                value: '3',
+                text: 'Option 3'
+              }
+            ]}
+          />
 
-        <Form.FormGroupCheckbox
-          label="Select a thing"
-          helper="Or more than one thing"
-          errorText="Please select at least 1 thing"
-          htmlId={nextId()}
-          status="invalid"
-          options={[
-            {
-              value: '1',
-              text: 'Just a lonely checkbox on it\'s own'
-            }
-          ]}
-        />
+          <Form.FormGroupCheckbox
+            label="Select a thing"
+            helper="Or more than one thing"
+            statusText="Please select at least 1 thing"
+            htmlId={nextId()}
+            status="invalid"
+            as="group"
+            options={[
+              {
+                value: '1',
+                text: 'Option 1'
+              },
+              {
+                value: '2',
+                text: 'Option 2',
+                selected: 'selected'
+              },
+              {
+                value: '3',
+                text: 'Option 3'
+              }
+            ]}
+          />
 
-        <Form.FormGroupRadio
-          label="Select a thing"
-          helper="Only one thing"
-          errorText="Please select 1 thing"
-          status="invalid"
-          htmlId={nextId()}
-          options={[
-            {
-              value: '1',
-              text: 'Option 1'
-            },
-            {
-              value: '2',
-              text: 'Option 2',
-              selected: 'selected'
-            },
-            {
-              value: '3',
-              text: 'Option 3'
-            }
-          ]}
-        />
+          <Form.FormGroupCheckbox
+            label="Select a thing"
+            helper="Or more than one thing"
+            statusText="Please select at least 1 thing"
+            htmlId={nextId()}
+            status="invalid"
+            options={[
+              {
+                value: '1',
+                text: 'Just a lonely checkbox on it\'s own'
+              }
+            ]}
+          />
 
+          <Form.FormGroupRadio
+            label="Select a thing"
+            helper="Only one thing"
+            statusText="Please select 1 thing"
+            status="invalid"
+            htmlId={nextId()}
+            options={[
+              {
+                value: '1',
+                text: 'Option 1'
+              },
+              {
+                value: '2',
+                text: 'Option 2',
+                selected: 'selected'
+              },
+              {
+                value: '3',
+                text: 'Option 3'
+              }
+            ]}
+          />
+        </Section>
+        <div className="nsw-container">
         <h2 className="section-title">Accordion</h2>
         <AccordionGroup>
           <Accordion
@@ -433,7 +593,10 @@ const App = () => {
           />
         </AccordionGroup>
         <h2 className="section-title">Progress indicator</h2>
-        <Form.ProgressIndicator step={3} of={5} />
+        <Form.ProgressIndicator
+          of={5}
+          step={3}
+        />
 
         <h2 className="section-title">Table</h2>
         <TableResponsiveWrapper>
@@ -475,6 +638,7 @@ const App = () => {
           image="https://picsum.photos/id/237/2000/1250"
           right="50"
           title="A picture of a black dog"
+          style="dark"
         />
         <p>Nunc vehicula neque nunc, ut placerat turpis luctus a. Aliquam euismod pretium accumsan. Nullam laoreet enim
           vitae elit finibus, in commodo nulla aliquam. Vivamus ac varius dolor. Praesent hendrerit erat nec pulvinar
@@ -490,23 +654,6 @@ const App = () => {
           center="80"
           title="Digital.nsw launch with Victor Dominello MP at NSW Parliament House"
           video="https://www.youtube.com/embed/HNHu2zRPSB4"
-        />
-        <h2 className="section-title">Direction Links</h2>
-        <DirectionLinks
-          links={[
-            {
-              url: '#',
-              direction: 'top',
-              text: 'top',
-              screenReader: 'of the page'
-            },
-            {
-              url: '#',
-              direction: 'bottom',
-              text: 'bottom',
-              screenReader: 'of the page'
-            }
-          ]}
         />
         <h2 className="section-title">Tabs</h2>
         <Tab.Tabs>

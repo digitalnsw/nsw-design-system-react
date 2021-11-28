@@ -15,7 +15,7 @@ export const CheckboxItem = ({
 }) => (
   <React.Fragment>
     <input
-      className="nsw-form-checkbox__input"
+      className="nsw-form__checkbox-input"
       type="checkbox"
       name={htmlId}
       aria-invalid={(status === 'invalid' && !(as === 'group')) ? 'true' : ''}
@@ -23,7 +23,7 @@ export const CheckboxItem = ({
       id={uniqueID}
       {...attributeOptions}
     />
-    <label className="nsw-form-checkbox__label" htmlFor={uniqueID}>{ text }</label>
+    <label className="nsw-form__checkbox-label" htmlFor={uniqueID}>{ text }</label>
   </React.Fragment>
 );
 
@@ -33,15 +33,15 @@ CheckboxItem.propTypes = {
   className: PropTypes.string,
   htmlId: PropTypes.string,
   uniqueID: PropTypes.func,
-  status: PropTypes.oneOf(['valid', 'invalid']),
+  status: PropTypes.oneOf(['valid', 'invalid','default']),
   as: PropTypes.string,
 };
 
 /**
  * The checkbox group component
  *
- * @param  {string}  status           - Adds invalid state to form group
- * @param  {string}  errorText        - Text for error message
+ * @param  {string}  status           - Adds invalid/valid state to form group
+ * @param  {string}  statusText        - Text for error message
  * @param  {string}  htmlId           - Unique ID for this checkbox group
  * @param  {string}  label            - Text for label
  * @param  {string}  helper           - Text for helper
@@ -50,19 +50,19 @@ CheckboxItem.propTypes = {
  * @param  {object}  attributeOptions - Any other attribute options
  */
 export const FormGroupCheckbox = ({
-  className, as, status, label, options, htmlId, errorText, helper,
+  className, as, status, label, options, htmlId, statusText, helper,
 }) => (
-  <div className={`nsw-form-group ${className}`}>
-    <fieldset className="nsw-form-fieldset" aria-invalid={status === 'invalid' ? 'true' : ''}>
+  <div className={`nsw-form__group ${className}`}>
+    <fieldset className="nsw-form__fieldset" aria-invalid={status === 'invalid' ? 'true' : ''}>
       {as === 'group' ? (
         <legend>
-          <span className="nsw-form-legend-text">{label}</span>
+          <span className="nsw-form__legend">{label}</span>
           {helper ? <FormHelper htmlId={htmlId}>{helper}</FormHelper> : ''}
-          {status === 'invalid' ? <FormHelper htmlId={htmlId} error>{errorText}</FormHelper> : ''}
+          {status ? <FormHelper htmlId={htmlId} status={status}>{statusText}</FormHelper> : ''}
         </legend>
       ) : ''}
 
-      <div className="nsw-form-checkbox">
+      <div>
         {
           options.map(
             (option) => (
@@ -77,15 +77,15 @@ export const FormGroupCheckbox = ({
           )
         }
       </div>
-      {status === 'invalid' && as !== 'group' ? <FormHelper htmlId={htmlId} error>{errorText}</FormHelper> : ''}
+      {status && as !== 'group' ? <FormHelper htmlId={htmlId} status={status}>{statusText}</FormHelper> : ''}
 
     </fieldset>
   </div>
 );
 
 FormGroupCheckbox.propTypes = {
-  status: PropTypes.oneOf(['valid', 'invalid']),
-  errorText: PropTypes.string,
+  status: PropTypes.oneOf(['valid', 'invalid', 'default']),
+  statusText: PropTypes.string,
   htmlId: PropTypes.string,
   label: PropTypes.string,
   as: PropTypes.oneOf(['group', false]),
@@ -100,7 +100,7 @@ FormGroupCheckbox.propTypes = {
 };
 
 FormGroupCheckbox.defaultProps = {
-  status: 'valid',
+  status: 'default',
   className: '',
   htmlId: nextId(),
 };

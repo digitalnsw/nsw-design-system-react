@@ -17,8 +17,8 @@ const Template = (args) => (
 export const Simple = Template.bind({})
 Simple.args = {
   link: '/',
+  style: 'dark',
   headline: 'Energy Save',
-  content: true,
   children: <CardCopy>Helps you compare electricity and gas and switch providers.</CardCopy>
 }
 
@@ -26,6 +26,7 @@ export const Highlight = Template.bind({})
 Highlight.args = {
   link: '/',
   headline: 'Family Rebate',
+  highlight: true,
   children: <CardCopy>Helps families with dependants to pay their energy bills.</CardCopy>
 }
 

@@ -52,7 +52,7 @@ Tag.defaultProps = {
  * @param  {object}  attributeOptions - Any other attribute options
  */
 const TagList = ({ tags, className = '', ...attributeOptions }) => (
-  <div className={`nsw-tag-list ${className}`} {...attributeOptions}>
+  <div className={`nsw-list nsw-list--8 ${className}`} {...attributeOptions}>
     {
           tags.map(
             (tag) => (

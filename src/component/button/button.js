@@ -6,13 +6,6 @@ import PropTypes from 'prop-types';
  *
  * @type {Object}
  */
-const options = {
-  primary: 'nsw-button--primary',
-  secondary: 'nsw-button--secondary',
-  danger: 'nsw-button--highlight',
-  white: 'nsw-button--white',
-  fullwidth: 'nsw-button--primary nsw-button--full-width',
-};
 
 /**
  * DEFAULT
@@ -21,15 +14,14 @@ const options = {
  * @param  {string}   linkComponent    - The component used for the link
  * @param  {string}   link             - If this is a link the location it goes
  * @param  {string}   children         - Anything inside
- * @param  {string}   as               - The kind of button, can be either 'primary',
-*                                        'secondary', 'tertiary', default: 'primary'
+ * @param  {string}   style            - The button style
  * @param  {string}   type             - The type attribute, default: 'button', optional
  * @param  {boolean}  block            - The block option, optional
  * @param  {string}   className        - An additional class, optional
  * @param  {object}   attributeOptions - Any other attribute options
  */
 export const Button = ({
-  linkComponent, link, children, as, type, block, className = '', ...attributeOptions
+  linkComponent, link, children, style, type, block, className = '', ...attributeOptions
 }) => {
   if (link) {
     const LinkComponent = linkComponent;
@@ -44,7 +36,7 @@ export const Button = ({
 
     return (
       <LinkComponent
-        className={`nsw-button ${className} ${options[as]}${block ? ' nsw-button--block' : ''}`}
+        className={`nsw-button ${className} nsw-button--${style}${block ? ' nsw-button--block' : ''}`}
         {...attributeOptions}
       >
         { children }
@@ -55,7 +47,7 @@ export const Button = ({
   return (
     <button
       type={ type }
-      className={`nsw-button ${className} ${options[as]}${block ? ' nsw-button--block' : ''}`}
+      className={`nsw-button ${className} nsw-button--${style}${block ? ' nsw-button--block' : ''}`}
       {...attributeOptions}
     >
       { children }
@@ -66,7 +58,7 @@ export const Button = ({
 Button.propTypes = {
   link: PropTypes.string,
   children: PropTypes.node.isRequired,
-  as: PropTypes.oneOf(['primary', 'secondary', 'danger', 'white', 'full-width']),
+  style: PropTypes.oneOf(['dark', 'dark-outline', 'dark-outline-solid', 'light', 'light-outline','white','danger']),
   type: PropTypes.string,
   block: PropTypes.bool,
   linkComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
@@ -75,7 +67,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   type: 'button',
-  as: 'primary',
+  style: 'dark',
   linkComponent: 'a',
 };
 

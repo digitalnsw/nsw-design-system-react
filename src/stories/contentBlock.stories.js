@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContentBlock as ContentBlockComponent } from '../component/content-block/contenBlock';
+import { ContentBlock as ContentBlockComponent } from '../component/content-block/contentBlock';
 
 export default {
   title: 'Content/ContentBlock',

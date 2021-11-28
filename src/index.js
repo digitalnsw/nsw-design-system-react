@@ -3,8 +3,7 @@ import Breadcrumbs from './component/breadcrumbs/breadcrumb'
 import Button from './component/button/button'
 import Callout from './component/callout/callout'
 import Card, { CardCopy } from './component/card/card'
-import ContentBlock from './component/content-block/contenBlock'
-import DirectionLinks from './component/direction-links/directionLink'
+import ContentBlock from './component/content-block/contentBlock'
 import Footer, {
   FooterUpper,
   FooterSectionGroup,
@@ -32,8 +31,9 @@ import LinkList from './component/link-list/linkList'
 import { MainNav } from './component/main-nav/mainNav'
 import { Masthead } from './component/header/masthead'
 import { SkipTo } from './component/header/skipTo'
-import Notification from './component/notification/notification'
+import Alert from './component/alert/alert'
 import Pagination from './component/pagination/pagination'
+import Section from './component/section/section'
 
 import Table, { TableResponsiveWrapper } from './component/table/table'
 import {
@@ -46,6 +46,7 @@ import TagList from './component/tags/tags'
 import Media from './component/media/media'
 
 export {
+  Alert,
   Accordion,
   AccordionGroup,
   Breadcrumbs,
@@ -54,7 +55,6 @@ export {
   Card,
   CardCopy,
   ContentBlock,
-  DirectionLinks,
   Footer,
   FooterUpper,
   FooterSectionGroup,
@@ -80,8 +80,8 @@ export {
   MainNav,
   Masthead,
   Media,
-  Notification,
   Pagination,
+  Section,
   SkipTo,
   Table,
   TableResponsiveWrapper,

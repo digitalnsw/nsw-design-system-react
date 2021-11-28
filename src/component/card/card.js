@@ -6,17 +6,18 @@ import PropTypes from 'prop-types';
  *
  * @param {string}   link               - The link that clicking the card goes to
  * @param {string}   tag                - The tag (optional)
+ * @param {string}   style              - Card style
  * @param {string}   date               - The date (optional)
  * @param {string}   dateMomentFormat   - The date display format (optional, def to '4th June 2021')
  * @param {string}   image              - The image URL/path (optional)
  * @param {string}   imageAlt           - The alt text for image (mandatory if image supplied)
  * @param {string}   headline           - Title for card
- * @param {bool}     content            - Removes highlight bar if true
+ * @param {bool}     highlight          - Adds highlight bar if true
  * @param {string}   className          - An additional class, optional
  * @param {object}   attributeOptions   - Default HTML attributes
  */
 const Card = ({
-  link, headline, content, tag, date,
+  link, style, headline, highlight, tag, date,
   image, imageAlt, className,
   children, ...attributesOptions
 }) => {
@@ -29,36 +30,38 @@ const Card = ({
 
   return (
     <CardContainer
-      className={`nsw-card ${className}`
+      className={`nsw-card nsw-card--${style} ${className}`
       + `${headline ? 'nsw-card--headline' : ''} `
-      + `${content ? 'nsw-card--content' : ''} `}
+      + `${highlight ? 'nsw-card--highlight' : ''} `}
       {...attributesOptions}
     >
+      {image ? <CardImage src={image} alt={imageAlt} /> : ''}
       <CardContent>
+        {tag ? <CardTag>{tag}</CardTag> : ''}
+        {date ? <CardDate date={date} /> : ''}
         {headline ? <CardHeader link={link}>{headline}</CardHeader> : ''}
         {children}
-        {date ? <CardDate date={date} /> : ''}
-        {tag ? <CardTag>{tag}</CardTag> : ''}
       </CardContent>
-      {image ? <CardImage src={image} alt={imageAlt} /> : ''}
     </CardContainer>
   );
 };
 
 Card.propTypes = {
   link: PropTypes.string,
+  style: PropTypes.oneOf(['dark', 'light', 'white']),
   tag: PropTypes.string,
   date: PropTypes.string,
   image: PropTypes.string,
   imageAlt: PropTypes.string,
   headline: PropTypes.string.isRequired,
-  content: PropTypes.bool,
+  highlight: PropTypes.bool,
   className: PropTypes.string,
   children: PropTypes.node,
 };
 
 Card.defaultProps = {
   className: null,
+  style: 'white',
 };
 
 /**
@@ -69,7 +72,7 @@ Card.defaultProps = {
 export const CardContent = ({ className, children, ...attributesOptions }) => (
   <div className={`nsw-card__content ${className}`} {...attributesOptions}>
     {children}
-    <i className="material-icons nsw-material-icons nsw-card__icon" focusable="false" aria-hidden="true">east</i>
+    <span className="material-icons nsw-material-icons nsw-card__icon" focusable="false" aria-hidden="true">east</span>
   </div>
 );
 
@@ -89,9 +92,9 @@ CardContent.defaultProps = {
  * @param {object}   attributeOptions   - Default HTML attributes
  */
 export const CardHeader = ({
-  className, level, link, children,
+  className, link, children,
 }) => {
-  const HeadingTag = level ? `h${level}` : '';
+  const HeadingTag = 'div';
   if (link !== undefined) {
     return (
       <HeadingTag className={`nsw-card__title ${className}`}><a href={link} className="nsw-card__link">{children}</a></HeadingTag>
@@ -104,14 +107,12 @@ export const CardHeader = ({
 
 CardHeader.propTypes = {
   className: PropTypes.string,
-  level: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
   link: PropTypes.string,
   children: PropTypes.node,
 };
 
 CardHeader.defaultProps = {
   className: '',
-  level: 2,
 };
 
 /**
@@ -123,8 +124,8 @@ CardHeader.defaultProps = {
 export const CardImage = ({
   src, className, alt, ...attributesOptions
 }) => (
-  <div className="nsw-card__image-area">
-    <img className={`nsw-card__image ${className}`} src={src} alt={alt} {...attributesOptions} />
+  <div className="nsw-card__image">
+    <img className={className} src={src} alt={alt} {...attributesOptions} />
   </div>
 );
 
@@ -276,14 +277,13 @@ CardFooter.defaultProps = {
 
 /**
  * The footer section of the card
- * @param {string}   level              - The tag level (<h1/> <h2/> etc)
  * @param {string}   className          - An additional class, optional
  * @param {object}   attributeOptions   - Default HTML attributes
  */
 export const CardTitle = ({
-  children, className, level, ...attributeOptions
+  children, className, ...attributeOptions
 }) => {
-  const HeadingTag = `h${level}`;
+  const HeadingTag = `div`;
 
   return (
     <HeadingTag className={`nsw-card__title ${className}`} {...attributeOptions}>{ children }</HeadingTag>
@@ -291,7 +291,6 @@ export const CardTitle = ({
 };
 
 CardTitle.propTypes = {
-  level: PropTypes.oneOf(['1', '2', '3', '4', '5', '6']).isRequired,
   className: PropTypes.string,
   children: PropTypes.node,
 };

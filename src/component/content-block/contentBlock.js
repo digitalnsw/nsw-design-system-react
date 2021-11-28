@@ -21,6 +21,8 @@ export const ContentBlock = ({
   const ContentBlockContainer = 'div';
   return (
     <ContentBlockContainer className={`nsw-content-block ${className}`}>
+      {image ? <ContentBlockImage src={image} alt={imageAlt} /> : ''}
+      {icon ? <ContentBlockIcon>{icon}</ContentBlockIcon> : ''}
       <div className="nsw-content-block__content">
         {headline ? <ContentBlockHeading>{headline}</ContentBlockHeading> : ''}
         {copy ? <ContentBlockCopy>{copy}</ContentBlockCopy> : ''}
@@ -35,8 +37,6 @@ export const ContentBlock = ({
         </ul>
         {mainLink ? <div className="nsw-content-block__link"><a href={mainLink.url}>{mainLink.text}</a></div> : ''}
       </div>
-      {image ? <ContentBlockImage src={image} alt={imageAlt} /> : ''}
-      {icon ? <ContentBlockIcon>{icon}</ContentBlockIcon> : ''}
     </ContentBlockContainer>
   );
 };
@@ -74,7 +74,7 @@ ContentBlock.defaultProps = {
 export const ContentBlockImage = ({
   src, className, imageAlt, ...attributesOptions
 }) => (
-  <div className="nsw-content-block__image-area">
+  <div className="nsw-content-block__image">
     <img src={src} alt={imageAlt} className="nsw-content-block__image" {...attributesOptions} />
   </div>
 );
@@ -95,7 +95,7 @@ ContentBlockImage.defaultProps = {
  * @param {object}   attributeOptions   - Default HTML attributes
  */
 export const ContentBlockIcon = ({ children, className, ...attributesOptions }) => (
-  <div className="nsw-content-block__image-area" {...attributesOptions}>
+  <div className="nsw-content-block__image" {...attributesOptions}>
     <div className="nsw-content-block__icon">
       { children }
     </div>

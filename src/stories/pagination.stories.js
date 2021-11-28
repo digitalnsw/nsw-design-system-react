@@ -33,6 +33,7 @@ Pagination.args = {
       url: '#page4',
     },
   ],
+  active: 3,
 };
 
 export const Trimmed = TrimmedTemplate.bind({});
