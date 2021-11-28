@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
  *
  * @param {string}   link               - The link that clicking the card goes to
  * @param {string}   tag                - The tag (optional)
- * @param {string}   as                 - Card style
+ * @param {string}   style              - Card style
  * @param {string}   date               - The date (optional)
  * @param {string}   dateMomentFormat   - The date display format (optional, def to '4th June 2021')
  * @param {string}   image              - The image URL/path (optional)
@@ -17,7 +17,7 @@ import PropTypes from 'prop-types';
  * @param {object}   attributeOptions   - Default HTML attributes
  */
 const Card = ({
-  link, as, headline, highlight, tag, date,
+  link, style, headline, highlight, tag, date,
   image, imageAlt, className,
   children, ...attributesOptions
 }) => {
@@ -30,7 +30,7 @@ const Card = ({
 
   return (
     <CardContainer
-      className={`nsw-card nsw-card--${as} ${className}`
+      className={`nsw-card nsw-card--${style} ${className}`
       + `${headline ? 'nsw-card--headline' : ''} `
       + `${highlight ? 'nsw-card--highlight' : ''} `}
       {...attributesOptions}
@@ -48,7 +48,7 @@ const Card = ({
 
 Card.propTypes = {
   link: PropTypes.string,
-  as: PropTypes.oneOf(['dark', 'light', 'white']),
+  style: PropTypes.oneOf(['dark', 'light', 'white']),
   tag: PropTypes.string,
   date: PropTypes.string,
   image: PropTypes.string,
@@ -61,7 +61,7 @@ Card.propTypes = {
 
 Card.defaultProps = {
   className: null,
-  as: 'white',
+  style: 'white',
 };
 
 /**
@@ -72,7 +72,7 @@ Card.defaultProps = {
 export const CardContent = ({ className, children, ...attributesOptions }) => (
   <div className={`nsw-card__content ${className}`} {...attributesOptions}>
     {children}
-    <i className="material-icons nsw-material-icons nsw-card__icon" focusable="false" aria-hidden="true">east</i>
+    <span className="material-icons nsw-material-icons nsw-card__icon" focusable="false" aria-hidden="true">east</span>
   </div>
 );
 

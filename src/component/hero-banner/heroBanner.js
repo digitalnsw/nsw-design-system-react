@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
  * @param  {object}  cta              - The call to action of the banner
  * @param  {object}  image            - The object of the image
  * @param  {boolean} dark             - Dark Variant
- * @param  {boolean} as               - Style Variant
+ * @param  {boolean} style            - Style Variant
  * @param  {boolean} wide             - Wide Variant
  * @param  {boolean} featured         - Fixed minimum height
  * @param  {string}  className        - An additional class, optional
@@ -30,10 +30,10 @@ import PropTypes from 'prop-types';
 
 
 export const HeroBanner = ({
-  title, intro, cta, as, wide, featured, image, children, className = '', ...attributeOptions
+  title, intro, cta, style, wide, featured, image, children, className = '', ...attributeOptions
 }) => (
   <div
-    className={`nsw-hero-banner ${as ? options[as] : ''} ${wide ? 'nsw-hero-banner--wide' : ''} ${featured ? ' nsw-hero-banner--featured' : ''}  ${className}`}
+    className={`nsw-hero-banner ${style ? options[style] : ''} ${wide ? 'nsw-hero-banner--wide' : ''} ${featured ? ' nsw-hero-banner--featured' : ''}  ${className}`}
     {...attributeOptions}
   >
     <div className="nsw-hero-banner__container">
@@ -44,7 +44,7 @@ export const HeroBanner = ({
           {
                             cta ? (
                               <div className="nsw-hero-banner__button">
-                                <a href={cta.url} className={`nsw-button ${buttonStyles[as]}`}>{cta.text}</a>
+                                <a href={cta.url} className={`nsw-button ${buttonStyles[style]}`}>{cta.text}</a>
                               </div>
                             ) : ''
                         }
@@ -63,7 +63,7 @@ export const HeroBanner = ({
 HeroBanner.propTypes = {
   title: PropTypes.string.isRequired,
   intro: PropTypes.string.isRequired,
-  as: PropTypes.oneOf(['dark', 'light', 'white']),
+  style: PropTypes.oneOf(['dark', 'light', 'white']),
   wide: PropTypes.bool,
   featured: PropTypes.bool,
   children: PropTypes.node,
@@ -79,7 +79,7 @@ HeroBanner.propTypes = {
 };
 
 HeroBanner.defaultProps = {
-  as: 'white',
+  style: 'white',
   title: 'Hero banner',
 };
 

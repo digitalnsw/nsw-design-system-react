@@ -22,25 +22,25 @@ ButtonLink.args = {
 export const DarkOutline = Template.bind({});
 DarkOutline.args = {
   children: 'Button',
-  as: 'dark-outline',
+  style: 'dark-outline',
 };
 
 export const DarkOutlineSolid = Template.bind({});
 DarkOutlineSolid.args = {
   children: 'Button',
-  as: 'dark-outline-solid',
+  style: 'dark-outline-solid',
 };
 
 export const Light = Template.bind({});
 Light.args = {
   children: 'Button',
-  as: 'light',
+  style: 'light',
 };
 
 export const LightOutline = Template.bind({});
 LightOutline.args = {
   children: 'Button',
-  as: 'light-outline',
+  style: 'light-outline',
 };
 
 
@@ -48,11 +48,11 @@ LightOutline.args = {
 export const Danger = Template.bind({});
 Danger.args = {
   children: 'Button',
-  as: 'danger',
+  style: 'danger',
 };
 
 export const White = Template.bind({});
 White.args = {
   children: 'Button',
-  as: 'white',
+  style: 'white',
 };

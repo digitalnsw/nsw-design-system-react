@@ -61,7 +61,7 @@ const App = () => {
       ]}
       />
       <HeroBanner
-        as="dark"
+        style="dark"
         cta={{
           text: 'Learn more',
           url: '/'
@@ -74,7 +74,7 @@ const App = () => {
         title="Helping you deliver great government services"
       />
       <HeroBanner
-        as="white"
+        style="white"
         cta={{
           text: 'Learn more',
           url: '/'
@@ -87,7 +87,7 @@ const App = () => {
         title="Helping you deliver great government services"
       />
       <HeroBanner
-        as="light"
+        style="light"
         cta={{
           text: 'Learn more',
           url: '/'
@@ -105,25 +105,25 @@ const App = () => {
           <div className="nsw-col nsw-col-md-6 nsw-col-lg-4">
             <Section style="brand-dark">
               <div className="nsw-list--8">
-                <Button as="light">Light button</Button>
-                <Button as="light-outline">Light outline button</Button>
-                <Button as="white">White button</Button>
+                <Button style="light">Light button</Button>
+                <Button style="light-outline">Light outline button</Button>
+                <Button style="white">White button</Button>
               </div>
             </Section>
           </div>
           <div className="nsw-col nsw-col-md-6 nsw-col-lg-4">
             <Section style="white">
               <div className="nsw-list--8">
-                <Button as="dark">Dark button</Button>
-                <Button as="dark-outline">Dark outline button</Button>
-                <Button as="danger">Danger button</Button>
+                <Button style="dark">Dark button</Button>
+                <Button style="dark-outline">Dark outline button</Button>
+                <Button style="danger">Danger button</Button>
               </div>
             </Section>
           </div>
           <div className="nsw-col nsw-col-md-6 nsw-col-lg-4">
             <Section style="grey-04">
               <div className="nsw-list--8">
-                <Button as="dark-outline-solid">Dark outline solid button</Button>
+                <Button style="dark-outline-solid">Dark outline solid button</Button>
               </div>
             </Section>
           </div>
@@ -182,7 +182,7 @@ const App = () => {
         <div className="nsw-col nsw-col-md-4">
           <Card
             date="2021-03-17"
-            as="dark"
+            style="dark"
             tag="Environment"
             link="#"
             headline="Card Title"
@@ -196,7 +196,7 @@ const App = () => {
           <Card
             date="2021-03-17"
             tag="Environment"
-            as="light"
+            style="light"
             link="#"
             headline="Card Title"
             image="https://picsum.photos/id/292/400/200"
@@ -223,7 +223,7 @@ const App = () => {
         <div className="nsw-col nsw-col-md-4">
           <Card
             highlight
-            as="dark"
+            style="dark"
             date="2021-03-17"
             tag="Environment"
             link="#"
@@ -237,7 +237,7 @@ const App = () => {
         <div className="nsw-col nsw-col-md-4">
           <Card
             highlight
-            as="light"
+            style="light"
             date="2021-03-17"
             tag="Environment"
             link="#"
@@ -264,7 +264,7 @@ const App = () => {
             highlight
             link="#"
             headline="Card Title"
-            as="dark"
+            style="dark"
           >
             <CardCopy>Some text</CardCopy>
           </Card>
@@ -274,7 +274,7 @@ const App = () => {
             highlight
             link="#"
             headline="Card Title"
-            as="light"
+            style="light"
           >
             <CardCopy>Some text</CardCopy>
           </Card>
@@ -293,7 +293,7 @@ const App = () => {
           <Card
             link="#"
             headline="Card Title"
-            as="dark"
+            style="dark"
           >
             <CardCopy>Some text</CardCopy>
           </Card>
@@ -302,7 +302,7 @@ const App = () => {
           <Card
             link="#"
             headline="Card Title"
-            as="light"
+            style="light"
           >
             <CardCopy>Some text</CardCopy>
           </Card>
