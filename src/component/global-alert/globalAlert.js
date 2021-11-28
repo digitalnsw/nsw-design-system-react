@@ -23,7 +23,7 @@ export class GlobalAlert extends React.PureComponent {
     super(props);
 
     const {
-      title, content, ctaText, ctaHref, as, className = '', children, ...attributeOptions
+      title, content, ctaText, ctaHref, as='default', className = '', children, ...attributeOptions
     } = props;
     this.className = className;
     this.attributeOptions = attributeOptions;
@@ -54,7 +54,7 @@ export class GlobalAlert extends React.PureComponent {
           <p>
             {this.ctaText && this.ctaHref
               ? <a href={this.ctaHref} className={this.as ? buttonStyles[this.as] : buttonStyles['default']}>{this.ctaText}</a>
-              : <button type="button" className={this.as ? buttonStyles[this.as] : buttonStyles['default']}>{this.ctaText}</button>
+              : ''
             }
           </p>
           <button type="button" className="nsw-icon-button">
@@ -74,7 +74,7 @@ GlobalAlert.propTypes = {
   ctaText: PropTypes.string,
   ctaHref: PropTypes.string,
   className: PropTypes.string,
-  as: PropTypes.string,
+  as: PropTypes.oneOf(['critical', 'light', 'default']),
 };
 
 export default GlobalAlert;
