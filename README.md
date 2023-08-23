@@ -1,5 +1,5 @@
 > [!NOTE]
-> This repository has been archived by the owner on May 9, 2023, and is now in a read-only state. While no further updates or contributions will be accepted, the existing content remains available for reference.
+> This repository has been archived by the Digital NSW Design System team on May 9, 2023, and is now in a read-only state. While no further updates or contributions will be accepted, the existing content remains available for reference.
 > 
 > Feel free to explore the repository to access historical information and resources. While it won't receive any new updates, you can still review the codebase and discussions that took place in the past.
 > 
